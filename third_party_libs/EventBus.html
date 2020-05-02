@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>EventBus · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -12,24 +12,24 @@
         
         
     
-    <link rel="stylesheet" href="gitbook/style.css">
+    <link rel="stylesheet" href="../gitbook/style.css">
 
     
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
                 
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
                 
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
         
@@ -57,11 +57,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
-    
-    <link rel="next" href="面试题.html" />
     
     
 
@@ -91,9 +89,9 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="../">
             
-                <a href="./">
+                <a href="../">
             
                     
                     Introduction
@@ -104,9 +102,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="面试题.html">
+        <li class="chapter " data-level="1.2" data-path="../面试题.html">
             
-                <a href="面试题.html">
+                <a href="../面试题.html">
             
                     
                     面试题
@@ -584,9 +582,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1.1.1" data-path="basis/Activity的生命周期及启动模式.html">
+        <li class="chapter " data-level="1.4.1.1.1" data-path="../basis/Activity的生命周期及启动模式.html">
             
-                <a href="basis/Activity的生命周期及启动模式.html">
+                <a href="../basis/Activity的生命周期及启动模式.html">
             
                     
                     Activity的生命周期及启动模式
@@ -906,9 +904,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.3.1" data-path="advanced/Activity启动流程.html">
+        <li class="chapter " data-level="1.4.3.1" data-path="../advanced/Activity启动流程.html">
             
-                <a href="advanced/Activity启动流程.html">
+                <a href="../advanced/Activity启动流程.html">
             
                     
                     Activity启动流程
@@ -1003,9 +1001,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4.3" data-path="third_party_libs/EventBus.html">
+        <li class="chapter active" data-level="1.4.4.3" data-path="EventBus.html">
             
-                <a href="third_party_libs/EventBus.html">
+                <a href="EventBus.html">
             
                     
                     EventBus
@@ -1108,7 +1106,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href=".." >EventBus</a>
     </h1>
 </div>
 
@@ -1123,7 +1121,48 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="introduction">Introduction</h1>
+                                <h1 id="eventbus&#x4F7F;&#x7528;&#x53CA;&#x539F;&#x7406;">EventBus&#x4F7F;&#x7528;&#x53CA;&#x539F;&#x7406;</h1>
+<p>&#x5B66;&#x4E60;&#x4E00;&#x4E2A;&#x7B2C;&#x4E09;&#x65B9;&#x5E93;&#xFF0C;&#x4ECE;&#x51E0;&#x65B9;&#x9762;&#x5165;&#x624B;&#xFF1A;</p>
+<ol>
+<li>&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</li>
+<li>&#x5E72;&#x4EC0;&#x4E48;&#x7528;&#x7684;&#xFF08;&#x529F;&#x80FD;&#x662F;&#x4EC0;&#x4E48;&#xFF09;&#xFF1F;</li>
+<li>&#x4E0E;&#x73B0;&#x6709;&#x6280;&#x672F;&#x6BD4;&#x8F83;&#xFF0C;&#x600E;&#x4E48;&#x6837;&#xFF1F;</li>
+<li>&#x600E;&#x4E48;&#x7528;&#xFF1F;</li>
+</ol>
+<h3 id="eventbus&#x662F;&#x4EC0;&#x4E48;&#xFF1F;">EventBus&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</h3>
+<p>&#x2002;&#x2002;&#x2002;EventBus&#xFF0C;&#x4E00;&#x4E2A;Android&#x4E8B;&#x4EF6;&#x53D1;&#x5E03;/&#x8BA2;&#x9605;&#x7684;&#x6846;&#x67B6;&#x3002;&#x901A;&#x8FC7;&#x89E3;&#x8026;&#x53D1;&#x5E03;&#x8005;&#x548C;&#x8BA2;&#x9605;&#x8005;&#xFF0C;&#x7B80;&#x5316;Android&#x4E8B;&#x4EF6;&#x4F20;&#x9012;&#x3002;</p>
+<h3 id="&#x5E72;&#x4EC0;&#x4E48;&#x7528;&#x7684;&#xFF08;&#x529F;&#x80FD;&#x662F;&#x4EC0;&#x4E48;&#xFF09;&#xFF1F;">&#x5E72;&#x4EC0;&#x4E48;&#x7528;&#x7684;&#xFF08;&#x529F;&#x80FD;&#x662F;&#x4EC0;&#x4E48;&#xFF09;&#xFF1F;</h3>
+<p>&#x2002;&#x2002;&#x2002;EventBus&#x4E3B;&#x8981;&#x7684;&#x529F;&#x80FD;&#x5C31;&#x662F;&#x4E8B;&#x4EF6;&#x7684;&#x4F20;&#x9012;&#x3002;&#x90A3;&#x53EF;&#x4EE5;&#x5728;&#x4EC0;&#x4E48;&#x4E4B;&#x95F4;&#x4F20;&#x9012;&#x4E8B;&#x4EF6;&#x5462;&#xFF1F;Activity&#x4E4B;&#x95F4;&#x3001;Service&#x4E4B;&#x95F4;&#x3001;Fragment&#x4E4B;&#x95F4;&#xFF0C;&#x6216;&#x8005;&#x7EBF;&#x7A0B;&#x4E4B;&#x95F4;&#x4F20;&#x9012;&#x4E8B;&#x4EF6;&#x3002;</p>
+<h3 id="&#x4E0E;&#x73B0;&#x6709;&#x6280;&#x672F;&#x6BD4;&#x8F83;&#xFF0C;&#x600E;&#x4E48;&#x6837;&#xFF1F;">&#x4E0E;&#x73B0;&#x6709;&#x6280;&#x672F;&#x6BD4;&#x8F83;&#xFF0C;&#x600E;&#x4E48;&#x6837;&#xFF1F;</h3>
+<p>&#x2002;&#x2002;&#x2002;&#x73B0;&#x6709;&#x7684;&#x4E8B;&#x4EF6;&#x4F20;&#x9012;&#x65B9;&#x6CD5;&#xFF1A;Intent&#x3001;Handler&#x3001;BroadCastReceiver&#xFF0C;Interface&#x3002;&#x76F8;&#x6BD4;&#x4E4B;&#x4E0B;&#xFF0C;EventBus&#x5F00;&#x9500;&#x5C0F;&#xFF0C;&#x4EE3;&#x7801;&#x7B80;&#x6D01;&#xFF0C;&#x4F7F;&#x7528;&#x7B80;&#x5355;&#xFF0C;&#x4E8B;&#x4EF6;&#x53D1;&#x5E03;&#x4E0E;&#x8BA2;&#x9605;&#x5145;&#x5206;&#x89E3;&#x8026;&#x3002;</p>
+<h3 id="&#x600E;&#x4E48;&#x7528;&#xFF1F;">&#x600E;&#x4E48;&#x7528;&#xFF1F;</h3>
+<p>&#x2002;&#x2002;&#x2002;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li><strong>&#x521B;&#x5EFA;&#x4E8B;&#x4EF6;&#x7C7B;</strong>&#xFF1A;&#x8BE5;&#x7C7B;&#x53EF;&#x4EE5;&#x968F;&#x610F;&#x547D;&#x540D;&#xFF0C;&#x4E0D;&#x8FC7;&#x6839;&#x636E;&#x4EE3;&#x7801;&#x89C4;&#x8303;&#x5E94;&#x8BE5;&#x5E26;&#x751F;Event&#x5B57;&#x773C;&#x3002;</li>
+<li><strong>&#x6CE8;&#x518C;&#x4E8B;&#x4EF6;&#x63A5;&#x6536;&#x8005;</strong>&#xFF1A;&#x5728;&#x9700;&#x8981;&#x5904;&#x7406;&#x4E8B;&#x4EF6;&#x7684;&#x7C7B;&#x8C03;&#x7528;&#xFF1A;Eventbus.getDefault().register()</li>
+<li><strong>&#x5199;&#x63A5;&#x6536;&#x4E8B;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;</strong>&#xFF1A;&#x5728;&#x6CE8;&#x518C;&#x4E8B;&#x4EF6;&#x7684;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x63A5;&#x6536;&#x4E8B;&#x4EF6;&#x65B9;&#x6CD5;&#xFF0C;&#x4E8B;&#x4EF6;&#x63A5;&#x6536;&#x65B9;&#x6CD5;&#x9700;&#x8981;&#x4F7F;&#x7528;@Subscribe&#x6CE8;&#x91CA;&#xFF0C;EventBus3.0&#x53EF;&#x4EE5;&#x968F;&#x610F;&#x547D;&#x540D;&#xFF0C;&#x4F46;&#x662F;EventBus2.0&#x9700;&#x8981;&#x6309;&#x7167;&#x547D;&#x540D;&#x7EA6;&#x5B9A;&#x6765;&#x547D;&#x540D;&#x3002;@Subscribe&#x4E2D;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x4EE5;&#x89C4;&#x5B9A;&#x63A5;&#x6536;&#x5230;&#x7684;&#x4E8B;&#x4EF6;&#x5728;&#x54EA;&#x4E2A;&#x8FDB;&#x7A0B;&#x4E2D;&#x5904;&#x7406;&#x3002;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#xFF1A;<ul>
+<li>ThradMode:POSTING&#xFF1A;&#x9ED8;&#x8BA4;&#x7684;&#x7EBF;&#x7A0B;&#x6A21;&#x5F0F;&#xFF0C;&#x5982;&#x679C;&#x6307;&#x5B9A;&#x7EBF;&#x7A0B;&#x6A21;&#x578B;&#x662F;&#x8FD9;&#x4E2A;&#xFF0C;&#x90A3;&#x4E48;&#x4E8B;&#x4EF6;&#x5728;&#x54EA;&#x4E2A;&#x7EBF;&#x7A0B;&#x53D1;&#x51FA;&#x6765;&#xFF0C;&#x4E8B;&#x4EF6;&#x7684;&#x5904;&#x7406;&#x5C31;&#x4F1A;&#x5728;&#x8FD9;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E2D;&#x8FD0;&#x884C;&#x3002;&#x8FD9;&#x79CD;&#x6A21;&#x578B;&#x4E2D;&#x7684;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x5E94;&#x8BE5;&#x907F;&#x514D;&#x8017;&#x65F6;&#x64CD;&#x4F5C;&#x3002;&#x56E0;&#x4E3A;&#x4E8B;&#x4EF6;&#x7684;&#x5206;&#x53D1;&#x548C;&#x5904;&#x7406;&#x90FD;&#x5728;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x6240;&#x4EE5;&#x591A;&#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x7EBF;&#x7A0B;&#x963B;&#x585E;&#x3002;</li>
+<li>ThreadMode&#xFF1A;MAIN&#xFF1A;&#x8FD9;&#x4E2D;&#x7EBF;&#x7A0B;&#x6A21;&#x578B;&#x4E2D;&#xFF0C;&#x63A5;&#x6536;&#x5230;&#x4E8B;&#x4EF6;&#x4E4B;&#x540E;&#xFF0C;&#x4F1A;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x8FDB;&#x884C;&#x4E8B;&#x4EF6;&#x7684;&#x5904;&#x7406;&#x3002;&#x5982;&#x679C;&#x4E8B;&#x4EF6;&#x53D1;&#x5E03;&#x5C31;&#x662F;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x4E8B;&#x4EF6;&#x63A5;&#x6536;&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x662F;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x53D1;&#x51FA;&#x7684;&#x4E8B;&#x4EF6;&#xFF0C;&#x90A3;&#x4E48;&#x4F1A;&#x4F7F;&#x7528;&#x4E3B;&#x7EBF;&#x7A0B;&#x7684;Handler&#x53D1;&#x9001;&#x6D88;&#x606F;&#x5207;&#x6362;&#x5230;&#x4E3B;&#x7EBF;&#x7A0B;&#xFF0C;&#x663E;&#x7136;&#xFF0C;&#x8FD9;&#x79CD;&#x7EBF;&#x7A0B;&#x6A21;&#x578B;&#x4E5F;&#x4E0D;&#x80FD;&#x8FDB;&#x884C;&#x8017;&#x65F6;&#x64CD;&#x4F5C;&#x3002;</li>
+<li>ThreadMode&#xFF1A;BACKGROUND&#xFF1A;&#x5728;&#x540E;&#x53F0;&#x7EBF;&#x7A0B;&#x4E2D;&#x5904;&#x7406;&#x4E8B;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x4E8B;&#x4EF6;&#x53D1;&#x51FA;&#x7684;&#x7EBF;&#x7A0B;&#x4E0D;&#x662F;&#x4E3B;&#x7EBF;&#x7A0B;&#xFF0C;&#x90A3;&#x4E48;&#x76F4;&#x63A5;&#x5728;&#x53D1;&#x51FA;&#x4E8B;&#x4EF6;&#x7684;&#x7EBF;&#x7A0B;&#x4E2D;&#x5904;&#x7406;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x53D1;&#x51FA;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x7684;&#x540E;&#x53F0;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x3002;&#x56E0;&#x4E3A;&#x4E8B;&#x4EF6;&#x591A;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x548C;&#x5904;&#x7406;&#xFF0C;&#x53EF;&#x80FD;&#x9020;&#x6210;&#x963B;&#x585E;&#xFF0C;&#x6240;&#x4EE5;&#x592A;&#x8017;&#x65F6;&#x7684;&#x4EFB;&#x52A1;&#x4E0D;&#x9002;&#x5408;&#x5728;&#x6B64;&#x7C7B;&#x578B;&#x4E2D;&#x8FDB;&#x884C;&#x3002;</li>
+<li>ThreadMode&#xFF1A;ASYNC&#xFF1A;&#x65E0;&#x8BBA;&#x4E8B;&#x4EF6;&#x5728;&#x54EA;&#x4E2A;&#x7EBF;&#x7A0B;&#x53D1;&#x51FA;&#xFF0C;&#x4E8B;&#x4EF6;&#x7684;&#x5904;&#x7406;&#x90FD;&#x4F1A;&#x4ECE;&#x7EBF;&#x7A0B;&#x6C60;&#x4E2D;&#x62FF;&#x51FA;&#x4E00;&#x4E2A;&#x5B50;&#x7EBF;&#x7A0B;&#x4E2D;&#x8FDB;&#x884C;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x79CD;&#x7EBF;&#x7A0B;&#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x8017;&#x65F6;&#x4EFB;&#x52A1;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x66F4;&#x65B0;UI&#x64CD;&#x4F5C;&#x3002;</li>
+</ul>
+</li>
+<li><strong>&#x53D1;&#x9001;&#x4E8B;&#x4EF6;</strong>&#xFF1A;&#x5728;&#x9700;&#x8981;&#x53D1;&#x9001;&#x4E8B;&#x4EF6;&#x7684;&#x5730;&#x65B9;&#x8C03;&#x7528;&#xFF1A;EventBus&#x3002;getDefalult().post(&#x4E8B;&#x4EF6;&#x7C7B;&#x5BF9;&#x8C61;)</li>
+<li><strong>&#x53D6;&#x6D88;&#x6CE8;&#x518C;&#x4E8B;&#x4EF6;</strong>&#xFF1A;&#x5728;&#x6CE8;&#x518C;&#x4E8B;&#x4EF6;&#x7684;&#x7C7B;&#x4E2D;&#x8C03;&#x7528;&#xFF1A;
+   EventBus.getDefalut().unregister();</li>
+</ol>
+<p>5&#x3001;&#x539F;&#x7406;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<p>   a&#x3001;EventBus&#x4E2D;&#x4F7F;&#x7528;&#x4E24;&#x4E2A;&#x96C6;&#x5408;&#x6765;&#x8BB0;&#x5F55;&#x4E8B;&#x4EF6;&#x4E0E;&#x4E8B;&#x4EF6;&#x8BA2;&#x9605;&#x8005;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#xFF1A;
+   subscriptionBy EventType&#xFF1A;
+   &#x96C6;&#x5408;&#x8BB0;&#x5F55;&#x8BA2;&#x9605;&#x8005;&#x8BA2;&#x9605;&#x6765;&#x54EA;&#x4E9B;&#x4E8B;&#x4EF6;&#x3002;
+   typeBySubscriber&#xFF1A;&#x8BB0;&#x5F55;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x88AB;&#x54EA;&#x4E9B;&#x8BA2;&#x9605;&#x8005;&#x8BA2;&#x9605;&#x3002;</p>
+<p>   b&#x3001;register&#xFF1A;&#x6CE8;&#x518C;&#x4E8B;&#x4EF6;&#x63A5;&#x6536;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x4F7F;&#x7528;&#x53D1;&#x5C04;&#x6280;&#x672F;&#xFF0C;&#x67E5;&#x627E;&#x5F53;&#x524D;&#x7C7B;&#x6709;&#x54EA;&#x4E9B;&#x65B9;&#x6CD5;&#x662F;&#x4F7F;&#x7528;@Subscribe&#x6CE8;&#x91CA;&#x7684;&#xFF0C;&#x627E;&#x5230;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x9A8C;&#x8BC1;&#xFF0C;&#x5224;&#x65AD;&#x662F;&#x4E0D;&#x662F;EventBus&#x7684;&#x4E8B;&#x4EF6;&#x63A5;&#x6536;&#x65B9;&#x6CD5;&#xFF0C;&#x662F;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x6839;&#x636E;&#x53C2;&#x6570;threadMode&#x7684;&#x503C;&#xFF0C;&#x786E;&#x5B9A;&#x4E8B;&#x4EF6;&#x7684;&#x5904;&#x7406;&#x5728;&#x54EA;&#x4E2A;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x8BA2;&#x9605;&#x5173;&#x7CFB;&#x5B58;&#x5230;subscriptionByEventType&#x548C;typeBySubscriber&#x3002;</p>
+<p>   c&#x3001;post&#xFF1A;post&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x904D;&#x5386;subscriptionByEventType&#xFF0C;&#x627E;&#x5230;&#x8BA2;&#x9605;&#x7C7B;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x7684;&#x6240;&#x6709;&#x8BA2;&#x9605;&#x8005;&#xFF0C;&#x8C03;&#x7528;&#x5B83;&#x4EEC;&#x7684;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x65B9;&#x6CD5;&#x3002;
+   d&#x3001;&#x53D6;&#x6D88;&#x6CE8;&#x518C;&#xFF1A;&#x5F53;&#x4E00;&#x4E2A;&#x7C7B;&#x8C03;&#x7528;EventBus.getDefault().unregister()&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4ECE;typeBySubscriber&#x4E2D;&#x627E;&#x5230;&#x8FD9;&#x4E2A;&#x7C7B;&#x5BF9;&#x5E94;&#x7684;&#x8BA2;&#x9605;&#x8005;&#xFF0C;remove&#x6389;&#x3002;</p>
+<h3 id="&#x5185;&#x90E8;&#x539F;&#x7406;&#x6709;&#x54EA;&#x4E9B;&#x8BBE;&#x8BA1;&#x7684;&#x597D;&#x7684;&#x5730;&#x65B9;&#xFF1F;">&#x5185;&#x90E8;&#x539F;&#x7406;&#x6709;&#x54EA;&#x4E9B;&#x8BBE;&#x8BA1;&#x7684;&#x597D;&#x7684;&#x5730;&#x65B9;&#xFF1F;</h3>
+<p>&#x2002;&#x2002;&#x2002;&#x5BF9;&#x8C61;&#x6C60;&#xFF0C;FindState&#x5BF9;&#x8C61;&#x6C60;&#xFF0C;&#x5BF9;&#x8C61;&#x91CD;&#x7528;</p>
+<h3 id="&#x6709;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#xFF1F;">&#x6709;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#xFF1F;</h3>
+<p>&#x2002;&#x2002;&#x2002;RxJava&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;</p>
 
                                 
                                 </section>
@@ -1152,10 +1191,6 @@
             
                 
                 
-                <a href="面试题.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 面试题">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
             
         
     </div>
@@ -1163,45 +1198,45 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"面试题","level":"1.2","depth":1,"path":"面试题.md","ref":"面试题.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","livereload"],"pluginsConfig":{"expandable-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2020-05-02T07:02:57.074Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-02T14:46:50.804Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"EventBus","level":"1.4.4.3","depth":3,"next":{"title":"RxJava","level":"1.4.4.4","depth":3,"ref":"","articles":[]},"previous":{"title":"Retrofit","level":"1.4.4.2","depth":3,"ref":"","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","livereload"],"pluginsConfig":{"expandable-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"third_party_libs/EventBus.md","mtime":"2020-05-02T14:37:46.847Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-02T14:46:50.804Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
 
         
-    <script src="gitbook/gitbook.js"></script>
-    <script src="gitbook/theme.js"></script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
     
         
-        <script src="gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
         
     
         
-        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
-        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
         
     
         
-        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
         
     
         
-        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
         
     
         
-        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
         
     
         
-        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
         
     
 
