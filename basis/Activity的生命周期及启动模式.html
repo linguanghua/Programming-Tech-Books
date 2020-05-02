@@ -1,0 +1,1248 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Activity的生命周期及启动模式 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Java
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" >
+            
+                <span>
+            
+                    
+                    基础部分
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" >
+            
+                <span>
+            
+                    
+                    String、StringBuild、StringBuffer区别
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" >
+            
+                <span>
+            
+                    
+                    静态内部类、内部类、匿名内部类
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" >
+            
+                <span>
+            
+                    
+                    集合
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" >
+            
+                <span>
+            
+                    
+                    HashMap
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" >
+            
+                <span>
+            
+                    
+                    ConcurrentHashMap
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" >
+            
+                <span>
+            
+                    
+                    ArrayList
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" >
+            
+                <span>
+            
+                    
+                    LinkedList
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" >
+            
+                <span>
+            
+                    
+                    泛型
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" >
+            
+                <span>
+            
+                    
+                    定义
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" >
+            
+                <span>
+            
+                    
+                    使用方式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" >
+            
+                <span>
+            
+                    
+                    泛型擦除
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" >
+            
+                <span>
+            
+                    
+                    通配符
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" >
+            
+                <span>
+            
+                    
+                    反射
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" >
+            
+                <span>
+            
+                    
+                    线程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.1" >
+            
+                <span>
+            
+                    
+                    定义
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.2" >
+            
+                <span>
+            
+                    
+                    线程池
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3" >
+            
+                <span>
+            
+                    
+                    线程安全
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.3.1" >
+            
+                <span>
+            
+                    
+                    synchronized
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.3.2" >
+            
+                <span>
+            
+                    
+                    volatile
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.4" >
+            
+                <span>
+            
+                    
+                    锁优化
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" >
+            
+                <span>
+            
+                    
+                    虚拟机
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.6.1" >
+            
+                <span>
+            
+                    
+                    内存模型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.2" >
+            
+                <span>
+            
+                    
+                    引用类型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.3" >
+            
+                <span>
+            
+                    
+                    垃圾回收算法
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" >
+            
+                <span>
+            
+                    
+                    IO
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.7.1" >
+            
+                <span>
+            
+                    
+                    输入流
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.2" >
+            
+                <span>
+            
+                    
+                    输出流
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Android
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" >
+            
+                <span>
+            
+                    
+                    基础部分
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" >
+            
+                <span>
+            
+                    
+                    Activity
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1.1.1" data-path="Activity的生命周期及启动模式.html">
+            
+                <a href="Activity的生命周期及启动模式.html">
+            
+                    
+                    Activity的生命周期及启动模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" >
+            
+                <span>
+            
+                    
+                    Service
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" >
+            
+                <span>
+            
+                    
+                    BroadcastReceiver
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" >
+            
+                <span>
+            
+                    
+                    ContentProvider
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.5" >
+            
+                <span>
+            
+                    
+                    View
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.6" >
+            
+                <span>
+            
+                    
+                    View的生命周期
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.7" >
+            
+                <span>
+            
+                    
+                    View的绘画机制
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.8" >
+            
+                <span>
+            
+                    
+                    View的事件分发机制
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.9" >
+            
+                <span>
+            
+                    
+                    自定义View
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.10" >
+            
+                <span>
+            
+                    
+                    随手指移动的View
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.11" >
+            
+                <span>
+            
+                    
+                    View的布局方式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.12" >
+            
+                <span>
+            
+                    
+                    ListView & RecyclerView
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.13" >
+            
+                <span>
+            
+                    
+                    动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.14" >
+            
+                <span>
+            
+                    
+                    属性动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.15" >
+            
+                <span>
+            
+                    
+                    帧动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.16" >
+            
+                <span>
+            
+                    
+                    View动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.17" >
+            
+                <span>
+            
+                    
+                    BitMap
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.18" >
+            
+                <span>
+            
+                    
+                    Handler消息机制
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    进阶
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" >
+            
+                <span>
+            
+                    
+                    Context
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" >
+            
+                <span>
+            
+                    
+                    Binder机制
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.2.1" >
+            
+                <span>
+            
+                    
+                    AIDL
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" >
+            
+                <span>
+            
+                    
+                    源码
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../advanced/Activity启动流程.html">
+            
+                <a href="../advanced/Activity启动流程.html">
+            
+                    
+                    Activity启动流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" >
+            
+                <span>
+            
+                    
+                    Zygote进程
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" >
+            
+                <span>
+            
+                    
+                    SystemServer进程
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" >
+            
+                <span>
+            
+                    
+                    Location
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" >
+            
+                <span>
+            
+                    
+                    第三方库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" >
+            
+                <span>
+            
+                    
+                    OkHttp
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" >
+            
+                <span>
+            
+                    
+                    Retrofit
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" >
+            
+                <span>
+            
+                    
+                    EventBus
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.4" >
+            
+                <span>
+            
+                    
+                    RxJava
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.5" >
+            
+                <span>
+            
+                    
+                    Glide
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    Python
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    Flutter
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Activity的生命周期及启动模式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="activity&#x751F;&#x547D;&#x5468;&#x671F;&#x53CA;&#x542F;&#x52A8;&#x6A21;&#x5F0F;">Activity&#x751F;&#x547D;&#x5468;&#x671F;&#x53CA;&#x542F;&#x52A8;&#x6A21;&#x5F0F;</h1>
+<p>&#x2002;&#x2002;&#x2002;Activity&#x662F;Android&#x7684;&#x57FA;&#x7840;&#xFF0C;&#x56DB;&#x5927;&#x7EC4;&#x4EF6;&#x4E4B;&#x4E00;&#xFF0C;&#x4E5F;&#x662F;&#x9762;&#x8BD5;&#x4E2D;&#x57FA;&#x672C;&#x4E0A;&#x90FD;&#x4F1A;&#x88AB;&#x95EE;&#x5230;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x57FA;&#x672C;&#x4E0A;&#x9762;&#x8BD5;&#x95EE;&#x7684;&#x70B9;&#x90FD;&#x662F;&#x4ED6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x53CA;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x3002;&#x4EE5;&#x4E0B;&#x5BF9;&#x9762;&#x8BD5;&#x4E2D;&#x7ECF;&#x5E38;&#x88AB;&#x95EE;&#x5230;&#x7684;&#x70B9;&#x8FDB;&#x884C;&#x603B;&#x7ED3;&#xFF1A;</p>
+<h4 id="activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x65B9;&#x6CD5;&#x6709;&#x54EA;&#x4E9B;&#xFF1F;">Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x65B9;&#x6CD5;&#x6709;&#x54EA;&#x4E9B;&#xFF1F;</h4>
+<p>&#x2002;&#x2002;&#x2002;&#x8FD9;&#x4E2A;&#x5C31;&#x5F88;&#x7B80;&#x5355;&#x4E86;&#xFF0C;onCreate-&gt;onStart-&gt;onResume-&gt;onPause-&gt;onStop-&gt;onDestroy&#x3002;</p>
+<h4 id="&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x5404;&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5E72;&#x4EC0;&#x4E48;&#xFF1F;">&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x5404;&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5E72;&#x4EC0;&#x4E48;&#xFF1F;</h4>
+<ul>
+<li>onCreate: &#x7B2C;&#x4E00;&#x6B21;&#x521B;&#x5EFA;Activity&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#xFF0C;&#x8FDB;&#x884C;Activity&#x7684;&#x4E00;&#x4E9B;&#x521D;&#x59CB;&#x5316;&#x5DE5;&#x4F5C;&#xFF0C;&#x8C03;&#x7528;setContentView&#x65B9;&#x6CD5;&#x52A0;&#x8F7D;&#x5E03;&#x5C40;&#x3002;</li>
+<li>onStart: &#x8868;&#x793A;&#x542F;&#x52A8;&#xFF0C;&#x6B64;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x4E4B;&#x540E;&#xFF0C;Activity&#x53EF;&#x89C1;&#x4F46;&#x662F;&#x4E0D;&#x53EF;&#x4EA4;&#x4E92;</li>
+<li>onResume: &#x6B64;&#x65F6;Activity&#x53EF;&#x4EE5;&#x4EA4;&#x4E92;</li>
+<li>onPause: Activity&#x53EF;&#x89C1;&#x4F46;&#x662F;&#x4E0D;&#x53EF;&#x4EA4;&#x4E92;&#xFF0C;&#x53EF;&#x4EE5;&#x91CA;&#x653E;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#xFF0C;&#x6BD4;&#x5982;&#x4F20;&#x611F;&#x5668;&#x3001;&#x6444;&#x50CF;&#x5934;&#x7B49;</li>
+<li>onStop: Activity&#x5DF2;&#x4E0D;&#x53EF;&#x89C1;&#xFF0C;&#x53EF;&#x4EE5;&#x505A;&#x4E00;&#x4E9B;&#x505C;&#x6B62;&#x52A8;&#x753B;&#x3001;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x3001;&#x8D44;&#x6E90;&#x56DE;&#x6536;&#x5DE5;&#x4F5C;</li>
+<li>onDestroy: Activity&#x88AB;&#x9500;&#x6BC1;&#x4E4B;&#x524D;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#xFF0C;&#x5DF2;&#x7ECF;&#x4E0D;&#x53EF;&#x89C1;&#xFF0C;&#x53EF;&#x4EE5;&#x505A;&#x4E00;&#x4E9B;&#x8D44;&#x6E90;&#x56DE;&#x6536;&#x5DE5;&#x4F5C;</li>
+</ul>
+<h4 id="activity&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x6709;&#x54EA;&#x4E9B;&#xFF1F;">Activity&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x6709;&#x54EA;&#x4E9B;&#xFF1F;</h4>
+<p>&#x2002;&#x2002;&#x2002;Activity&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x8DDF;Task&#x6709;&#x5173;&#x3002;&#x8FD9;&#x91CC;&#x5148;&#x7406;&#x6E05;Task&#x548C;&#x56DE;&#x9000;&#x6808;&#x7684;&#x5173;&#x7CFB;&#x3002;Android&#x5B98;&#x65B9;&#x6587;&#x6863;&#x7ED9;&#x51FA;&#x7684;&#x89E3;&#x91CA;&#x662F;&#xFF1A;Task&#x662F;&#x7528;&#x6237;&#x5B8C;&#x6210;&#x67D0;&#x9879;&#x5DE5;&#x4F5C;&#x65F6;&#xFF0C;&#x4E0E;&#x4E4B;&#x4E92;&#x52A8;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x7684;Activity&#x7684;&#x96C6;&#x5408;&#x3002;&#x770B;&#x5230;&#x8FD9;&#x5C31;&#x77E5;&#x9053;&#x4E86;Task&#x548C;&#x56DE;&#x9000;&#x6808;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x4EE5;&#x524D;&#x4E00;&#x76F4;&#x4EE5;&#x4E3A;Task&#x662F;&#x4E00;&#x4E2A;&#x6808;&#xFF0C;&#x56DE;&#x9000;&#x6808;&#x53C8;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x6808;&#x3002;&#x5176;&#x5B9E;&#x662F;Task&#x662F;&#x8DDF;&#x7528;&#x6237;&#x4EA4;&#x4E92;&#x7684;&#x4E00;&#x7CFB;&#x5217;Activity&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x800C;&#x8FD9;&#x4E2A;&#x96C6;&#x5408;&#x7528;&#x6808;&#x7684;&#x5F62;&#x5F0F;&#x8868;&#x73B0;&#xFF0C;&#x5B83;&#x4EEC;&#x662F;&#x4E00;&#x56DE;&#x4E8B;&#x3002;&#x4EE5;&#x540E;&#x5C31;&#x7EDF;&#x79F0;Task&#x6808;&#x4E86;&#x3002;</p>
+<p>&#x2002;&#x2002;&#x2002;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;Task&#xFF0C;&#x8FD9;&#x4E2A;Task&#x7528;&#x6765;&#x8BB0;&#x5F55;&#x7528;&#x6237;&#x4E0E;&#x8FD9;&#x4E2A;&#x5E94;&#x7528;&#x4EA4;&#x4E92;&#x7684;&#x65F6;&#x5019;&#x542F;&#x52A8;Activity&#x7684;&#x987A;&#x5E8F;&#x3002;&#x4E0D;&#x8FC7;&#xFF0C;&#x8FD9;&#x4E9B;Activity&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x6539;&#x53D8;&#x5B83;&#x4EEC;&#x5728;&#x56DE;&#x9000;&#x6808;&#x4E2D;&#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x4F7F;&#x5F97;&#x7CFB;&#x7EDF;&#x4F1A;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Task&#x6765;&#x5B58;&#x653E;&#x5B83;&#x4EEC;&#x3002;</p>
+<ul>
+<li>standard&#xFF1A;&#x6807;&#x51C6;&#x6A21;&#x5F0F;&#xFF0C;&#x6BCF;&#x6B21;&#x65B0;&#x542F;&#x52A8;&#x90FD;&#x4F1A;&#x5728;Task&#x6808;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;</li>
+<li>singleTop&#xFF1A;&#x6808;&#x9876;&#x590D;&#x7528;&#x6A21;&#x5F0F;&#xFF0C;&#x6BCF;&#x6B21;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x7684;Activity&#x88AB;&#x542F;&#x52A8;&#x65F6;&#xFF0C;&#x5148;&#x67E5;&#x770B;Task&#x6808;&#x9876;&#x662F;&#x5426;&#x662F;&#x88AB;&#x542F;&#x52A8;&#x7684;Activity&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x662F;&#x5C31;&#x521B;&#x5EFA;&#x5B9E;&#x4F8B;&#xFF0C;&#x7136;&#x540E;&#x538B;&#x5165;Task&#x6808;&#x3002;&#x5982;&#x679C;&#x662F;&#x5219;&#x8C03;&#x7528;onNewIntent&#x65B9;&#x6CD5;&#x670D;&#x7528;&#x8FD9;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;&#x4E0D;&#x7528;&#x5728;&#x8C03;&#x7528;onCreate&#x521B;&#x5EFA;</li>
+<li>singleTask&#xFF1A;&#x6808;&#x5185;&#x590D;&#x7528;&#x6A21;&#x5F0F;&#xFF0C;&#x6BCF;&#x6B21;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x7684;Activity&#x88AB;&#x542F;&#x52A8;&#x65F6;&#xFF0C;&#x5148;&#x67E5;&#x770B;Task&#x6808;&#x5185;&#x662F;&#x5426;&#x6709;&#x8BE5;Activity&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5982;&#x679C;&#x6709;&#xFF0C;&#x5219;&#x5C06;&#x6808;&#x5185;&#x5904;&#x4E8E;&#x8BE5;Task&#x6808;&#x4E0A;&#x65B9;&#x7684;Activity&#x51FA;&#x6808;&#xFF08;&#x4F1A;&#x8C03;&#x7528;&#x51FA;&#x6808;Activity&#x7684;onDestroy&#x65B9;&#x6CD5;&#xFF09;,&#x590D;&#x7528;&#x6808;&#x5185;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;onNewIntent&#x65B9;&#x6CD5;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#xFF0C;&#x5219;&#x521B;&#x5EFA;&#x5B9E;&#x4F8B;&#x3002;</li>
+<li>singleInstance&#xFF1A;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#xFF0C;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x7684;Activity&#x4F1A;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;Task&#x6808;&#x3002;&#x6BCF;&#x6B21;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x7684;Activity&#x88AB;&#x542F;&#x52A8;&#x65F6;&#xFF0C;&#x4F1A;&#x67E5;&#x770B;&#x662F;&#x5426;&#x4E3A;&#x8FD9;&#x4E2A;Activity&#x5206;&#x914D;&#x4E86;Task&#x6808;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5219;&#x590D;&#x7528;&#xFF0C;&#x5426;&#x5219;&#x65B0;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Task&#x6808;&#xFF0C;&#x518D;&#x521B;&#x5EFA;&#x8BE5;Activity&#x7684;&#x5B9E;&#x4F8B;&#x3002;</li>
+</ul>
+<h4 id="activity&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x914D;&#x7F6E;&#x65B9;&#x5F0F;&#x6709;&#x54EA;&#x4E9B;&#xFF1F;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#xFF1F;">Activity&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x914D;&#x7F6E;&#x65B9;&#x5F0F;&#x6709;&#x54EA;&#x4E9B;&#xFF1F;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#xFF1F;</h4>
+<p>&#x2002;&#x2002;&#x2002;Activity&#x7684;&#x542F;&#x52A8;&#x65B9;&#x5F0F;&#x6709;&#x4E24;&#x79CD;&#xFF0C;&#x4E00;&#x79CD;&#x662F;&#x5728;manifest&#x6587;&#x4EF6;&#x4E2D;&#x901A;&#x8FC7;&#x914D;&#x7F6E;Activity&#x7684;&#x5C5E;&#x6027;launchMode&#x4E2D;&#x8BBE;&#x7F6E;&#x3002;&#x53E6;&#x4E00;&#x79CD;&#x662F;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x8C03;&#x7528;startActivity&#x662F;&#x8BBE;&#x7F6E;&#x7684;&#x53C2;&#x6570;Intent&#x4E2D;&#x8BBE;&#x7F6E;&#x3002;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x7684;&#x533A;&#x522B;&#x662F;&#xFF1A;&#x7B2C;&#x4E00;&#x79CD;&#x662F;&#x8BBE;&#x7F6E;&#x7684;&#x9ED8;&#x8BA4;&#x542F;&#x52A8;&#x65B9;&#x5F0F;&#xFF0C;&#x7B2C;&#x4E8C;&#x79CD;&#x662F;&#x6307;&#x5B9A;&#x542F;&#x52A8;&#x65B9;&#x5F0F;&#x3002;&#x5F53;&#x4E24;&#x79CD;&#x90FD;&#x8BBE;&#x7F6E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4EE5;&#x7B2C;&#x4E8C;&#x79CD;&#x4E3A;&#x51C6;&#x3002;&#x6BD4;&#x5982;Activity A&#x5728;manifest&#x6587;&#x4EF6;&#x4E2D;&#x8BBE;&#x7F6E;&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x662F;&#xFF1A;standard&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5728;Activity B&#x4E2D;&#x901A;&#x8FC7;startActivity&#x65B9;&#x6CD5;&#x542F;&#x52A8;Activity A&#xFF0C;&#x5E76;&#x4E14;&#x53C2;&#x6570;Intent&#x8C03;&#x7528;setFlags&#x65B9;&#x6CD5;&#x8BBE;&#x7F6E;&#x4E86;Intent.FLAG_ACTIVITY_CLEAR_TOP&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;Activity A&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x5C31;&#x662F;&#x6309;&#x7167;setFlags&#x65B9;&#x6CD5;&#x8BBE;&#x7F6E;&#x7684;&#x6A21;&#x5F0F;&#x542F;&#x52A8;&#x3002;</p>
+<h4 id="&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;activity&#x5728;&#x54EA;&#x4E2A;task&#x6808;&#x542F;&#x52A8;&#x5417;&#xFF1F;&#x600E;&#x4E48;&#x914D;&#x7F6E;&#xFF1F;">&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;Activity&#x5728;&#x54EA;&#x4E2A;Task&#x6808;&#x542F;&#x52A8;&#x5417;&#xFF1F;&#x600E;&#x4E48;&#x914D;&#x7F6E;&#xFF1F;</h4>
+<p>&#x2002;&#x2002;&#x2002;&#x53EF;&#x4EE5;&#x3002;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x9700;&#x8981;&#x8BBE;&#x7F6E;Activity&#x7684;taskAffinity&#x5C5E;&#x6027;&#x3002;
+&#x60F3;&#x8981;&#x6307;&#x5B9A;Activity&#x5728;&#x6307;&#x5B9A;&#x7684;Task&#x4E2D;&#x542F;&#x52A8;&#xFF0C;&#x9700;&#x8981;&#x7684;&#x8BBE;&#x7F6E;&#xFF1A;1&#x3001;&#x5728;manifest&#x6587;&#x4EF6;&#x4E2D;&#x7ED9;&#x5BF9;&#x5E94;&#x7684;Activity&#x7684;taskAffinity&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x503C;&#xFF08;&#x6CE8;&#x610F;&#x8FD9;&#x4E2A;&#x503C;&#x9700;&#x8981;&#x5E26;&#x4E00;&#x4E2A;&#x201C;.&#x201D;&#xFF0C;&#x4E0D;&#x7136;&#x4F1A;&#x62A5;&#x9519;&#xFF09;&#xFF1B;2&#x3001;&#x8BBE;&#x7F6E;&#x8FD9;&#x4E2A;Activity&#x7684;launchMode = singleTask&#x6216;&#x8005;&#x8C03;&#x7528;startActivity&#x7684;&#x65F6;&#x5019;&#x53C2;&#x6570;Intent&#x8C03;&#x7528;setFlags&#xFF0C;&#x4F7F;&#x7528;&#x53C2;&#x6570;FLAG_ACTIVITY_NEW_TASK&#x3002;</p>
+<h4 id="activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x548C;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x8054;&#x5408;&#x8BE2;&#x95EE;">Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x548C;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x8054;&#x5408;&#x8BE2;&#x95EE;</h4>
+<p><strong>&#x6BD4;&#x5982;&#xFF1A;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x662F;singleTask&#x7684;Activity A&#x542F;&#x52A8;singleInstance&#x6A21;&#x5F0F;&#x7684;Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x8FC7;&#x7A0B;&#x662F;&#x600E;&#x4E48;&#x6837;&#x7684;&#xFF1F;</strong></p>
+<p>&#x2002;&#x2002;&#x2002;&#x7B54;&#xFF1A;&#x9996;&#x5148;&#x662F;Activity A&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;onCreate&#xFF0C;onStart&#xFF0C;onResume&#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x7136;&#x540E;&#x70B9;&#x51FB;&#x6309;&#x94AE;&#x542F;&#x52A8;Activity B&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x5148;&#x8C03;&#x7528;Activity A&#x7684;onPause&#x65B9;&#x6CD5;&#x6682;&#x505C;Activity A&#xFF0C;&#x63A5;&#x7740;&#x8C03;&#x7528;Activity B&#x7684;onCreate&#xFF0C;onStart&#xFF0C;onResume&#x65B9;&#x6CD5;&#x5C06;Activity B&#x663E;&#x793A;&#x51FA;&#x6765;&#xFF0C;&#x63A5;&#x7740;&#x8C03;&#x7528;Activity A&#x7684;onStop&#x65B9;&#x6CD5;&#x3002;</p>
+<p><strong>&#x518D;&#x6765;&#x4E00;&#x4E2A;&#x3002;Activity A&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x662F;standard&#xFF0C;Activity B&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;singletask&#xFF0C;Activity C&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x662F;singleInstance&#x3002;&#x542F;&#x52A8;&#x987A;&#x5E8F;&#xFF1A;A -&gt; B -&gt; C -&gt; A -&gt; B -&gt; C&#x3002;</strong></p>
+<p>&#x4ED6;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x65B9;&#x6CD5;&#x987A;&#x5E8F;&#xFF1A;</p>
+<ul>
+<li>Activity A: onCreate -&gt; onStart -&gt; onResume -&gt; onPause</li>
+<li>Activity B: onCreate -&gt; onStart -&gt; onResume</li>
+<li>Activity A: onStop</li>
+<li>Activity B: onPause</li>
+<li>Activity C: onCreate -&gt; onStart -&gt; onResume</li>
+<li>Activity B: onStop</li>
+<li>Activity C: onPause</li>
+<li>Activity A: onCreate -&gt; onStart -&gt; onResume &#xFF08;Activity A&#x8C03;&#x7528;onCreate&#x91CD;&#x65B0;&#x521B;&#x5EFA;&#x5B9E;&#x4F8B;&#xFF09;</li>
+<li>Actiivty C: onStop</li>
+<li>Activity A: onPause</li>
+<li>Activity B: onRestart -&gt; onStart -&gt; onNewIntent -&gt; onResume (Activity B&#x590D;&#x7528;&#x6808;&#x4E2D;&#x5B9E;&#x4F8B;&#xFF0C;&#x4E0D;&#x8C03;&#x7528;onCreate&#x91CD;&#x65B0;&#x521B;&#x5EFA;&#x5B9E;&#x4F8B;)</li>
+<li>Activity A: onStop -&gt; onDestroy  &#xFF08;Activity B&#x8981;&#x590D;&#x7528;&#xFF0C;Activity A&#x5C31;&#x8981;&#x88AB;&#x9000;&#x51FA;&#x6808;&#xFF0C;&#x63A5;&#x7740;&#x88AB;&#x9500;&#x6BC1;&#xFF09;</li>
+<li>Activity B: onPause</li>
+<li>Activity C: onRestart -&gt; onStart -&gt; onNewIntent -&gt; onResume&#xFF08;Activity C&#x4E0D;&#x91CD;&#x65B0;&#x521B;&#x5EFA;&#x5B9E;&#x4F8B;&#xFF09;</li>
+<li>Activity B: onStop</li>
+</ul>
+<p>&#x2002;&#x2002;&#x2002;&#x4E0A;&#x9762;&#x4E09;&#x4E2A;Activity&#xFF0C;Activity A&#x3001;Activity B&#x5C06;&#x5B58;&#x653E;&#x5728;&#x540C;&#x4E00;&#x4E2A;Task&#x6808;&#xFF0C;&#x800C;Activity C&#x62E5;&#x6709;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;Task&#x6808;&#x3002;</p>
+<h3 id="&#x8DE8;&#x5E94;&#x7528;&#x542F;&#x52A8;activity&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;activity&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x548C;task&#x6808;&#x7684;&#x60C5;&#x51B5;">&#x8DE8;&#x5E94;&#x7528;&#x542F;&#x52A8;Activity&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;Activity&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x548C;Task&#x6808;&#x7684;&#x60C5;&#x51B5;</h3>
+<p>&#x2002;&#x2002;&#x2002;&#x5F53;&#x524D;&#x6709;&#x4E24;&#x4E2A;&#x5E94;&#x7528;&#xFF0C;App 1&#xFF0C;App 2&#x3002;</p>
+<p>&#x2002;&#x2002;&#x2002;App 1&#x7684;Activity A&#x542F;&#x52A8;App 2&#x7684;Activity B&#x3002;&#x6CE8;&#x610F;<strong><em>App 2&#x7684;&#x542F;&#x52A8;Activity&#x4E0D;&#x662F;Activity B&#xFF0C;&#x800C;&#x662F;Activity C&#x3002;</em></strong></p>
+<p>&#x2002;&#x2002;&#x2002;Activity A&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x662F;standard&#x3001;singleTop&#x3001;singleTask&#xFF0C;Activity B&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x662F;&#x7684;standard&#x3001;singleTop&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;Activity A&#x548C;Activity B&#x540C;&#x5C5E;&#x4E8E;&#x4E00;&#x4E2A;Task&#x6808;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;Activity A&#x6240;&#x5728;&#x7684;Task&#x6808;&#x3002;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#xFF0C;&#x8FD4;&#x56DE;&#x684C;&#x9762;&#x542F;&#x52A8;App 2&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x542F;&#x52A8;App 2&#x7684;&#x542F;&#x52A8;Activity C&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x4F1A;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Task&#x6808;&#x7ED9;App 2&#xFF0C;&#x5C06;Activity C&#x7684;&#x5B9E;&#x4F8B;&#x538B;&#x5165;&#x6808;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x70B9;&#x51FB;Activity C&#x9875;&#x9762;&#x7684;&#x6309;&#x94AE;&#x542F;&#x52A8;ActivityB&#xFF0C;&#x4F1A;&#x53D1;&#x73B0;ActivityB&#x4F1A;&#x91CD;&#x65B0;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x538B;&#x5165;Activity C&#x6240;&#x5728;&#x7684;Task&#x6808;&#x4E2D;&#x3002;</p>
+<p>&#x2002;&#x2002;&#x2002;<strong><em>Activity B&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x662F;singleTask&#x7684;&#x60C5;&#x51B5;&#x4E0B;</em></strong>&#xFF0C;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Task&#x6808;&#xFF0C;&#x5E76;&#x521B;&#x5EFA;Activity B&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5C06;&#x8FD9;&#x4E2A;&#x5B9E;&#x4F8B;&#x538B;&#x5165;&#x65B0;&#x7684;&#x6808;&#x3002;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#xFF0C;&#x8FD4;&#x56DE;&#x684C;&#x9762;&#x542F;&#x52A8;App 2&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x7ED5;&#x8FC7;&#x4E86;Activity C&#x76F4;&#x63A5;&#xFF08;&#x590D;&#x7528;&#xFF09;&#x542F;&#x52A8;&#x4E86;Activity B&#xFF0C;&#x633A;&#x6709;&#x610F;&#x601D;&#x7684;&#x4E00;&#x4E2A;&#x73B0;&#x8C61;&#x3002;</p>
+<p>&#x2002;&#x2002;&#x2002;&#x9488;&#x5BF9;&#x4E0A;&#x8FF0;Activity B&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x662F;singleTask&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x51FA;&#x73B0;&#x7684;&#x73B0;&#x8C61;&#x3002;&#x53EF;&#x4EE5;&#x7ED9;Activity B&#x7684;taskAffinity&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x503C;&#xFF08;&#x6CE8;&#x610F;<strong>&#x8FD9;&#x4E2A;&#x503C;&#x9700;&#x8981;&#x5E26;&#x201C;.&#x201D;</strong>&#xFF09;&#xFF0C;&#x8FD9;&#x6837;&#x505A;&#x4E4B;&#x540E;&#xFF0C;&#x4ECD;&#x7136;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Task&#x6808;&#x538B;&#x5165;Activity B&#x5B9E;&#x4F8B;&#x3002;&#x4F46;&#x662F;&#x5F53;&#x542F;&#x52A8;App 2&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x4E0D;&#x4F1A;&#x9976;&#x8FC7;Activity C&#x4E86;&#xFF0C;&#x4ECD;&#x7136;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Task&#x6808;&#x538B;&#x5165;Activity C&#x7684;&#x5B9E;&#x4F8B;&#x3002;&#x5982;&#x679C;Activity B&#x6709;&#x4E00;&#x4E2A;&#x6309;&#x94AE;&#x7528;&#x4E8E;&#x542F;&#x52A8;Activity D&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x4E0D;&#x8BBA;Activity B&#x662F;&#x5426;&#x8BBE;&#x7F6E;taskAffinity&#x5C5E;&#x6027;&#xFF0C;&#x542F;&#x52A8;Activity D&#x7684;&#x65F6;&#x5019;&#xFF0C;Activity D&#x90FD;&#x4F1A;&#x8DDF;Activity B&#x5728;&#x4E00;&#x4E2A;Task&#x6808;&#x3002;</p>
+<p>&#x2002;&#x2002;&#x2002;Activity A&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x662F;sIngleInstance&#xFF0C;Activity B&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x662F;&#x7684;standard&#x3001;singleTop&#x3001;singleTask&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;Activity B&#x4E0D;&#x4F1A;&#x548C;Activity A&#xFF0C;&#x5728;&#x540C;&#x4E00;&#x4E2A;Task&#x4EFB;&#x52A1;&#x6808;&#x4E2D;&#xFF0C;&#x4E5F;&#x4E0D;&#x5728;App 1&#x7684;&#x5176;&#x4ED6;Task&#x6808;&#x4E2D;&#xFF0C;&#x800C;&#x662F;&#x5728;&#x4E00;&#x4E2A;&#x65B0;&#x5EFA;&#x7684;Task&#x6808;&#x4E2D;&#x3002;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#xFF0C;&#x8FD4;&#x56DE;&#x684C;&#x9762;&#xFF0C;&#x542F;&#x52A8;App 2&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD8;&#x662F;&#x4F1A;&#x7ED5;&#x8FC7;Activity C&#xFF0C;&#x76F4;&#x63A5;&#x542F;&#x52A8;Activity B&#x3002;</p>
+<p>&#x2002;&#x2002;&#x2002;&#x4E0D;&#x7BA1;ActivityA&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x662F;&#x4EC0;&#x4E48;&#xFF0C;Activity B&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x662F;singleInstance&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E5F;&#x4F1A;&#x521B;&#x5EFA;&#x65B0;&#x7684;Task&#x6808;&#xFF0C;&#x5C06;Activity B&#x7684;&#x5B9E;&#x4F8B;&#x538B;&#x5165;&#x6808;&#xFF0C;&#x8FD9;&#x4E2A;&#x6808;&#x5C06;&#x4F5C;&#x4E3A;Activity B&#x72EC;&#x6709;&#x7684;Task&#x6808;&#x3002;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#xFF0C;&#x8FD4;&#x56DE;&#x684C;&#x9762;&#x542F;&#x52A8;App 2&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Task&#x6808;&#xFF0C;&#x5C06;Activity C&#x7684;&#x5B9E;&#x4F8B;&#x538B;&#x5165;&#x6808;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x70B9;&#x51FB;Activity C&#x9875;&#x9762;&#x7684;&#x6309;&#x94AE;&#x542F;&#x52A8;ActivityB&#xFF0C;&#x56E0;&#x4E3A;Activity B&#x6709;&#x4E00;&#x4E2A;&#x72EC;&#x4EAB;&#x7684;Task&#x6808;&#xFF0C;&#x5C06;&#x4E0D;&#x4F1A;&#x91CD;&#x65B0;&#x521B;&#x5EFA;Activity B&#x7684;&#x5B9E;&#x4F8B;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Activity的生命周期及启动模式","level":"1.3.1.1.1","depth":4,"next":{"title":"Service","level":"1.3.1.2","depth":3,"ref":"","articles":[]},"previous":{"title":"Activity","level":"1.3.1.1","depth":3,"ref":"","articles":[{"title":"Activity的生命周期及启动模式","level":"1.3.1.1.1","depth":4,"path":"basis/Activity的生命周期及启动模式.md","ref":"basis/Activity的生命周期及启动模式.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","livereload"],"pluginsConfig":{"expandable-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"basis/Activity的生命周期及启动模式.md","mtime":"2020-05-02T13:28:16.624Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-02T13:32:37.873Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
