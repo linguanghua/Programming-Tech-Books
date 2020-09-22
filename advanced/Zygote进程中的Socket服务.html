@@ -1,0 +1,1971 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Zygote进程中的Socket服务 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="Zygote进程的启动-Java篇.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../面试题.html">
+            
+                <a href="../面试题.html">
+            
+                    
+                    面试题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Java
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" >
+            
+                <span>
+            
+                    
+                    基础部分
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../java/String、StringBuild、StringBuffer.html">
+            
+                <a href="../java/String、StringBuild、StringBuffer.html">
+            
+                    
+                    String、StringBuild、StringBuffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" >
+            
+                <span>
+            
+                    
+                    静态内部类、内部类、匿名内部类
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    集合
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../java/HashMap.html">
+            
+                <a href="../java/HashMap.html">
+            
+                    
+                    HashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" >
+            
+                <span>
+            
+                    
+                    ConcurrentHashMap
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" >
+            
+                <span>
+            
+                    
+                    ArrayList
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" >
+            
+                <span>
+            
+                    
+                    LinkedList
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" >
+            
+                <span>
+            
+                    
+                    泛型
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" >
+            
+                <span>
+            
+                    
+                    定义
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" >
+            
+                <span>
+            
+                    
+                    使用方式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" >
+            
+                <span>
+            
+                    
+                    泛型擦除
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" >
+            
+                <span>
+            
+                    
+                    通配符
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" >
+            
+                <span>
+            
+                    
+                    反射
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" >
+            
+                <span>
+            
+                    
+                    线程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" >
+            
+                <span>
+            
+                    
+                    定义
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" >
+            
+                <span>
+            
+                    
+                    线程池
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" >
+            
+                <span>
+            
+                    
+                    线程安全
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.3.1" >
+            
+                <span>
+            
+                    
+                    synchronized
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3.2" >
+            
+                <span>
+            
+                    
+                    volatile
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" >
+            
+                <span>
+            
+                    
+                    锁优化
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" >
+            
+                <span>
+            
+                    
+                    虚拟机
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" >
+            
+                <span>
+            
+                    
+                    内存模型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" >
+            
+                <span>
+            
+                    
+                    引用类型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" >
+            
+                <span>
+            
+                    
+                    垃圾回收算法
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" >
+            
+                <span>
+            
+                    
+                    IO
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" >
+            
+                <span>
+            
+                    
+                    输入流
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" >
+            
+                <span>
+            
+                    
+                    输出流
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    Android
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" >
+            
+                <span>
+            
+                    
+                    基础部分
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" >
+            
+                <span>
+            
+                    
+                    Activity
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1.1" data-path="../basis/Activity的生命周期及启动模式.html">
+            
+                <a href="../basis/Activity的生命周期及启动模式.html">
+            
+                    
+                    Activity的生命周期及启动模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" >
+            
+                <span>
+            
+                    
+                    Service
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" >
+            
+                <span>
+            
+                    
+                    BroadcastReceiver
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" >
+            
+                <span>
+            
+                    
+                    ContentProvider
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" >
+            
+                <span>
+            
+                    
+                    View
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.6" >
+            
+                <span>
+            
+                    
+                    View的生命周期
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.7" >
+            
+                <span>
+            
+                    
+                    View的绘画机制
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.8" >
+            
+                <span>
+            
+                    
+                    View的事件分发机制
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.9" >
+            
+                <span>
+            
+                    
+                    自定义View
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.10" >
+            
+                <span>
+            
+                    
+                    随手指移动的View
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.11" >
+            
+                <span>
+            
+                    
+                    View的布局方式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.12" >
+            
+                <span>
+            
+                    
+                    ListView & RecyclerView
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.13" >
+            
+                <span>
+            
+                    
+                    动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.14" >
+            
+                <span>
+            
+                    
+                    属性动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.15" >
+            
+                <span>
+            
+                    
+                    帧动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.16" >
+            
+                <span>
+            
+                    
+                    View动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.17" >
+            
+                <span>
+            
+                    
+                    BitMap
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.18" data-path="../basis/Handler消息机制.html">
+            
+                <a href="../basis/Handler消息机制.html">
+            
+                    
+                    Handler消息机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" >
+            
+                <span>
+            
+                    
+                    进阶
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" >
+            
+                <span>
+            
+                    
+                    Context
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" >
+            
+                <span>
+            
+                    
+                    Binder机制
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.2.1" >
+            
+                <span>
+            
+                    
+                    AIDL
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" >
+            
+                <span>
+            
+                    
+                    源码
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="Activity启动流程.html">
+            
+                <a href="Activity启动流程.html">
+            
+                    
+                    Activity启动流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="Android设备启动流程.html">
+            
+                <a href="Android设备启动流程.html">
+            
+                    
+                    Activity设备启动流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="init进程到Zygote进程.html">
+            
+                <a href="init进程到Zygote进程.html">
+            
+                    
+                    init进程到Zygote进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4" data-path="SystemServer进程创建系统上下文环境（mSystemContext）.html">
+            
+                <a href="SystemServer进程创建系统上下文环境（mSystemContext）.html">
+            
+                    
+                    SystemServer进程创建系统上下文环境（mSystemContext）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.5" data-path="SystemServer进程的启动.html">
+            
+                <a href="SystemServer进程的启动.html">
+            
+                    
+                    SystemServer进程的启动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.6" data-path="Zygote进程到System_Server进程.html">
+            
+                <a href="Zygote进程到System_Server进程.html">
+            
+                    
+                    Zygote进程到System_Server进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.7" data-path="Zygote进程的启动-Java篇.html">
+            
+                <a href="Zygote进程的启动-Java篇.html">
+            
+                    
+                    Zygote进程的启动-Java篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.3.8" data-path="Zygote进程中的Socket服务.html">
+            
+                <a href="Zygote进程中的Socket服务.html">
+            
+                    
+                    Zygote进程中的Socket服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.9" >
+            
+                <span>
+            
+                    
+                    SystemServer进程
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10" >
+            
+                <span>
+            
+                    
+                    Location
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" >
+            
+                <span>
+            
+                    
+                    第三方库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" >
+            
+                <span>
+            
+                    
+                    OkHttp
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2" >
+            
+                <span>
+            
+                    
+                    Retrofit
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.3" data-path="../third_party_libs/EventBus.html">
+            
+                <a href="../third_party_libs/EventBus.html">
+            
+                    
+                    EventBus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.4" >
+            
+                <span>
+            
+                    
+                    RxJava
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.5" >
+            
+                <span>
+            
+                    
+                    Glide
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    Python
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    Flutter
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    算法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" >
+            
+                <span>
+            
+                    
+                    排序
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1.1" >
+            
+                <span>
+            
+                    
+                    冒泡排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.2" >
+            
+                <span>
+            
+                    
+                    选择排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.3" >
+            
+                <span>
+            
+                    
+                    希尔排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.4" >
+            
+                <span>
+            
+                    
+                    插入排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.5" >
+            
+                <span>
+            
+                    
+                    快速排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.6" >
+            
+                <span>
+            
+                    
+                    归并排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.7" >
+            
+                <span>
+            
+                    
+                    堆排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" >
+            
+                <span>
+            
+                    
+                    二指针
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" >
+            
+                <span>
+            
+                    
+                    递归
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" >
+            
+                <span>
+            
+                    
+                    二分法
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    设计模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" >
+            
+                <span>
+            
+                    
+                    单例模式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" >
+            
+                <span>
+            
+                    
+                    代理模式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" >
+            
+                <span>
+            
+                    
+                    建造者模式
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Zygote进程中的Socket服务</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="zygote&#x8FDB;&#x7A0B;&#x4E2D;&#x7684;socket&#x670D;&#x52A1;">Zygote&#x8FDB;&#x7A0B;&#x4E2D;&#x7684;Socket&#x670D;&#x52A1;</h1>
+<p>&#x200B;       &#x524D;&#x9762;&#x8BF4;&#x4E86;Zygote&#x8FDB;&#x7A0B;&#x662F;Android&#x4E2D;Java&#x4E16;&#x754C;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#xFF0C;&#x540E;&#x7EED;&#x6240;&#x6709;&#x7684;Java&#x8FDB;&#x7A0B;&#x90FD;&#x4ECE;Zygote&#x8FDB;&#x7A0B;fork&#x51FA;&#x6765;&#x3002;Zygote&#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x8D77;&#x6765;&#x4E4B;&#x540E;&#xFF0C;&#x4E3B;&#x8981;&#x505A;&#x4E86;&#x4E24;&#x4E2A;&#x4E8B;&#x60C5;&#xFF1A;</p>
+<ol>
+<li>fork&#x51FA;System Server&#x8FDB;&#x7A0B;</li>
+<li>&#x8FDB;&#x5165;&#x5FAA;&#x73AF;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#xFF0C;&#x7B49;&#x5F85;fork&#x8FDB;&#x7A0B;&#x7684;&#x8BF7;&#x6C42;</li>
+</ol>
+<p>System Server&#x8FDB;&#x7A0B;&#x7684;&#x542F;&#x52A8;&#x5728;&#x5176;&#x4ED6;&#x6587;&#x7AE0;&#x4E2D;&#x4F1A;&#x8BB2;&#x8FF0;&#xFF0C;&#x672C;&#x6587;&#x5C31;&#x6765;&#x770B;&#x770B;Zygote&#x662F;&#x5982;&#x4F55;&#x642D;&#x5EFA;socket&#x670D;&#x52A1;&#x7684;&#x3002;&#x8FD9;&#x90E8;&#x5206;&#x4EE3;&#x7801;&#x5728;ZygoteInit.java main&#x65B9;&#x6CD5;&#x4E2D;&#xFF1A;</p>
+<h4 id="zygoteinitjava-main&#x65B9;&#x6CD5;">ZygoteInit.java main&#x65B9;&#x6CD5;</h4>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String argv[])</span> </span>{
+        ZygoteServer zygoteServer = <span class="hljs-keyword">null</span>;   
+        <span class="hljs-comment">//...</span>
+        <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> isPrimaryZygote = zygoteSocketName.equals(Zygote.PRIMARY_SOCKET_NAME); <span class="hljs-comment">//true</span>
+        zygoteServer = <span class="hljs-keyword">new</span> ZygoteServer(isPrimaryZygote);<span class="hljs-comment">//&#x521B;&#x5EFA;&#x4E00;&#x4E2A;ZygoteServer&#x5BF9;&#x8C61;&#xFF0C;isPrimaryZygote &#x7528;&#x6765;&#x533A;&#x5206;&#x662F;zygote&#x8FD8;&#x662F;zygote&#x7684;&#x5B50;&#x8FDB;&#x7A0B;</span>
+
+       <span class="hljs-comment">//...</span>
+        <span class="hljs-comment">//zygote&#x8FDB;&#x7A0B;&#x4F1A;&#x8D70;&#x5230;&#x8FD9;&#x91CC;</span>
+        Log.i(TAG, <span class="hljs-string">&quot;Accepting command socket connections&quot;</span>);
+
+        <span class="hljs-comment">// The select loop returns early in the child process after a fork and</span>
+        <span class="hljs-comment">// loops forever in the zygote.</span>
+        <span class="hljs-comment">//zygote&#x8FDB;&#x7A0B;&#x5F00;&#x542F;&#x5FAA;&#x73AF; &#xFF0C;&#x7B49;&#x5F85;socket&#x8FDE;&#x63A5;&#xFF0C;&#x6709;&#x8BF7;&#x6C42;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x53BB;fork&#x65B0;&#x8FDB;&#x7A0B;</span>
+        caller = zygoteServer.runSelectLoop(abiList);<span class="hljs-comment">//&#x8FD4;&#x56DE;&#x6765;&#x7684;caller&#x662F;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;Runnable&#xFF0C;</span>
+    } <span class="hljs-keyword">catch</span> (Throwable ex) {
+        Log.e(TAG, <span class="hljs-string">&quot;System zygote died with exception&quot;</span>, ex);
+        <span class="hljs-keyword">throw</span> ex;
+    } <span class="hljs-keyword">finally</span> {
+        <span class="hljs-keyword">if</span> (zygoteServer != <span class="hljs-keyword">null</span>) {<span class="hljs-comment">//&#x65AD;&#x5F00;socket&#x8FDE;&#x63A5;</span>
+            zygoteServer.closeServerSocket();
+        }
+    }
+
+    <span class="hljs-comment">// We&apos;re in the child process and have exited the select loop. Proceed to execute the</span>
+    <span class="hljs-comment">// command.</span>
+    <span class="hljs-keyword">if</span> (caller != <span class="hljs-keyword">null</span>) {<span class="hljs-comment">//&#x975E;System server&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x8C03;&#x7528;&#xFF0C;&#x5B50;&#x8FDB;&#x7A0B;&#x5F00;&#x59CB;&#x81EA;&#x5DF1;&#x7684;&#x4EFB;&#x52A1;</span>
+        caller.run();
+    }
+}
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x4EE3;&#x7801;&#x4E5F;&#x6BD4;&#x8F83;&#x7B80;&#x5355;</p>
+<ol>
+<li>&#x521B;&#x5EFA;ZygoteServer&#x5BF9;&#x8C61;</li>
+<li>&#x8C03;&#x7528;ZygoteServer&#x7684; runSelectLoop &#x65B9;&#x6CD5;&#xFF0C;&#x83B7;&#x53D6;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x3002;</li>
+<li></li>
+</ol>
+<h4 id="zygoteserverjava-runselectloop-&#x65B9;&#x6CD5;">ZygoteServer.java runSelectLoop &#x65B9;&#x6CD5;</h4>
+<pre><code class="lang-Java"><span class="hljs-function">Runnable <span class="hljs-title">runSelectLoop</span><span class="hljs-params">(String abiList)</span> </span>{
+        ArrayList&lt;FileDescriptor&gt; socketFDs = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+        ArrayList&lt;ZygoteConnection&gt; peers = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+
+        socketFDs.add(mZygoteSocket.getFileDescriptor());
+        peers.add(<span class="hljs-keyword">null</span>);
+
+        mUsapPoolRefillTriggerTimestamp = INVALID_TIMESTAMP;
+
+        <span class="hljs-comment">// &#x5F00;&#x542F;&#x6B7B;&#x5FAA;&#x73AF;</span>
+        <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>) {
+          <span class="hljs-comment">//... &#x4E00;&#x5927;&#x5806;&#x4EE3;&#x7801;   &#x5EFA;&#x7ACB;socket&#x76F8;&#x5173;&#x7B56;&#x7565;&#x7684;   &#x4E0D;&#x7528;&#x7BA1;&#xFF0C;&#x7BA1;&#x4E0D;&#x4E86;&#x90A3;&#x4E48;&#x7EC6;</span>
+
+            <span class="hljs-keyword">int</span> pollReturnValue;
+            <span class="hljs-keyword">try</span> {
+                pollReturnValue = Os.poll(pollFDs, pollTimeoutMs);
+            } <span class="hljs-keyword">catch</span> (ErrnoException ex) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">&quot;poll failed&quot;</span>, ex);
+            }
+
+            <span class="hljs-keyword">if</span> (pollReturnValue == <span class="hljs-number">0</span>) {
+                <span class="hljs-comment">// The poll timeout has been exceeded.  This only occurs when we have finished the</span>
+                <span class="hljs-comment">// USAP pool refill delay period. &#x8D85;&#x51FA;&#x4E86;&#x8F6E;&#x8BE2;&#x8D85;&#x65F6;&#x3002; &#x4EC5;&#x5F53;&#x6211;&#x4EEC;&#x5B8C;&#x6210;USAP&#x6C60;&#x91CD;&#x65B0;&#x586B;&#x5145;&#x5EF6;&#x8FDF;&#x65F6;&#x95F4;&#x540E;&#xFF0C;&#x624D;&#x4F1A;&#x53D1;&#x751F;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x3002;</span>
+
+                mUsapPoolRefillTriggerTimestamp = INVALID_TIMESTAMP;
+                mUsapPoolRefillAction = UsapPoolRefillAction.DELAYED;
+
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-comment">//&#x6B63;&#x5E38;&#x8D70;&#x8FD9;&#x91CC;</span>
+                <span class="hljs-keyword">boolean</span> usapPoolFDRead = <span class="hljs-keyword">false</span>;
+
+                <span class="hljs-keyword">while</span> (--pollIndex &gt;= <span class="hljs-number">0</span>) {
+                    <span class="hljs-keyword">if</span> ((pollFDs[pollIndex].revents &amp; POLLIN) == <span class="hljs-number">0</span>) {
+                        <span class="hljs-keyword">continue</span>;
+                    }
+
+                    <span class="hljs-keyword">if</span> (pollIndex == <span class="hljs-number">0</span>) {
+                        <span class="hljs-comment">// Zygote server socket</span>
+
+                        ZygoteConnection newPeer = acceptCommandPeer(abiList);<span class="hljs-comment">// &#x7B49;&#x5F85;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;</span>
+                        peers.add(newPeer);
+                        socketFDs.add(newPeer.getFileDescriptor());
+
+                    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (pollIndex &lt; usapPoolEventFDIndex) {
+                        <span class="hljs-comment">// Session socket accepted from the Zygote server socket &#x6709;&#x65B0;&#x7684;&#x8FDE;&#x63A5;&#x9700;&#x8981;&#x5904;&#x7406;</span>
+
+                        <span class="hljs-keyword">try</span> {
+                            ZygoteConnection connection = peers.get(pollIndex);
+                            <span class="hljs-keyword">final</span> Runnable command = connection.processOneCommand(<span class="hljs-keyword">this</span>);
+                            <span class="hljs-comment">// &#x8C03;&#x7528;&#x4E86; connection.processOneCommand&#x65B9;&#x6CD5;&#x5C31;&#x51FA;&#x73B0;&#x4E24;&#x4E2A;&#x8FDB;&#x7A0B;&#x4E86;&#xFF0C;&#x591A;&#x4EE5;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x9700;&#x8981;&#x5BF9;&#x8FDB;&#x7A0B;&#x8FDB;&#x884C;&#x5224;&#x65AD;</span>
+
+                            <span class="hljs-comment">// TODO (chriswailes): Is this extra check necessary?</span>
+                            <span class="hljs-keyword">if</span> (mIsForkChild) {
+                                <span class="hljs-comment">// We&apos;re in the child. We should always have a command to run at</span>
+                                <span class="hljs-comment">// this stage if processOneCommand hasn&apos;t called &quot;exec&quot;.</span>
+                                <span class="hljs-keyword">if</span> (command == <span class="hljs-keyword">null</span>) {
+                                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException(<span class="hljs-string">&quot;command == null&quot;</span>);
+                                }
+
+                                <span class="hljs-keyword">return</span> command;
+                            } <span class="hljs-keyword">else</span> {
+                                <span class="hljs-comment">// We&apos;re in the server - we should never have any commands to run.</span>
+                                <span class="hljs-keyword">if</span> (command != <span class="hljs-keyword">null</span>) {
+                                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException(<span class="hljs-string">&quot;command != null&quot;</span>);
+                                }
+
+                                <span class="hljs-comment">// We don&apos;t know whether the remote side of the socket was closed or</span>
+                                <span class="hljs-comment">// not until we attempt to read from it from processOneCommand. This</span>
+                                <span class="hljs-comment">// shows up as a regular POLLIN event in our regular processing</span>
+                                <span class="hljs-comment">// loop.</span>
+                                <span class="hljs-keyword">if</span> (connection.isClosedByPeer()) {<span class="hljs-comment">//&#x5982;&#x679C;&#x5957;&#x63A5;&#x5B57;&#x8FDE;&#x63A5;&#x6CA1;&#x5173;&#x95ED;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x5173;&#x95ED;</span>
+                                    connection.closeSocket();
+                                    peers.remove(pollIndex);
+                                    socketFDs.remove(pollIndex);
+                                }
+                            }
+                        } <span class="hljs-keyword">catch</span> (Exception e) {
+                            <span class="hljs-keyword">if</span> (!mIsForkChild) {
+                                <span class="hljs-comment">//&#x5728;zygote&#x8FDB;&#x7A0B;&#x51FA;&#x73B0;&#x5F02;&#x5E38;&#xFF0C;&#x786E;&#x4FDD;&#x5957;&#x63A5;&#x5B57;&#x8FDE;&#x63A5;&#x5173;&#x95ED;</span>
+                                ZygoteConnection conn = peers.remove(pollIndex);
+                                conn.closeSocket();
+
+                                socketFDs.remove(pollIndex);
+                            } <span class="hljs-keyword">else</span> {
+                                <span class="hljs-comment">//&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x8FDB;&#x7A0B;&#x5F02;&#x5E38;&#xFF0C;&#x76F4;&#x63A5;&#x629B;&#x51FA;&#x53BB;</span>
+                                Log.e(TAG, <span class="hljs-string">&quot;Caught post-fork exception in child process.&quot;</span>, e);
+                                <span class="hljs-keyword">throw</span> e;
+                            }
+                        } <span class="hljs-keyword">finally</span> {
+                           <span class="hljs-comment">//&#x91CD;&#x7F6E;&#x72B6;&#x6001;</span>
+                            mIsForkChild = <span class="hljs-keyword">false</span>;
+                        }
+
+                    } <span class="hljs-keyword">else</span> {
+                        <span class="hljs-comment">//... socket&#x7B56;&#x7565;&#x51FA;&#x95EE;&#x9898;&#x8D70;&#x8FD9;&#x91CC;&#x5427;</span>
+                    }
+                }
+
+                <span class="hljs-comment">//socket&#x6C60;&#x68C0;&#x67E5;</span>
+            }
+
+            <span class="hljs-comment">//...&#x8FD9;&#x90E8;&#x5206;&#x4E5F;&#x6CA1;&#x770B;&#x61C2;</span>
+    }
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x597D;&#x96BE;&#xFF0C;&#x597D;&#x591A;&#x4EE3;&#x7801;&#x6CA1;&#x770B;&#x61C2;&#xFF0C;&#x4E0D;&#x8FC7;&#x4E3B;&#x8981;&#x7684;&#x8FD8;&#x662F;&#x770B;&#x660E;&#x767D;&#x4E86;&#x4E00;&#x70B9;</p>
+<ol>
+<li>&#x8FDB;&#x5165;&#x6B7B;&#x5FAA;&#x73AF;&#xFF0C;&#x8C03;&#x7528;acceptCommandPeer&#x7B49;&#x5F85;socket&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;</li>
+<li>&#x6389;&#x7528;ZygoteConnection&#x7C7B;&#x7684;processOneCommand&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x6267;&#x884C;&#x4EFB;&#x52A1;</li>
+<li>mIsForkChild&#x7684;&#x503C;&#x5728;ZygoteConnection&#x4E2D;&#x8BBE;&#x7F6E;&#x7684;</li>
+</ol>
+<h4 id="zygoteconnectionjava-processonecommand&#x65B9;&#x6CD5;">ZygoteConnection.java processOneCommand&#x65B9;&#x6CD5;</h4>
+<pre><code class="lang-Java">    <span class="hljs-function">Runnable <span class="hljs-title">processOneCommand</span><span class="hljs-params">(ZygoteServer zygoteServer)</span> </span>{
+        String[] args;
+
+        <span class="hljs-keyword">try</span> {
+            args = Zygote.readArgumentList(mSocketReader);<span class="hljs-comment">//&#x8BFB;&#x53D6;socket&#x8FDE;&#x63A5;&#x53C2;&#x6570;</span>
+        } <span class="hljs-keyword">catch</span> (IOException ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException(<span class="hljs-string">&quot;IOException on command socket&quot;</span>, ex);
+        }
+
+        <span class="hljs-keyword">if</span> (args == <span class="hljs-keyword">null</span>) { <span class="hljs-comment">//&#x53C2;&#x6570;&#x4E3A;&#x7A7A;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;</span>
+            isEof = <span class="hljs-keyword">true</span>;
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+        }
+
+        <span class="hljs-keyword">int</span> pid;
+        FileDescriptor childPipeFd = <span class="hljs-keyword">null</span>;
+        FileDescriptor serverPipeFd = <span class="hljs-keyword">null</span>;
+
+        ZygoteArguments parsedArgs = <span class="hljs-keyword">new</span> ZygoteArguments(args);<span class="hljs-comment">//&#x5C01;&#x88C5;&#x53C2;&#x6570;</span>
+
+        <span class="hljs-comment">//...   &#x5F00;&#x542F;&#x4E00;&#x5927;&#x5806;&#x53C2;&#x6570; &#x6761;&#x4EF6;&#x5224;&#x65AD;&#xFF0C;&#x76F4;&#x63A5;&#x4E0D;&#x770B;&#x4E86;</span>
+
+        <span class="hljs-keyword">int</span> [] fdsToClose = { -<span class="hljs-number">1</span>, -<span class="hljs-number">1</span> };
+
+        FileDescriptor fd = mSocket.getFileDescriptor();
+
+        <span class="hljs-keyword">if</span> (fd != <span class="hljs-keyword">null</span>) {
+            fdsToClose[<span class="hljs-number">0</span>] = fd.getInt$();
+        }
+
+        fd = zygoteServer.getZygoteSocketFileDescriptor();
+
+        <span class="hljs-keyword">if</span> (fd != <span class="hljs-keyword">null</span>) {
+            fdsToClose[<span class="hljs-number">1</span>] = fd.getInt$();
+        }
+        <span class="hljs-comment">//&#x5F00;&#x59CB;fork&#x65B0;&#x8FDB;&#x7A0B;</span>
+        pid = Zygote.forkAndSpecialize(parsedArgs.mUid, parsedArgs.mGid, parsedArgs.mGids,
+                parsedArgs.mRuntimeFlags, rlimits, parsedArgs.mMountExternal, parsedArgs.mSeInfo,
+                parsedArgs.mNiceName, fdsToClose, fdsToIgnore, parsedArgs.mStartChildZygote,
+                parsedArgs.mInstructionSet, parsedArgs.mAppDataDir, parsedArgs.mIsTopApp);
+
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">if</span> (pid == <span class="hljs-number">0</span>) { <span class="hljs-comment">// &#x65B0;&#x8FDB;&#x7A0B;&#x7684;pid &#x503C;&#x662F; 0</span>
+                <span class="hljs-comment">// in child  </span>
+                zygoteServer.setForkChild();<span class="hljs-comment">//&#x8FD9;&#x4E2A;&#x5C31;&#x662F;&#x8BBE;&#x7F6E;&#x524D;&#x9762;&#x7684;mIsForkChild&#x503C;</span>
+
+                zygoteServer.closeServerSocket(); <span class="hljs-comment">//&#x5173;&#x95ED;socket</span>
+                IoUtils.closeQuietly(serverPipeFd);
+                serverPipeFd = <span class="hljs-keyword">null</span>;
+                <span class="hljs-comment">// &#x627E;&#x5230;&#x65B0;&#x8FDB;&#x7A0B;&#x7684;&#x6267;&#x884C;&#x4EFB;&#x52A1;</span>
+                <span class="hljs-keyword">return</span> handleChildProc(parsedArgs, childPipeFd, parsedArgs.mStartChildZygote);
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-comment">// In the parent. A pid &lt; 0 indicates a failure and will be handled in</span>
+                <span class="hljs-comment">// handleParentProc. zygote&#x8FDB;&#x7A0B;</span>
+                IoUtils.closeQuietly(childPipeFd);
+                childPipeFd = <span class="hljs-keyword">null</span>;
+                handleParentProc(pid, serverPipeFd);
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<span class="hljs-comment">// zygote&#x8FDB;&#x7A0B;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x4E86;&#xFF0C;&#x8FD4;&#x56DE;null</span>
+            }
+        } <span class="hljs-keyword">finally</span> {
+            IoUtils.closeQuietly(childPipeFd);
+            IoUtils.closeQuietly(serverPipeFd);
+        }
+    }
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x8FD8;&#x597D;&#x4E0D;&#x662F;&#x5F88;&#x96BE;</p>
+<ol>
+<li>&#x8BFB;&#x53D6;socket&#x8FDE;&#x63A5;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x6CA1;&#x6709;&#x53C2;&#x6570;&#x76F4;&#x63A5;&#x9000;&#x51FA;&#x4E86;</li>
+<li>&#x6839;&#x636E;&#x53C2;&#x6570;&#x505A;&#x4E9B;&#x5DE5;&#x4F5C;&#xFF08;&#x5177;&#x4F53;&#x4EC0;&#x4E48;&#x5DE5;&#x4F5C;&#xFF0C;&#x6CA1;&#x7EC6;&#x770B;&#xFF09;</li>
+<li>&#x8C03;&#x7528;Zygote.forkAndSpecialize&#x65B9;&#x6CD5;fork&#x65B0;&#x8FDB;&#x7A0B;</li>
+<li>&#x5F00;&#x59CB;&#x6709;&#x4E24;&#x4E2A;&#x8FDB;&#x7A0B;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;zygote&#x8FDB;&#x7A0B;&#x548C;&#x65B0;&#x8FDB;&#x7A0B;&#x5F00;&#x59CB;&#x5206;&#x9053;&#x626C;&#x9573;&#x4E86;</li>
+</ol>
+<p>&#x200B;          zygote&#x8FDB;&#x7A0B;&#xFF1A;&#x8C03;&#x7528;handleParentProc &#xFF0C;&#x8FD4;&#x56DE;null</p>
+<p>&#x200B;          &#x65B0;&#x8FDB;&#x7A0B;&#xFF1A;&#x8C03;&#x7528;handleChildProc&#x65B9;&#x6CD5;&#x627E;&#x5230;&#x5F53;&#x524D;&#x63A5;&#x4E0B;&#x6765;&#x8FDB;&#x884C;&#x7684;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#xFF08;&#x8FD8;&#x8BB0;&#x5F97;&#x5728;ZygoteInit.java&#x7684;main&#x65B9;&#x6CD5;&#x4F1A;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x4EFB;&#x52A1;&#x5427;&#xFF09;</p>
+<h4 id="zygotejava-forkandspecialize&#x65B9;&#x6CD5;">Zygote.java forkAndSpecialize&#x65B9;&#x6CD5;</h4>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">forkAndSpecialize</span><span class="hljs-params">(<span class="hljs-keyword">int</span> uid, <span class="hljs-keyword">int</span> gid, <span class="hljs-keyword">int</span>[] gids, <span class="hljs-keyword">int</span> runtimeFlags,
+            <span class="hljs-keyword">int</span>[][] rlimits, <span class="hljs-keyword">int</span> mountExternal, String seInfo, String niceName, <span class="hljs-keyword">int</span>[] fdsToClose,
+            <span class="hljs-keyword">int</span>[] fdsToIgnore, <span class="hljs-keyword">boolean</span> startChildZygote, String instructionSet, String appDataDir,
+            <span class="hljs-keyword">boolean</span> isTopApp)</span> </span>{
+        ZygoteHooks.preFork();
+
+        <span class="hljs-keyword">int</span> pid = nativeForkAndSpecialize(
+                uid, gid, gids, runtimeFlags, rlimits, mountExternal, seInfo, niceName, fdsToClose,
+                fdsToIgnore, startChildZygote, instructionSet, appDataDir, isTopApp);
+        <span class="hljs-keyword">if</span> (pid == <span class="hljs-number">0</span>) {
+            <span class="hljs-comment">// Note that this event ends at the end of handleChildProc, &#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x6B64;&#x4E8B;&#x4EF6;&#x5728;handleChildProc&#x7684;&#x7ED3;&#x5C3E;&#x5904;&#x7ED3;&#x675F;&#xFF0C;</span>
+            Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, <span class="hljs-string">&quot;PostFork&quot;</span>);
+        }
+
+        <span class="hljs-comment">// Set the Java Language thread priority to the default value for new apps.</span>
+        Thread.currentThread().setPriority(Thread.NORM_PRIORITY);
+
+        ZygoteHooks.postForkCommon();
+        <span class="hljs-keyword">return</span> pid;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">native</span> <span class="hljs-keyword">int</span> <span class="hljs-title">nativeForkAndSpecialize</span><span class="hljs-params">(<span class="hljs-keyword">int</span> uid, <span class="hljs-keyword">int</span> gid, <span class="hljs-keyword">int</span>[] gids,
+            <span class="hljs-keyword">int</span> runtimeFlags, <span class="hljs-keyword">int</span>[][] rlimits, <span class="hljs-keyword">int</span> mountExternal, String seInfo, String niceName,
+            <span class="hljs-keyword">int</span>[] fdsToClose, <span class="hljs-keyword">int</span>[] fdsToIgnore, <span class="hljs-keyword">boolean</span> startChildZygote, String instructionSet,
+            String appDataDir, <span class="hljs-keyword">boolean</span> isTopApp)</span></span>;
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7B80;&#x5355;&#x4E86;&#xFF0C;&#x5C31;&#x662F;&#x8C03;&#x7528;native&#x5C42;&#x4EE3;&#x7801;fork&#x65B0;&#x8FDB;&#x7A0B;&#xFF0C;&#x8FD4;&#x56DE;pid</p>
+<h4 id="zygoteconnectionjava-handleparentproc&#x65B9;&#x6CD5;">ZygoteConnection.java handleParentProc&#x65B9;&#x6CD5;</h4>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+     * Handles post-fork cleanup of parent proc
+     * &#x4E0B;&#x9762;&#x8FD9;&#x4E00;&#x53E5;&#x7684;&#x4EE3;&#x7801;&#x63D0;&#x793A;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x65B0;&#x8FDB;&#x7A0B;&#x7684;pid&#xFF0C;&#x90A3;&#x4E48;pid=0&#xFF0C;&#x4E0D;&#x7136;&#x662F;&#x9519;&#x8BEF;&#x7684;fork
+     * <span class="hljs-doctag">@param</span> pid != 0; pid of child if &amp;gt; 0 or indication of failed fork
+     * if &amp;lt; 0;
+     * <span class="hljs-doctag">@param</span> pipeFd null-ok; pipe for communication with child.
+     */</span>
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleParentProc</span><span class="hljs-params">(<span class="hljs-keyword">int</span> pid, FileDescriptor pipeFd)</span> </span>{
+        <span class="hljs-keyword">if</span> (pid &gt; <span class="hljs-number">0</span>) { <span class="hljs-comment">//&#x4E0D;&#x662F;&#x81EA;&#x5DF1;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x8BBE;&#x7F6E;pid&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x8FDB;&#x7A0B;&#x7EC4;&#xFF0C;&#x5565;&#x8FDB;&#x7A0B;&#x7EC4;?&#x4E0D;&#x77E5;&#x9053;&#x5440;</span>
+            setChildPgid(pid);
+        }
+
+        <span class="hljs-keyword">boolean</span> usingWrapper = <span class="hljs-keyword">false</span>;
+        <span class="hljs-keyword">if</span> (pipeFd != <span class="hljs-keyword">null</span> &amp;&amp; pid &gt; <span class="hljs-number">0</span>) {<span class="hljs-comment">//&#x6709;&#x65B9;&#x6CD5;&#x524D;&#x7684;&#x6CE8;&#x91CA;&#x77E5;&#x9053;&#xFF0C;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;pid&#x662F;0&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x8D70;&#x8FD9;&#x91CC;&#x9762;</span>
+            <span class="hljs-comment">//...</span>
+        }
+
+        <span class="hljs-keyword">try</span> {
+            mSocketOutStream.writeInt(pid); <span class="hljs-comment">//&#x5411;socket&#x5BA2;&#x6237;&#x6BB5; &#x5199; pid</span>
+            mSocketOutStream.writeBoolean(usingWrapper);<span class="hljs-comment">//&#x5411;socket&#x5BA2;&#x6237;&#x6BB5; &#x5199; false</span>
+        } <span class="hljs-keyword">catch</span> (IOException ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException(<span class="hljs-string">&quot;Error writing to command socket&quot;</span>, ex);
+        }
+ }
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E00;&#x5927;&#x4E32;&#x4EE3;&#x7801;&#xFF0C;&#x4E0D;&#x8FC7;&#x4F3C;&#x4E4E;&#x5728;&#x521B;&#x5EFA;&#x65B0;&#x8FDB;&#x7A0B;&#x7684;&#x65F6;&#x5019;&#xFF0C;pid=0&#x6240;&#x4EE5;&#x5F88;&#x591A;&#x90FD;&#x4E0D;&#x6267;&#x884C;&#xFF1F;&#xFF1F;&#xFF1F;</p>
+<ol>
+<li>&#x5411;socket&#x5BA2;&#x6237;&#x7AEF;&#x8F93;&#x51FA;pid&#x53CA;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;false</li>
+</ol>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> Runnable <span class="hljs-title">handleChildProc</span><span class="hljs-params">(ZygoteArguments parsedArgs,
+            FileDescriptor pipeFd, <span class="hljs-keyword">boolean</span> isZygote)</span> </span>{
+        <span class="hljs-comment">/*
+         * By the time we get here, the native code has closed the two actual Zygote
+         * socket connections, and substituted /dev/null in their place.  The LocalSocket
+         * objects still need to be closed properly.
+         * &#x5230;&#x6211;&#x4EEC;&#x5230;&#x8FBE;&#x8FD9;&#x91CC;&#x65F6;&#xFF0C;&#x672C;&#x673A;&#x4EE3;&#x7801;&#x5DF2;&#x5173;&#x95ED;&#x4E24;&#x4E2A;&#x5B9E;&#x9645;&#x7684;Zygote&#x5957;&#x63A5;&#x5B57;&#x8FDE;&#x63A5;&#xFF0C;&#x5E76;&#x5728;&#x5176;&#x4F4D;&#x7F6E;&#x66FF;&#x6362;&#x4E86;/ dev / null&#x3002; LocalSocket&#x5BF9;&#x8C61;&#x4ECD;&#x7136;&#x9700;&#x8981;&#x6B63;&#x786E;&#x5173;&#x95ED;&#x3002;
+         */</span>
+
+        closeSocket();<span class="hljs-comment">//&#x5173;&#x95ED;&#x672C;&#x5730;&#x662F;socket?</span>
+
+        Zygote.setAppProcessName(parsedArgs, TAG);<span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x8FDB;&#x7A0B;&#x540D;&#x5B57;</span>
+
+        <span class="hljs-comment">// End of the postFork event.</span>
+        Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);
+        <span class="hljs-keyword">if</span> (parsedArgs.mInvokeWith != <span class="hljs-keyword">null</span>) {
+            WrapperInit.execApplication(parsedArgs.mInvokeWith,
+                    parsedArgs.mNiceName, parsedArgs.mTargetSdkVersion,
+                    VMRuntime.getCurrentInstructionSet(),
+                    pipeFd, parsedArgs.mRemainingArgs);
+
+            <span class="hljs-comment">// Should not get here.</span>
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException(<span class="hljs-string">&quot;WrapperInit.execApplication unexpectedly returned&quot;</span>);
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">if</span> (!isZygote) {<span class="hljs-comment">//&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4ECE;&#x5BA2;&#x6237;&#x7AEF;&#x4F20;&#x8FC7;&#x6765;&#x7684;&#xFF0C;&#x770B;&#x547D;&#x540D;&#x5E94;&#x8BE5;&#x5224;&#x65AD;&#x662F;&#x4E0D;&#x662F;zygote&#xFF0C;&#x731C;&#x6D4B;&#x5B50;&#x8FDB;&#x7A0B;&#x5E94;&#x8BE5;&#x8D70;else&#x5427;</span>
+                <span class="hljs-keyword">return</span> ZygoteInit.zygoteInit(parsedArgs.mTargetSdkVersion,
+                        parsedArgs.mDisabledCompatChanges,
+                        parsedArgs.mRemainingArgs, <span class="hljs-keyword">null</span> <span class="hljs-comment">/* classLoader */</span>);
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">return</span> ZygoteInit.childZygoteInit(parsedArgs.mTargetSdkVersion,
+                        parsedArgs.mRemainingArgs, <span class="hljs-keyword">null</span> <span class="hljs-comment">/* classLoader */</span>);
+            }
+        }
+    }
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E3B;&#x8981;&#x662F;&#x627E;&#x5230;&#x65B0;&#x8FDB;&#x7A0B;&#x540E;&#x7EED;&#x7684;&#x6267;&#x884C;&#x4EFB;&#x52A1;</p>
+<ol>
+<li><p>&#x786E;&#x4FDD;&#x672C;&#x5730;&#x8FDE;&#x63A5;&#x5173;&#x95ED;</p>
+</li>
+<li><p>&#x8BBE;&#x7F6E;&#x8FDB;&#x7A0B;&#x540D;&#x5B57;</p>
+</li>
+<li><p>&#x6839;&#x636E;&#x5BA2;&#x6237;&#x7AEF;&#x53C2;&#x6570;&#xFF0C;&#x8C03;&#x7528;&#x76F8;&#x5E94;&#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;</p>
+</li>
+</ol>
+<h4 id="zygoteinitjava-zygoteinit&#x65B9;&#x6CD5;">ZygoteInit.java zygoteInit&#x65B9;&#x6CD5;</h4>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Runnable <span class="hljs-title">zygoteInit</span><span class="hljs-params">(<span class="hljs-keyword">int</span> targetSdkVersion, <span class="hljs-keyword">long</span>[] disabledCompatChanges,
+            String[] argv, ClassLoader classLoader)</span> </span>{
+        <span class="hljs-keyword">if</span> (RuntimeInit.DEBUG) {
+            Slog.d(RuntimeInit.TAG, <span class="hljs-string">&quot;RuntimeInit: Starting application from zygote&quot;</span>);
+        }
+
+        Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, <span class="hljs-string">&quot;ZygoteInit&quot;</span>);
+        RuntimeInit.redirectLogStreams();
+
+        RuntimeInit.commonInit();
+        ZygoteInit.nativeZygoteInit();
+        <span class="hljs-keyword">return</span> RuntimeInit.applicationInit(targetSdkVersion, disabledCompatChanges, argv,
+                classLoader);
+    }
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5E94;&#x8BE5;&#x662F;Zygote&#x521D;&#x59CB;&#x5316;&#x7684;&#x65B9;&#x6CD5;</p>
+<h4 id="runtimeinitjava-applicationinit&#x65B9;&#x6CD5;">RuntimeInit.java applicationInit&#x65B9;&#x6CD5;</h4>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> Runnable <span class="hljs-title">applicationInit</span><span class="hljs-params">(<span class="hljs-keyword">int</span> targetSdkVersion, <span class="hljs-keyword">long</span>[] disabledCompatChanges,
+            String[] argv, ClassLoader classLoader)</span> </span>{
+        <span class="hljs-comment">// If the application calls System.exit(), terminate the process</span>
+        <span class="hljs-comment">// immediately without running any shutdown hooks.  It is not possible to</span>
+        <span class="hljs-comment">// shutdown an Android application gracefully.  Among other things, the</span>
+        <span class="hljs-comment">// Android runtime shutdown hooks close the Binder driver, which can cause</span>
+        <span class="hljs-comment">// leftover running threads to crash before the process actually exits.</span>
+        nativeSetExitWithoutCleanup(<span class="hljs-keyword">true</span>);
+
+        VMRuntime.getRuntime().setTargetSdkVersion(targetSdkVersion);
+        VMRuntime.getRuntime().setDisabledCompatChanges(disabledCompatChanges);
+
+        <span class="hljs-keyword">final</span> Arguments args = <span class="hljs-keyword">new</span> Arguments(argv);
+
+        <span class="hljs-comment">// The end of of the RuntimeInit event (see #zygoteInit).</span>
+        Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);
+
+        <span class="hljs-comment">// Remaining arguments are passed to the start class&apos;s static main</span>
+        <span class="hljs-keyword">return</span> findStaticMain(args.startClass, args.startArgs, classLoader);
+    }
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7B80;&#x5355;&#x3002;&#x3002;&#x3002;&#x3002;</p>
+<h4 id="zygoteinitjava-childzygoteinit&#x65B9;&#x6CD5;">zygoteInit.java childZygoteInit&#x65B9;&#x6CD5;</h4>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Runnable <span class="hljs-title">childZygoteInit</span><span class="hljs-params">(
+            <span class="hljs-keyword">int</span> targetSdkVersion, String[] argv, ClassLoader classLoader)</span> </span>{
+        RuntimeInit.Arguments args = <span class="hljs-keyword">new</span> RuntimeInit.Arguments(argv);
+        <span class="hljs-keyword">return</span> RuntimeInit.findStaticMain(args.startClass, args.startArgs, classLoader);
+    }
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7B80;&#x5355;&#xFF0C;&#x4E00;&#x76EE;&#x4E86;&#x7136;&#x3002;</p>
+<p>ZygoteInit.java zygoteInit&#x65B9;&#x6CD5;&#x548C;zygoteInit.java childZygoteInit&#x65B9;&#x6CD5;&#x6700;&#x7EC8;&#x90FD;&#x8D70;RuntimeInit.findStaticMain&#x65B9;&#x6CD5;</p>
+<h4 id="runtimeinitjava-findstaticmain&#x65B9;&#x6CD5;">RuntimeInit.java findStaticMain&#x65B9;&#x6CD5;</h4>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> Runnable <span class="hljs-title">findStaticMain</span><span class="hljs-params">(String className, String[] argv,
+            ClassLoader classLoader)</span> </span>{
+        Class&lt;?&gt; cl;
+
+        <span class="hljs-keyword">try</span> {
+            cl = Class.forName(className, <span class="hljs-keyword">true</span>, classLoader);
+        } <span class="hljs-keyword">catch</span> (ClassNotFoundException ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(
+                    <span class="hljs-string">&quot;Missing class when invoking static main &quot;</span> + className,
+                    ex);
+        }
+
+        Method m;
+        <span class="hljs-keyword">try</span> {
+            m = cl.getMethod(<span class="hljs-string">&quot;main&quot;</span>, <span class="hljs-keyword">new</span> Class[] { String[].class });
+        } <span class="hljs-keyword">catch</span> (NoSuchMethodException ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(
+                    <span class="hljs-string">&quot;Missing static main on &quot;</span> + className, ex);
+        } <span class="hljs-keyword">catch</span> (SecurityException ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(
+                    <span class="hljs-string">&quot;Problem getting static main on &quot;</span> + className, ex);
+        }
+
+        <span class="hljs-keyword">int</span> modifiers = m.getModifiers();
+        <span class="hljs-keyword">if</span> (! (Modifier.isStatic(modifiers) &amp;&amp; Modifier.isPublic(modifiers))) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(
+                    <span class="hljs-string">&quot;Main method is not public and static on &quot;</span> + className);
+        }
+
+        <span class="hljs-comment">/*
+         * This throw gets caught in ZygoteInit.main(), which responds
+         * by invoking the exception&apos;s run() method. This arrangement
+         * clears up all the stack frames that were required in setting
+         * up the process.
+         */</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MethodAndArgsCaller(m, argv);
+    }
+</code></pre>
+<p>&#x200B;        &#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7B80;&#x5355;&#x3002;&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x627E;&#x5230;&#x7C7B;&#x7684;main&#x65B9;&#x6CD5;&#xFF0C;&#x521B;&#x5EFA;MethodAndArgsCaller&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#x8FD4;&#x56DE;&#x3002;MethodAndArgsCaller&#x7C7B;&#x7EE7;&#x627F;Runnable&#x63A5;&#x53E3;&#xFF0C;&#x5230;&#x8FD9;&#x91CC;&#x65B0;&#x8FDB;&#x7A0B;&#x7684;&#x540E;&#x7EED;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x5C31;&#x627E;&#x5230;&#x4E86;</p>
+<h4 id="runtimeinitjava--methodandargscaller-&#x7C7B;">RuntimeInit.java  MethodAndArgsCaller &#x7C7B;</h4>
+<pre><code class="lang-java"> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MethodAndArgsCaller</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>{
+        <span class="hljs-comment">/** method to call */</span>
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Method mMethod;
+
+        <span class="hljs-comment">/** argument array */</span>
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String[] mArgs;
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MethodAndArgsCaller</span><span class="hljs-params">(Method method, String[] args)</span> </span>{
+            mMethod = method;
+            mArgs = args;
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">try</span> {
+                mMethod.invoke(<span class="hljs-keyword">null</span>, <span class="hljs-keyword">new</span> Object[] { mArgs });
+            } <span class="hljs-keyword">catch</span> (IllegalAccessException ex) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(ex);
+            } <span class="hljs-keyword">catch</span> (InvocationTargetException ex) {
+                Throwable cause = ex.getCause();
+                <span class="hljs-keyword">if</span> (cause <span class="hljs-keyword">instanceof</span> RuntimeException) {
+                    <span class="hljs-keyword">throw</span> (RuntimeException) cause;
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (cause <span class="hljs-keyword">instanceof</span> Error) {
+                    <span class="hljs-keyword">throw</span> (Error) cause;
+                }
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(ex);
+            }
+        }
+    }
+</code></pre>
+<p>&#x200B;        &#x8FD9;&#x4E2A;&#x7C7B;&#x5B9E;&#x73B0;Runnable&#x63A5;&#x53E3;&#xFF0C;&#x4E3A;&#x65B0;&#x8FDB;&#x7A0B;&#x521B;&#x5EFA;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x63D0;&#x4F9B;&#x80FD;&#x529B;&#x3002;&#x6839;&#x636E;&#x4F20;&#x8FDB;&#x6765;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5728;run&#x65B9;&#x6CD5;&#x4E2D;&#x6267;&#x884C;&#x3002;&#x524D;&#x9762;&#x8BF4;&#x5230;&#x5728;ZegoteInit.java&#x7684;main&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x65B0;&#x8FDB;&#x7A0B;&#x6700;&#x7EC8;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;Runnable&#xFF0C;&#x968F;&#x540E;&#x8C03;&#x7528;run&#x65B9;&#x6CD5;&#x3002;&#x5C31;&#x662F;&#x8FD9;&#x91CC;&#x7684;run&#x65B9;&#x6CD5;&#x3002;</p>
+<h2 id="&#x6700;&#x7EC8;&#x7EC8;&#x7ED3;">&#x6700;&#x7EC8;&#x7EC8;&#x7ED3;</h2>
+<p>&#x200B;        Zygote&#x7684;socket&#x670D;&#x52A1;&#x65F6;&#x523B;&#x5728;&#x7B49;&#x5F85;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x643A;&#x5E26;&#x53C2;&#x6570;&#x8FC7;&#x6765;&#xFF0C;Zygote&#x8D1F;&#x8D23;fork&#x51FA;&#x65B0;&#x8FDB;&#x7A0B;&#x3002;&#x7136;&#x540E;&#x65B0;&#x8FDB;&#x7A0B;&#x6839;&#x636E;socket&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x53C2;&#x6570;&#x521B;&#x5EFA;&#x5BF9;&#x5E94;&#x7684;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#xFF0C;&#x6700;&#x7EC8;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x3002;&#x8FD9;&#x4E2A;&#x4EFB;&#x52A1;&#x662F;&#xFF1A;&#x6267;&#x884C;socket&#x5BA2;&#x6237;&#x7AEF;&#x643A;&#x5E26;&#x7684;&#x4E00;&#x4E2A;&#x7C7B;&#x540D;&#x5BF9;&#x5E94;&#x7684;&#x7C7B;&#x7684;main&#x65B9;&#x6CD5;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Zygote进程的启动-Java篇.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Zygote进程的启动-Java篇">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Zygote进程中的Socket服务","level":"1.4.3.8","depth":3,"next":{"title":"SystemServer进程","level":"1.4.3.9","depth":3,"ref":"","articles":[]},"previous":{"title":"Zygote进程的启动-Java篇","level":"1.4.3.7","depth":3,"path":"advanced/Zygote进程的启动-Java篇.md","ref":"advanced/Zygote进程的启动-Java篇.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"advanced/Zygote进程中的Socket服务.md","mtime":"2020-07-15T08:18:26.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-22T14:22:36.415Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

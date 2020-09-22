@@ -1,0 +1,2042 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Zygote进程到System_Server进程 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Zygote进程的启动-Java篇.html" />
+    
+    
+    <link rel="prev" href="SystemServer进程的启动.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../面试题.html">
+            
+                <a href="../面试题.html">
+            
+                    
+                    面试题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Java
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" >
+            
+                <span>
+            
+                    
+                    基础部分
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../java/String、StringBuild、StringBuffer.html">
+            
+                <a href="../java/String、StringBuild、StringBuffer.html">
+            
+                    
+                    String、StringBuild、StringBuffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" >
+            
+                <span>
+            
+                    
+                    静态内部类、内部类、匿名内部类
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    集合
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../java/HashMap.html">
+            
+                <a href="../java/HashMap.html">
+            
+                    
+                    HashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" >
+            
+                <span>
+            
+                    
+                    ConcurrentHashMap
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" >
+            
+                <span>
+            
+                    
+                    ArrayList
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" >
+            
+                <span>
+            
+                    
+                    LinkedList
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" >
+            
+                <span>
+            
+                    
+                    泛型
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" >
+            
+                <span>
+            
+                    
+                    定义
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" >
+            
+                <span>
+            
+                    
+                    使用方式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" >
+            
+                <span>
+            
+                    
+                    泛型擦除
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" >
+            
+                <span>
+            
+                    
+                    通配符
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" >
+            
+                <span>
+            
+                    
+                    反射
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" >
+            
+                <span>
+            
+                    
+                    线程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" >
+            
+                <span>
+            
+                    
+                    定义
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" >
+            
+                <span>
+            
+                    
+                    线程池
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" >
+            
+                <span>
+            
+                    
+                    线程安全
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.3.1" >
+            
+                <span>
+            
+                    
+                    synchronized
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3.2" >
+            
+                <span>
+            
+                    
+                    volatile
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" >
+            
+                <span>
+            
+                    
+                    锁优化
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" >
+            
+                <span>
+            
+                    
+                    虚拟机
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" >
+            
+                <span>
+            
+                    
+                    内存模型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" >
+            
+                <span>
+            
+                    
+                    引用类型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" >
+            
+                <span>
+            
+                    
+                    垃圾回收算法
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" >
+            
+                <span>
+            
+                    
+                    IO
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" >
+            
+                <span>
+            
+                    
+                    输入流
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" >
+            
+                <span>
+            
+                    
+                    输出流
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    Android
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" >
+            
+                <span>
+            
+                    
+                    基础部分
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" >
+            
+                <span>
+            
+                    
+                    Activity
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1.1" data-path="../basis/Activity的生命周期及启动模式.html">
+            
+                <a href="../basis/Activity的生命周期及启动模式.html">
+            
+                    
+                    Activity的生命周期及启动模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" >
+            
+                <span>
+            
+                    
+                    Service
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" >
+            
+                <span>
+            
+                    
+                    BroadcastReceiver
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" >
+            
+                <span>
+            
+                    
+                    ContentProvider
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" >
+            
+                <span>
+            
+                    
+                    View
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.6" >
+            
+                <span>
+            
+                    
+                    View的生命周期
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.7" >
+            
+                <span>
+            
+                    
+                    View的绘画机制
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.8" >
+            
+                <span>
+            
+                    
+                    View的事件分发机制
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.9" >
+            
+                <span>
+            
+                    
+                    自定义View
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.10" >
+            
+                <span>
+            
+                    
+                    随手指移动的View
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.11" >
+            
+                <span>
+            
+                    
+                    View的布局方式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.12" >
+            
+                <span>
+            
+                    
+                    ListView & RecyclerView
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.13" >
+            
+                <span>
+            
+                    
+                    动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.14" >
+            
+                <span>
+            
+                    
+                    属性动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.15" >
+            
+                <span>
+            
+                    
+                    帧动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.16" >
+            
+                <span>
+            
+                    
+                    View动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.17" >
+            
+                <span>
+            
+                    
+                    BitMap
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.18" data-path="../basis/Handler消息机制.html">
+            
+                <a href="../basis/Handler消息机制.html">
+            
+                    
+                    Handler消息机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" >
+            
+                <span>
+            
+                    
+                    进阶
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" >
+            
+                <span>
+            
+                    
+                    Context
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" >
+            
+                <span>
+            
+                    
+                    Binder机制
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.2.1" >
+            
+                <span>
+            
+                    
+                    AIDL
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" >
+            
+                <span>
+            
+                    
+                    源码
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="Activity启动流程.html">
+            
+                <a href="Activity启动流程.html">
+            
+                    
+                    Activity启动流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="Android设备启动流程.html">
+            
+                <a href="Android设备启动流程.html">
+            
+                    
+                    Activity设备启动流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="init进程到Zygote进程.html">
+            
+                <a href="init进程到Zygote进程.html">
+            
+                    
+                    init进程到Zygote进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4" data-path="SystemServer进程创建系统上下文环境（mSystemContext）.html">
+            
+                <a href="SystemServer进程创建系统上下文环境（mSystemContext）.html">
+            
+                    
+                    SystemServer进程创建系统上下文环境（mSystemContext）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.5" data-path="SystemServer进程的启动.html">
+            
+                <a href="SystemServer进程的启动.html">
+            
+                    
+                    SystemServer进程的启动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.3.6" data-path="Zygote进程到System_Server进程.html">
+            
+                <a href="Zygote进程到System_Server进程.html">
+            
+                    
+                    Zygote进程到System_Server进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.7" data-path="Zygote进程的启动-Java篇.html">
+            
+                <a href="Zygote进程的启动-Java篇.html">
+            
+                    
+                    Zygote进程的启动-Java篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8" data-path="Zygote进程中的Socket服务.html">
+            
+                <a href="Zygote进程中的Socket服务.html">
+            
+                    
+                    Zygote进程中的Socket服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.9" >
+            
+                <span>
+            
+                    
+                    SystemServer进程
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10" >
+            
+                <span>
+            
+                    
+                    Location
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" >
+            
+                <span>
+            
+                    
+                    第三方库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" >
+            
+                <span>
+            
+                    
+                    OkHttp
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2" >
+            
+                <span>
+            
+                    
+                    Retrofit
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.3" data-path="../third_party_libs/EventBus.html">
+            
+                <a href="../third_party_libs/EventBus.html">
+            
+                    
+                    EventBus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.4" >
+            
+                <span>
+            
+                    
+                    RxJava
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.5" >
+            
+                <span>
+            
+                    
+                    Glide
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    Python
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    Flutter
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    算法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" >
+            
+                <span>
+            
+                    
+                    排序
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1.1" >
+            
+                <span>
+            
+                    
+                    冒泡排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.2" >
+            
+                <span>
+            
+                    
+                    选择排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.3" >
+            
+                <span>
+            
+                    
+                    希尔排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.4" >
+            
+                <span>
+            
+                    
+                    插入排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.5" >
+            
+                <span>
+            
+                    
+                    快速排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.6" >
+            
+                <span>
+            
+                    
+                    归并排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.7" >
+            
+                <span>
+            
+                    
+                    堆排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" >
+            
+                <span>
+            
+                    
+                    二指针
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" >
+            
+                <span>
+            
+                    
+                    递归
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" >
+            
+                <span>
+            
+                    
+                    二分法
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    设计模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" >
+            
+                <span>
+            
+                    
+                    单例模式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" >
+            
+                <span>
+            
+                    
+                    代理模式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" >
+            
+                <span>
+            
+                    
+                    建造者模式
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Zygote进程到System_Server进程</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="zygote&#x8FDB;&#x7A0B;&#x5230;system-server&#x8FDB;&#x7A0B;">Zygote&#x8FDB;&#x7A0B;&#x5230;System Server&#x8FDB;&#x7A0B;</h1>
+<p>&#x200B;          &#x4E0A;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x8BB2;&#x5230;&#x4E86;Zygote&#x62C9;&#x8D77;&#x4E86;System server&#x8FDB;&#x7A0B;&#xFF0C;&#x672C;&#x6587;&#x5177;&#x4F53;&#x8BB2;&#x8FF0;&#x4E00;&#x4E0B;&#xFF0C;System server&#x542F;&#x52A8;&#x7684;&#x6D41;&#x7A0B;&#x3002;Zygote&#x8FDB;&#x7A0B;&#x62C9;&#x8D77;System Server&#x8FDB;&#x7A0B;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x662F;ZygoteInit.java  forkSystemServer&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<h4 id="zygoteinitjava--forksystemserver">ZygoteInit.java  forkSystemServer</h4>
+<pre><code class="lang-java"> <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Runnable <span class="hljs-title">forkSystemServer</span><span class="hljs-params">(String abiList, String socketName,
+            ZygoteServer zygoteServer)</span> </span>{
+        <span class="hljs-keyword">long</span> capabilities = posixCapabilitiesAsBits(
+                OsConstants.CAP_IPC_LOCK,
+                OsConstants.CAP_KILL,
+                OsConstants.CAP_NET_ADMIN,
+                OsConstants.CAP_NET_BIND_SERVICE,
+                OsConstants.CAP_NET_BROADCAST,
+                OsConstants.CAP_NET_RAW,
+                OsConstants.CAP_SYS_MODULE,
+                OsConstants.CAP_SYS_NICE,
+                OsConstants.CAP_SYS_PTRACE,
+                OsConstants.CAP_SYS_TIME,
+                OsConstants.CAP_SYS_TTY_CONFIG,
+                OsConstants.CAP_WAKE_ALARM,
+                OsConstants.CAP_BLOCK_SUSPEND
+        );
+        <span class="hljs-comment">/* Containers run without some capabilities, so drop any caps that are not available. &#x5BB9;&#x5668;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x6CA1;&#x6709;&#x67D0;&#x4E9B;&#x529F;&#x80FD;&#xFF0C;&#x56E0;&#x6B64;&#x8BF7;&#x5220;&#x9664;&#x6240;&#x6709;&#x4E0D;&#x53EF;&#x7528;&#x7684;&#x4E0A;&#x9650;&#x3002;*/</span>
+        StructCapUserHeader header = <span class="hljs-keyword">new</span> StructCapUserHeader(
+                OsConstants._LINUX_CAPABILITY_VERSION_3, <span class="hljs-number">0</span>);
+        StructCapUserData[] data;
+        <span class="hljs-keyword">try</span> {
+            data = Os.capget(header);
+        } <span class="hljs-keyword">catch</span> (ErrnoException ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">&quot;Failed to capget()&quot;</span>, ex);
+        }
+        capabilities &amp;= ((<span class="hljs-keyword">long</span>) data[<span class="hljs-number">0</span>].effective) | (((<span class="hljs-keyword">long</span>) data[<span class="hljs-number">1</span>].effective) &lt;&lt; <span class="hljs-number">32</span>);
+<span class="hljs-comment">//*************** &#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x6CA1;&#x592A;&#x770B;&#x61C2; ***************    </span>
+
+        <span class="hljs-comment">/* Hardcoded command line to start the system server */</span>
+        String args[] = {
+                <span class="hljs-string">&quot;--setuid=1000&quot;</span>,
+                <span class="hljs-string">&quot;--setgid=1000&quot;</span>,
+                <span class="hljs-string">&quot;--setgroups=1001,1002,1003,1004,1005,1006,1007,1008,1009,1010,1018,1021,1023,&quot;</span>
+                        + <span class="hljs-string">&quot;1024,1032,1065,3001,3002,3003,3006,3007,3009,3010,3011&quot;</span>,
+                <span class="hljs-string">&quot;--capabilities=&quot;</span> + capabilities + <span class="hljs-string">&quot;,&quot;</span> + capabilities,
+                <span class="hljs-string">&quot;--nice-name=system_server&quot;</span>,
+                <span class="hljs-string">&quot;--runtime-args&quot;</span>,
+                <span class="hljs-string">&quot;--target-sdk-version=&quot;</span> + VMRuntime.SDK_VERSION_CUR_DEVELOPMENT,
+                <span class="hljs-string">&quot;com.android.server.SystemServer&quot;</span>,<span class="hljs-comment">//&#x8FD9;&#x4E2A;&#x662F;&#x540E;&#x9762;&#x542F;&#x52A8;&#x7684;&#x7C7B;&#x540D;</span>
+        };
+        ZygoteArguments parsedArgs = <span class="hljs-keyword">null</span>;
+
+        <span class="hljs-keyword">int</span> pid;
+
+        <span class="hljs-keyword">try</span> {
+            parsedArgs = <span class="hljs-keyword">new</span> ZygoteArguments(args);
+            Zygote.applyDebuggerSystemProperty(parsedArgs);<span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x4E00;&#x4E9B;&#x5C5E;&#x6027;</span>
+            Zygote.applyInvokeWithSystemProperty(parsedArgs);<span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x4E00;&#x4E9B;&#x5C5E;&#x6027;</span>
+
+            <span class="hljs-keyword">if</span> (Zygote.nativeSupportsMemoryTagging()) {
+                <span class="hljs-comment">/* The system server is more privileged than regular app processes, so it has async
+                 * tag checks enabled on hardware that supports memory tagging. &#x7CFB;&#x7EDF;&#x670D;&#x52A1;&#x6BD4;&#x5E38;&#x89C4;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8FDB;&#x7A0B;&#x5177;&#x6709;&#x66F4;&#x5927;&#x7684;&#x7279;&#x6743;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x5728;&#x652F;&#x6301;&#x5185;&#x5B58;&#x6807;&#x8BB0;&#x7684;&#x786C;&#x4EF6;&#x4E0A;&#x542F;&#x7528;&#x4E86;&#x5F02;&#x6B65;&#x6807;&#x8BB0;&#x68C0;&#x67E5;&#x3002;*/</span>
+                parsedArgs.mRuntimeFlags |= Zygote.MEMORY_TAG_LEVEL_ASYNC;
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (Zygote.nativeSupportsTaggedPointers()) {
+                <span class="hljs-comment">/* Enable pointer tagging in the system server. Hardware support for this is present
+                 * in all ARMv8 CPUs. &#x5728;&#x7CFB;&#x7EDF;&#x670D;&#x52A1;&#x4E2D;&#x542F;&#x7528;&#x6307;&#x9488;&#x6807;&#x8BB0;&#x3002; &#x6240;&#x6709;ARMv8 CPU&#x4E2D;&#x90FD;&#x63D0;&#x4F9B;&#x5BF9;&#x6B64;&#x7684;&#x786C;&#x4EF6;&#x652F;&#x6301;&#x3002;*/</span>
+                parsedArgs.mRuntimeFlags |= Zygote.MEMORY_TAG_LEVEL_TBI;
+            }
+
+            <span class="hljs-keyword">if</span> (shouldProfileSystemServer()) {
+                parsedArgs.mRuntimeFlags |= Zygote.PROFILE_SYSTEM_SERVER;
+            }
+
+            <span class="hljs-comment">/* Request to fork the system server process &#x8BF7;&#x6C42;fork &#x7CFB;&#x7EDF;&#x670D;&#x52A1; &#x8FDB;&#x7A0B;*/</span>
+            pid = Zygote.forkSystemServer(
+                    parsedArgs.mUid, parsedArgs.mGid,
+                    parsedArgs.mGids,
+                    parsedArgs.mRuntimeFlags,
+                    <span class="hljs-keyword">null</span>,
+                    parsedArgs.mPermittedCapabilities,
+                    parsedArgs.mEffectiveCapabilities);
+        } <span class="hljs-keyword">catch</span> (IllegalArgumentException ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(ex);
+        }
+
+        <span class="hljs-comment">/* For child process &#x65B0;&#x5B75;&#x5316;&#x51FA;&#x6765;&#x7684;&#x8FDB;&#x7A0B; pid&#x662F;0*/</span>
+        <span class="hljs-keyword">if</span> (pid == <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">if</span> (hasSecondZygote(abiList)) {<span class="hljs-comment">//&#x6709;&#x7B2C;&#x4E8C;&#x4E2A;socket&#xFF1F;</span>
+                waitForSecondaryZygote(socketName);<span class="hljs-comment">//&#x7B49;&#x5F85;&#x7B2C;&#x4E8C;&#x4E2A;socket</span>
+            }
+
+            zygoteServer.closeServerSocket();<span class="hljs-comment">//&#x5173;&#x95ED;socket</span>
+            <span class="hljs-keyword">return</span> handleSystemServerProcess(parsedArgs);<span class="hljs-comment">//&#x83B7;&#x53D6;&#x65B0;&#x8FDB;&#x7A0B;&#x7684;&#x4EFB;&#x52A1;</span>
+        }
+
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<span class="hljs-comment">//zygote&#x8FDB;&#x7A0B;&#xFF0C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;null</span>
+    }
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x200B;       main&#x65B9;&#x6CD5;&#x8C03;&#x7528;forkSystemServer&#x6765;&#x5B75;&#x5316;system server&#x8FDB;&#x7A0B;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;forkSystemServer&#x65B9;&#x6CD5;&#x505A;&#x4E86;&#x4EC0;&#x4E48;&#x4E8B;&#x60C5;&#x5462;&#xFF1F;</p>
+<ol>
+<li>&#x51C6;&#x5907;&#x53C2;&#x6570;&#xFF0C;&#x662F;&#x4E00;&#x4E9B;&#x542F;&#x52A8;system server&#x8FDB;&#x7A0B;&#x9700;&#x8981;&#x7684;&#x53C2;&#x6570;&#x4E86;&#xFF0C;&#x8FD9;&#x91CC;&#x91CD;&#x70B9;&#x5173;&#x6CE8;<font color="red">&quot;com.android.server.SystemServer&quot;</font></li>
+<li>&#x8C03;&#x7528;Zygote.java&#xFF0C;&#x8BBE;&#x7F6E;&#x4E00;&#x4E9B;&#x5C5E;&#x6027;&#x503C;</li>
+<li>&#x8C03;&#x7528;<font color="red">Zygote.forkSystemServer</font>&#x8FDB;&#x884C;&#x5B75;&#x5316;system server&#x8FDB;&#x7A0B;</li>
+<li>&#x5BF9;&#x5B75;&#x5316;&#x8FDB;&#x7A0B;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;<font color="red">&#x8FD9;&#x91CC;&#x6CE8;&#x610F;&#xFF0C;&#x5F97;&#x5230;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x65B0;&#x8FDB;&#x7A0B;&#x5DF2;&#x7ECF;&#x5B75;&#x5316;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x4E24;&#x4E2A;&#x8FDB;&#x7A0B;&#x90FD;&#x4F1A;&#x8DD1;&#x540E;&#x9762;&#x7684;&#x7A0B;&#x5E8F;</font></li>
+<li>&#x5BF9;&#x4E8E;&#x65B0;&#x8FDB;&#x7A0B;&#xFF08;System Server&#xFF09;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;pid&#x662F;0&#xFF0C;&#x6240;&#x4EE5;&#x5148;&#x5224;&#x65AD;&#x662F;&#x4E0D;&#x662F;&#x6709;&#x5176;&#x4ED6;socket&#x9700;&#x8981;&#x7B49;&#x5F85;&#xFF0C;&#x6CA1;&#x6709;&#x7684;&#x8BDD;&#xFF0C;&#x5173;&#x95ED;socket&#x8FDE;&#x63A5;&#xFF0C;&#x83B7;&#x53D6;&#x65B0;&#x8FDB;&#x7A0B;&#x7684;&#x4EFB;&#x52A1;&#x3002;&#x8FD9;&#x4E2A;&#x4EFB;&#x52A1;&#xFF08;Runnable&#xFF09;&#x7531;main&#x65B9;&#x6CD5;&#x540E;&#x8FB9;&#x8C03;&#x7528;run&#x65B9;&#x6CD5;&#x6267;&#x884C;</li>
+<li>&#x5BF9;&#x4E8E;zygote&#x8FDB;&#x7A0B;&#xFF0C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E86;null&#xFF0C;&#x8FD9;&#x4E5F;&#x5BF9;&#x5BF9;&#x5E94;&#x4E86;main&#x65B9;&#x6CD5;&#xFF0C;&#x5BF9;&#x4E8E;zygote&#x8FDB;&#x7A0B;&#xFF0C;&#x540E;&#x7EED;&#x662F;&#x91CD;&#x65B0;&#x5F00;&#x542F;&#x5FAA;&#x73AF;&#x7B49;&#x5F85;socket &#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x3002;</li>
+</ol>
+<h4 id="zygotejava-forksystemserver">Zygote.java forkSystemServer</h4>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">forkSystemServer</span><span class="hljs-params">(<span class="hljs-keyword">int</span> uid, <span class="hljs-keyword">int</span> gid, <span class="hljs-keyword">int</span>[] gids, <span class="hljs-keyword">int</span> runtimeFlags,
+            <span class="hljs-keyword">int</span>[][] rlimits, <span class="hljs-keyword">long</span> permittedCapabilities, <span class="hljs-keyword">long</span> effectiveCapabilities)</span> </span>{
+        ZygoteHooks.preFork();<span class="hljs-comment">//&#x5E94;&#x8BE5;&#x662F;&#x51C6;&#x5907;&#x5DE5;&#x4F5C;</span>
+        <span class="hljs-comment">//&#x8C03;&#x7528;native&#x5C42;&#x7684;&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x8FDB;&#x7A0B;</span>
+        <span class="hljs-keyword">int</span> pid = nativeForkSystemServer(
+                uid, gid, gids, runtimeFlags, rlimits,
+                permittedCapabilities, effectiveCapabilities);
+
+        <span class="hljs-comment">// Set the Java Language thread priority to the default value for new apps. &#x5C06;Java&#x8BED;&#x8A00;&#x7EBF;&#x7A0B;&#x4F18;&#x5148;&#x7EA7;&#x8BBE;&#x7F6E;&#x4E3A;&#x65B0;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x3002;</span>
+        Thread.currentThread().setPriority(Thread.NORM_PRIORITY);
+
+        ZygoteHooks.postForkCommon();
+        <span class="hljs-keyword">return</span> pid;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">native</span> <span class="hljs-keyword">int</span> <span class="hljs-title">nativeForkSystemServer</span><span class="hljs-params">(<span class="hljs-keyword">int</span> uid, <span class="hljs-keyword">int</span> gid, <span class="hljs-keyword">int</span>[] gids, <span class="hljs-keyword">int</span> runtimeFlags,
+            <span class="hljs-keyword">int</span>[][] rlimits, <span class="hljs-keyword">long</span> permittedCapabilities, <span class="hljs-keyword">long</span> effectiveCapabilities)</span></span>;
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x662F;Java&#x4E16;&#x754C;fork&#x8FDB;&#x7A0B;&#x8C03;&#x7528;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x4E86;&#xFF0C;&#x5B83;&#x8C03;&#x7528;native&#x5C42;&#x7684;&#x65B9;&#x6CD5;&#x521B;&#x5EFA;System server&#x8FDB;&#x7A0B;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;pid&#xFF0C;&#x5176;&#x4ED6;&#x6CA1;&#x6709;&#x592A;&#x591A;&#x7684;&#x4E86;&#x3002;</p>
+<font color="red">&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x5DE5;&#x4F5C;&#x662F;&#x5BFB;&#x627E;&#xFF0C;System Server&#x8FDB;&#x7A0B;&#x88AB;&#x62C9;&#x8D77;&#x6765;&#x4E4B;&#x540E;&#x9700;&#x8981;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;handleSystemServerProcess&#x8FD4;&#x56DE;&#x7684;Runnable&#x54EA;&#x91CC;&#x6765;&#x7684;?</font>
+
+
+
+<h4 id="zygoteargumentsjava">ZygoteArguments.java</h4>
+<p>&#x200B;          &#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x662F;&#x7528;&#x6765;&#x83B7;&#x53D6;System server&#x8FDB;&#x7A0B;&#x63A5;&#x4E0B;&#x6765;&#x9700;&#x8981;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#x7684;&#x3002;&#x5148;&#x770B;&#x4E00;&#x4E0B;&#xFF0C;handleSystemServerProcess&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x54EA;&#x91CC;&#x6765;&#x7684;&#xFF1F;&#x662F;&#x5728;ZygoteInit.java  forkSystemServer&#x65B9;&#x6CD5;&#x6765;&#x7684;&#x3002;</p>
+<pre><code class="lang-java">String args[] = {
+                <span class="hljs-string">&quot;--setuid=1000&quot;</span>,
+                <span class="hljs-string">&quot;--setgid=1000&quot;</span>,
+                <span class="hljs-string">&quot;--setgroups=1001,1002,1003,1004,1005,1006,1007,1008,1009,1010,1018,1021,1023,&quot;</span>
+                        + <span class="hljs-string">&quot;1024,1032,1065,3001,3002,3003,3006,3007,3009,3010,3011&quot;</span>,
+                <span class="hljs-string">&quot;--capabilities=&quot;</span> + capabilities + <span class="hljs-string">&quot;,&quot;</span> + capabilities,
+                <span class="hljs-string">&quot;--nice-name=system_server&quot;</span>,
+                <span class="hljs-string">&quot;--runtime-args&quot;</span>,
+                <span class="hljs-string">&quot;--target-sdk-version=&quot;</span> + VMRuntime.SDK_VERSION_CUR_DEVELOPMENT,
+                <span class="hljs-string">&quot;com.android.server.SystemServer&quot;</span>,<span class="hljs-comment">//&#x8FD9;&#x4E2A;&#x662F;&#x540E;&#x9762;&#x542F;&#x52A8;&#x7684;&#x7C7B;&#x540D;</span>
+        };
+
+ZygoteArguments(String[] args) <span class="hljs-keyword">throws</span> IllegalArgumentException {<span class="hljs-comment">//&#x8FD9;&#x91CC;&#x7684;args&#x5C31;&#x662F;&#x4E0A;&#x9762;&#x90A3;&#x4E2A;args</span>
+        parseArgs(args);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">parseArgs</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException </span>{
+        <span class="hljs-keyword">int</span> curArg = <span class="hljs-number">0</span>;
+
+        <span class="hljs-keyword">boolean</span> seenRuntimeArgs = <span class="hljs-keyword">false</span>;
+
+        <span class="hljs-keyword">boolean</span> expectRuntimeArgs = <span class="hljs-keyword">true</span>;
+        <span class="hljs-keyword">for</span> ( <span class="hljs-comment">/* curArg */</span> ; curArg &lt; args.length; curArg++) {<span class="hljs-comment">//&#x5F00;&#x59CB;&#x89E3;&#x6790;&#x53C2;&#x6570;</span>
+            String arg = args[curArg];
+
+            <span class="hljs-keyword">if</span> (arg.equals(<span class="hljs-string">&quot;--&quot;</span>)) {                                        <span class="hljs-comment">//&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;</span>
+                curArg++;
+                <span class="hljs-keyword">break</span>;
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (arg.startsWith(<span class="hljs-string">&quot;--setuid=&quot;</span>)) {                    <span class="hljs-comment">//&#x6709;&#x8FD9;&#x4E2A;</span>
+                <span class="hljs-keyword">if</span> (mUidSpecified) {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(
+                        <span class="hljs-string">&quot;Duplicate arg specified&quot;</span>);
+                }
+                mUidSpecified = <span class="hljs-keyword">true</span>;
+                mUid = Integer.parseInt(
+                    arg.substring(arg.indexOf(<span class="hljs-string">&apos;=&apos;</span>) + <span class="hljs-number">1</span>));
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (arg.startsWith(<span class="hljs-string">&quot;--setgid=&quot;</span>)) {                    <span class="hljs-comment">//&#x6709;&#x8FD9;&#x4E2A;</span>
+                <span class="hljs-keyword">if</span> (mGidSpecified) {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(
+                        <span class="hljs-string">&quot;Duplicate arg specified&quot;</span>);
+                }
+                mGidSpecified = <span class="hljs-keyword">true</span>;
+                mGid = Integer.parseInt(
+                    arg.substring(arg.indexOf(<span class="hljs-string">&apos;=&apos;</span>) + <span class="hljs-number">1</span>));
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (arg.startsWith(<span class="hljs-string">&quot;--target-sdk-version=&quot;</span>)) {        <span class="hljs-comment">//&#x6709;&#x8FD9;&#x4E2A;</span>
+                <span class="hljs-keyword">if</span> (mTargetSdkVersionSpecified) {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(
+                        <span class="hljs-string">&quot;Duplicate target-sdk-version specified&quot;</span>);
+                }
+                mTargetSdkVersionSpecified = <span class="hljs-keyword">true</span>;
+                mTargetSdkVersion = Integer.parseInt(
+                    arg.substring(arg.indexOf(<span class="hljs-string">&apos;=&apos;</span>) + <span class="hljs-number">1</span>));
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (arg.equals(<span class="hljs-string">&quot;--runtime-args&quot;</span>)) {                    <span class="hljs-comment">//&#x6709;&#x8FD9;&#x4E2A;</span>
+                seenRuntimeArgs = <span class="hljs-keyword">true</span>;
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (arg.startsWith(<span class="hljs-string">&quot;--runtime-flags=&quot;</span>)) {            <span class="hljs-comment">//&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;</span>
+                mRuntimeFlags = Integer.parseInt(
+                    arg.substring(arg.indexOf(<span class="hljs-string">&apos;=&apos;</span>) + <span class="hljs-number">1</span>));
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (arg.startsWith(<span class="hljs-string">&quot;--seinfo=&quot;</span>)) {                    <span class="hljs-comment">//&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;</span>
+                <span class="hljs-comment">//...</span>
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (arg.startsWith(<span class="hljs-string">&quot;--capabilities=&quot;</span>)) {                <span class="hljs-comment">//&#x6709;&#x8FD9;&#x4E2A;</span>
+                <span class="hljs-keyword">if</span> (mCapabilitiesSpecified) {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(
+                        <span class="hljs-string">&quot;Duplicate arg specified&quot;</span>);
+                }
+                mCapabilitiesSpecified = <span class="hljs-keyword">true</span>;
+                String capString = arg.substring(arg.indexOf(<span class="hljs-string">&apos;=&apos;</span>) + <span class="hljs-number">1</span>);
+
+                String[] capStrings = capString.split(<span class="hljs-string">&quot;,&quot;</span>, <span class="hljs-number">2</span>);
+
+                <span class="hljs-keyword">if</span> (capStrings.length == <span class="hljs-number">1</span>) {
+                    mEffectiveCapabilities = Long.decode(capStrings[<span class="hljs-number">0</span>]);
+                    mPermittedCapabilities = mEffectiveCapabilities;
+                } <span class="hljs-keyword">else</span> {
+                    mPermittedCapabilities = Long.decode(capStrings[<span class="hljs-number">0</span>]);
+                    mEffectiveCapabilities = Long.decode(capStrings[<span class="hljs-number">1</span>]);
+                }
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (arg.startsWith(<span class="hljs-string">&quot;--rlimit=&quot;</span>)) {                    <span class="hljs-comment">//&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;</span>
+                <span class="hljs-comment">//...</span>
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (arg.startsWith(<span class="hljs-string">&quot;--setgroups=&quot;</span>)) {                <span class="hljs-comment">//&#x6709;&#x8FD9;&#x4E2A;</span>
+                <span class="hljs-keyword">if</span> (mGids != <span class="hljs-keyword">null</span>) {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(
+                        <span class="hljs-string">&quot;Duplicate arg specified&quot;</span>);
+                }
+
+                String[] params = arg.substring(arg.indexOf(<span class="hljs-string">&apos;=&apos;</span>) + <span class="hljs-number">1</span>).split(<span class="hljs-string">&quot;,&quot;</span>);
+
+                mGids = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[params.length];
+
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = params.length - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) {
+                    mGids[i] = Integer.parseInt(params[i]);
+                }
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (arg.equals(<span class="hljs-string">&quot;--invoke-with&quot;</span>)) {                    <span class="hljs-comment">//&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;</span>
+                <span class="hljs-keyword">if</span> (mInvokeWith != <span class="hljs-keyword">null</span>) {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(
+                        <span class="hljs-string">&quot;Duplicate arg specified&quot;</span>);
+                }
+                <span class="hljs-keyword">try</span> {
+                    mInvokeWith = args[++curArg];
+                } <span class="hljs-keyword">catch</span> (IndexOutOfBoundsException ex) {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(
+                        <span class="hljs-string">&quot;--invoke-with requires argument&quot;</span>);
+                }
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (arg.startsWith(<span class="hljs-string">&quot;--nice-name=&quot;</span>)) {                <span class="hljs-comment">//&#x6709;&#x8FD9;&#x4E2A;</span>
+                <span class="hljs-keyword">if</span> (mNiceName != <span class="hljs-keyword">null</span>) {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(
+                        <span class="hljs-string">&quot;Duplicate arg specified&quot;</span>);
+                }
+                mNiceName = arg.substring(arg.indexOf(<span class="hljs-string">&apos;=&apos;</span>) + <span class="hljs-number">1</span>);
+            } 
+            <span class="hljs-comment">//...   &#x540E;&#x9762;&#x7684;&#x8FD9;&#x4E00;&#x957F;&#x4E32;&#x90FD;&#x6CA1;&#x6709;</span>
+        }
+<span class="hljs-comment">//&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x662F;&#x5904;&#x7406;&#x5269;&#x4F59;&#x7684;&#x53C2;&#x6570;&#x7684;&#xFF0C;&#x6CE8;&#x610F;&#x5230; args&#x7684;&#x53C2;&#x6570;&#x4E2D;&#x6700;&#x540E;&#x53EA;&#x5269;&#x4E0B;  &quot;com.android.server.SystemServer&quot; &#x8FD9;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x5904;&#x7406;</span>
+        <span class="hljs-keyword">if</span> (mBootCompleted) { <span class="hljs-comment">//&#x8FD9;&#x4E2A;&#x662F;false</span>
+            <span class="hljs-keyword">if</span> (args.length - curArg &gt; <span class="hljs-number">0</span>) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;Unexpected arguments after --boot-completed&quot;</span>);
+            }
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (mAbiListQuery || mPidQuery) {<span class="hljs-comment">//&#x8FD9;&#x4E24;&#x4E2A;&#x662F;false</span>
+            <span class="hljs-keyword">if</span> (args.length - curArg &gt; <span class="hljs-number">0</span>) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;Unexpected arguments after --query-abi-list.&quot;</span>);
+            }
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (mPreloadPackage != <span class="hljs-keyword">null</span>) {<span class="hljs-comment">//&#x8FD9;&#x4E2A;&#x4E5F;&#x6CA1;&#x6709;&#x8D4B;&#x503C;</span>
+            <span class="hljs-keyword">if</span> (args.length - curArg &gt; <span class="hljs-number">0</span>) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(
+                    <span class="hljs-string">&quot;Unexpected arguments after --preload-package.&quot;</span>);
+            }
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (mPreloadApp != <span class="hljs-keyword">null</span>) {<span class="hljs-comment">//&#x8FD9;&#x4E2A;&#x4E5F;&#x6CA1;&#x6709;&#x8D4B;&#x503C;</span>
+            <span class="hljs-keyword">if</span> (args.length - curArg &gt; <span class="hljs-number">0</span>) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(
+                    <span class="hljs-string">&quot;Unexpected arguments after --preload-app.&quot;</span>);
+            }
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (expectRuntimeArgs) {<span class="hljs-comment">//&#x8FD9;&#x4E2A;&#x662F;true</span>
+            <span class="hljs-keyword">if</span> (!seenRuntimeArgs) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;Unexpected argument : &quot;</span> + args[curArg]);
+            }
+
+            mRemainingArgs = <span class="hljs-keyword">new</span> String[args.length - curArg];<span class="hljs-comment">//&#x8FD9;&#x91CC;&#x5C31;&#x628A; &quot;com.android.server.SystemServer&quot; &#x53C2;&#x6570;&#x5904;&#x7406;&#x4E86;</span>
+            System.arraycopy(args, curArg, mRemainingArgs, <span class="hljs-number">0</span>, mRemainingArgs.length);
+        }
+
+        <span class="hljs-keyword">if</span> (mStartChildZygote) {<span class="hljs-comment">//&#x8FD9;&#x4E2A;&#x4E5F;&#x662F;false</span>
+            <span class="hljs-comment">//...</span>
+        }
+    }
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x4E0A;&#x9762;&#x7684;&#x8FD9;&#x4E2A;ZygoteArguments&#x7C7B;&#x4E3B;&#x8981;&#x505A;&#x53C2;&#x6570;&#x5904;&#x7406;&#x3002;</p>
+<ol>
+<li>&#x5C06;&#x53C2;&#x6570;&#x653E;&#x5230;&#x7C7B;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;</li>
+<li>&#x628A;  &quot;com.android.server.SystemServer&quot; &#x53C2;&#x6570; &#x653E;&#x5230;&#x4E86; mRemainingArgs</li>
+<li><font color="red">&#x9700;&#x8981;&#x6CE8;&#x610F;&#x4E00;&#x4E0B;mInvokeWith&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x6CA1;&#x6709;&#x8D4B;&#x503C;&#xFF0C;&#x540E;&#x9762;&#x4F1A;&#x7528;&#x5230;</font>
+
+
+
+</li>
+</ol>
+<p>&#x4E0B;&#x9762;&#x6B63;&#x5F0F;&#x53BB;&#x5BFB;&#x627E;Runnable&#x7684;&#x6765;&#x6E90;</p>
+<h4 id="zygoteinitjava-handlesystemserverprocess">ZygoteInit.java handleSystemServerProcess</h4>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Runnable <span class="hljs-title">handleSystemServerProcess</span><span class="hljs-params">(ZygoteArguments parsedArgs)</span> </span>{
+        <span class="hljs-comment">// set umask to 0077 so new files and directories will default to owner-only permissions.</span>
+        <span class="hljs-comment">//&#x5C06;umask&#x8BBE;&#x7F6E;&#x4E3A;0077&#xFF0C;&#x4EE5;&#x4FBF;&#x65B0;&#x6587;&#x4EF6;&#x548C;&#x76EE;&#x5F55;&#x5C06;&#x9ED8;&#x8BA4;&#x4E3A;&#x4EC5;&#x6240;&#x6709;&#x8005;&#x6743;&#x9650;&#x3002;</span>
+        Os.umask(S_IRWXG | S_IRWXO);
+
+        <span class="hljs-keyword">if</span> (parsedArgs.mNiceName != <span class="hljs-keyword">null</span>) {
+            Process.setArgV0(parsedArgs.mNiceName);
+        }
+
+        <span class="hljs-keyword">final</span> String systemServerClasspath = Os.getenv(<span class="hljs-string">&quot;SYSTEMSERVERCLASSPATH&quot;</span>);
+        <span class="hljs-keyword">if</span> (systemServerClasspath != <span class="hljs-keyword">null</span>) {
+            performSystemServerDexOpt(systemServerClasspath);
+            <span class="hljs-comment">// Capturing profiles is only supported for debug or eng builds since selinux normally</span>
+            <span class="hljs-comment">// prevents it.&#x6355;&#x83B7;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4EC5;&#x652F;&#x6301;&#x8C03;&#x8BD5;&#x6216;eng&#x6784;&#x5EFA;&#xFF0C;&#x56E0;&#x4E3A;selinux&#x901A;&#x5E38;&#x4F1A;&#x963B;&#x6B62;&#x5B83;&#x3002;</span>
+            <span class="hljs-keyword">if</span> (shouldProfileSystemServer() &amp;&amp; (Build.IS_USERDEBUG || Build.IS_ENG)) {
+                <span class="hljs-keyword">try</span> {
+                    Log.d(TAG, <span class="hljs-string">&quot;Preparing system server profile&quot;</span>);
+                    prepareSystemServerProfile(systemServerClasspath);
+                } <span class="hljs-keyword">catch</span> (Exception e) {
+                    Log.wtf(TAG, <span class="hljs-string">&quot;Failed to set up system server profile&quot;</span>, e);
+                }
+            }
+        }
+<span class="hljs-comment">//***&#x8BF4;&#x5B9E;&#x8BDD;&#xFF0C;&#x524D;&#x9762;&#x4E00;&#x5927;&#x5806;&#x4EE3;&#x7801;&#x5E72;&#x561B;&#x7684;&#x6CA1;&#x770B;&#x61C2;</span>
+
+        <span class="hljs-comment">//&#x524D;&#x9762;&#x5206;&#x6790;&#x53C2;&#x6570;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x77E5;&#x9053;&#x4E86;&#x8FD9;&#x4E2A;mInvokeWith&#x6CA1;&#x6709;&#x8D4B;&#x503C;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x662F;null</span>
+        <span class="hljs-keyword">if</span> (parsedArgs.mInvokeWith != <span class="hljs-keyword">null</span>) {
+            String[] args = parsedArgs.mRemainingArgs;
+            <span class="hljs-comment">// If we have a non-null system server class path, we&apos;ll have to duplicate the</span>
+            <span class="hljs-comment">// existing arguments and append the classpath to it. ART will handle the classpath</span>
+            <span class="hljs-comment">// correctly when we exec a new process.</span>
+            <span class="hljs-comment">//&#x5982;&#x679C;&#x6211;&#x4EEC;&#x6709;&#x4E00;&#x4E2A;&#x975E;null&#x7684;&#x7CFB;&#x7EDF;&#x670D;&#x52A1;&#x7C7B;&#x8DEF;&#x5F84;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x5FC5;&#x987B;&#x590D;&#x5236;&#x73B0;&#x6709;&#x53C2;&#x6570;&#x5E76;&#x5C06;&#x7C7B;&#x8DEF;&#x5F84;&#x9644;&#x52A0;&#x5230;&#x8BE5;&#x8DEF;&#x5F84;&#x4E0A;&#x3002; &#x5F53;&#x6211;&#x4EEC;&#x6267;&#x884C;&#x65B0;&#x8FDB;&#x7A0B;&#x65F6;&#xFF0C;ART&#x5C06;&#x6B63;&#x786E;&#x5904;&#x7406;&#x7C7B;&#x8DEF;&#x5F84;&#x3002;</span>
+            <span class="hljs-keyword">if</span> (systemServerClasspath != <span class="hljs-keyword">null</span>) {
+                String[] amendedArgs = <span class="hljs-keyword">new</span> String[args.length + <span class="hljs-number">2</span>];
+                amendedArgs[<span class="hljs-number">0</span>] = <span class="hljs-string">&quot;-cp&quot;</span>;
+                amendedArgs[<span class="hljs-number">1</span>] = systemServerClasspath;
+                System.arraycopy(args, <span class="hljs-number">0</span>, amendedArgs, <span class="hljs-number">2</span>, args.length);
+                args = amendedArgs;
+            }
+
+            WrapperInit.execApplication(parsedArgs.mInvokeWith,
+                    parsedArgs.mNiceName, parsedArgs.mTargetSdkVersion,
+                    VMRuntime.getCurrentInstructionSet(), <span class="hljs-keyword">null</span>, args);
+
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException(<span class="hljs-string">&quot;Unexpected return from WrapperInit.execApplication&quot;</span>);
+        } <span class="hljs-keyword">else</span> {
+            ClassLoader cl = <span class="hljs-keyword">null</span>;
+            <span class="hljs-keyword">if</span> (systemServerClasspath != <span class="hljs-keyword">null</span>) {
+                cl = createPathClassLoader(systemServerClasspath, parsedArgs.mTargetSdkVersion);
+
+                Thread.currentThread().setContextClassLoader(cl);
+            }
+
+            <span class="hljs-comment">/*
+             * Pass the remaining arguments to SystemServer.
+             * &#x5C06;&#x5176;&#x4F59;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;SystemServer&#x3002;
+             */</span>
+            <span class="hljs-keyword">return</span> ZygoteInit.zygoteInit(parsedArgs.mTargetSdkVersion,
+                    parsedArgs.mDisabledCompatChanges,
+                    parsedArgs.mRemainingArgs, cl);
+        }
+
+        <span class="hljs-comment">/* should never reach here */</span>
+    }
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x4E0A;&#x9762;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6CA1;&#x4EC0;&#x4E48;&#x597D;&#x770B;&#x7684;&#xFF0C;&#x53EA;&#x770B;&#x6700;&#x540E;&#x8FD4;&#x56DE;ZygoteInit.zygoteInit&#x7684;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x6CE8;&#x610F;&#xFF1A;<font color="red">parsedArgs.mRemainingArgs&#x7684;&#x503C;&#x662F;&#xFF1A;&quot;com.android.server.SystemServer&quot;</font></p>
+<h4 id="zygoteinitjava-zygoteinit">ZygoteInit.java zygoteinit</h4>
+<pre><code class="lang-Java">   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Runnable <span class="hljs-title">zygoteInit</span><span class="hljs-params">(<span class="hljs-keyword">int</span> targetSdkVersion, <span class="hljs-keyword">long</span>[] disabledCompatChanges,
+            String[] argv, ClassLoader classLoader)</span> </span>{
+        <span class="hljs-keyword">if</span> (RuntimeInit.DEBUG) {
+            Slog.d(RuntimeInit.TAG, <span class="hljs-string">&quot;RuntimeInit: Starting application from zygote&quot;</span>);
+        }
+
+        Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, <span class="hljs-string">&quot;ZygoteInit&quot;</span>);
+        RuntimeInit.redirectLogStreams();
+
+        RuntimeInit.commonInit();
+        ZygoteInit.nativeZygoteInit();
+       <span class="hljs-comment">//&#x524D;&#x9762;&#x597D;&#x50CF;&#x90FD;&#x662F;&#x4E00;&#x4E9B;&#x521D;&#x59CB;&#x5316;&#x64CD;&#x4F5C;</span>
+        <span class="hljs-keyword">return</span> RuntimeInit.applicationInit(targetSdkVersion, disabledCompatChanges, argv,
+                classLoader); 
+    }
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>   &#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x4E86;&#xFF0C;&#x6700;&#x540E;&#x8C03;&#x7528;RuntimeInit.applicationInit&#xFF0C;&#x4E0D;&#x591A;&#x8BF4;&#x4E86;&#x3002;<font color="red">&#x6CE8;&#x610F;&#xFF1A;argv&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&quot;com.android.server.SystemServer&quot;</font></p>
+<h4 id="runtimeinitjava-applicationinit">RuntimeInit.java applicationInit</h4>
+<pre><code class="lang-java"> <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> Runnable <span class="hljs-title">applicationInit</span><span class="hljs-params">(<span class="hljs-keyword">int</span> targetSdkVersion, <span class="hljs-keyword">long</span>[] disabledCompatChanges,
+            String[] argv, ClassLoader classLoader)</span> </span>{
+        <span class="hljs-comment">// If the application calls System.exit(), terminate the process</span>
+        <span class="hljs-comment">// immediately without running any shutdown hooks.  It is not possible to</span>
+        <span class="hljs-comment">// shutdown an Android application gracefully.  Among other things, the</span>
+        <span class="hljs-comment">// Android runtime shutdown hooks close the Binder driver, which can cause</span>
+        <span class="hljs-comment">// leftover running threads to crash before the process actually exits.</span>
+         <span class="hljs-comment">// &#x5982;&#x679C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8C03;&#x7528;System.exit&#xFF08;&#xFF09;&#xFF0C;&#x5219;&#x5728;&#x4E0D;&#x8FD0;&#x884C;&#x4EFB;&#x4F55;&#x5173;&#x95ED;&#x6302;&#x94A9;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x7ACB;&#x5373;&#x7EC8;&#x6B62;&#x8FDB;&#x7A0B;&#x3002; &#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x5173;&#x95ED;Android&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002; &#x5176;&#x4E2D;&#xFF0C;Android&#x8FD0;&#x884C;&#x65F6;&#x5173;&#x95ED;&#x6302;&#x94A9;&#x4F1A;&#x5173;&#x95ED;Binder&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x5269;&#x4F59;&#x7684;&#x8FD0;&#x884C;&#x7EBF;&#x7A0B;&#x5728;&#x8FDB;&#x7A0B;&#x5B9E;&#x9645;&#x9000;&#x51FA;&#x4E4B;&#x524D;&#x5D29;&#x6E83;&#x3002;</span>
+        nativeSetExitWithoutCleanup(<span class="hljs-keyword">true</span>);
+
+        VMRuntime.getRuntime().setTargetSdkVersion(targetSdkVersion);<span class="hljs-comment">//&#x8BBE;&#x7F6E;sdk&#x7248;&#x672C;</span>
+        VMRuntime.getRuntime().setDisabledCompatChanges(disabledCompatChanges);<span class="hljs-comment">//&#x517C;&#x5BB9;&#x6027;&#xFF1F;&#x4E0D;&#x592A;&#x61C2;&#x8FD9;&#x53E5;</span>
+
+        <span class="hljs-keyword">final</span> Arguments args = <span class="hljs-keyword">new</span> Arguments(argv);<span class="hljs-comment">//&#x91CD;&#x65B0;&#x5C01;&#x88C5;&#x53C2;&#x6570; argv&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;&quot;com.android.server.SystemServer&quot;</span>
+
+        <span class="hljs-comment">// The end of of the RuntimeInit event (see #zygoteInit).</span>
+        Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);
+
+        <span class="hljs-comment">// Remaining arguments are passed to the start class&apos;s static main &#x5176;&#x4F59;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;&#x8D77;&#x59CB;&#x7C7B;&#x7684;&#x9759;&#x6001;main</span>
+        <span class="hljs-keyword">return</span> findStaticMain(args.startClass, args.startArgs, classLoader);
+    }
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E5F;&#x7B80;&#x5355;</p>
+<ol>
+<li>&#x8BBE;&#x7F6E;sdk&#x7248;&#x672C;</li>
+<li>&#x91CD;&#x65B0;&#x5C01;&#x88C5;&#x53C2;&#x6570;</li>
+<li>&#x627E;&#x5230;&#x8981;&#x8FD0;&#x884C;&#x7684;&#x9759;&#x6001;&#x7C7B;</li>
+<li><font color="red">&#x91CD;&#x70B9;&#x5173;&#x6CE8;&#x4E00;&#x4E0B;&#x8C03;&#x7528;findStaticMain&#x65B9;&#x6CD5;&#x7684;args.startClass&#x53C2;&#x6570;</font>
+
+</li>
+</ol>
+<p>&#x4E0B;&#x9762;&#x770B;&#x4E00;&#x4E0B;findStaticMain&#x65B9;&#x6CD5;&#x7684;args.startClass&#x53C2;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Arguments</span> </span>{
+        <span class="hljs-comment">/** first non-option argument */</span>
+        String startClass;
+
+        <span class="hljs-comment">/** all following arguments */</span>
+        String[] startArgs;
+
+        Arguments(String args[]) <span class="hljs-keyword">throws</span> IllegalArgumentException {
+            parseArgs(args);
+        }
+
+        <span class="hljs-comment">/**
+         * Parses the commandline arguments intended for the Runtime.
+         */</span>
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">parseArgs</span><span class="hljs-params">(String args[])</span>
+                <span class="hljs-keyword">throws</span> IllegalArgumentException </span>{
+            <span class="hljs-keyword">int</span> curArg = <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">for</span> (; curArg &lt; args.length; curArg++) {
+                String arg = args[curArg];
+
+                <span class="hljs-keyword">if</span> (arg.equals(<span class="hljs-string">&quot;--&quot;</span>)) {<span class="hljs-comment">//&#x6CA1;&#x6709; -- &#x5F00;&#x5934;&#x7684;&#x53C2;&#x6570;</span>
+                    curArg++;
+                    <span class="hljs-keyword">break</span>;
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!arg.startsWith(<span class="hljs-string">&quot;--&quot;</span>)) {<span class="hljs-comment">//&#x6CA1;&#x6709; -- &#x5F00;&#x5934;&#x7684;&#x53C2;&#x6570; &#x76F4;&#x63A5;break&#x4E86;</span>
+                    <span class="hljs-keyword">break</span>;
+                }
+            }
+
+            <span class="hljs-keyword">if</span> (curArg == args.length) {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;Missing classname argument to RuntimeInit!&quot;</span>);
+            }
+
+            startClass = args[curArg++];<span class="hljs-comment">// &#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x4E2A; &quot;com.android.server.SystemServer&quot; &#x53C2;&#x6570;&#x4E86;</span>
+            startArgs = <span class="hljs-keyword">new</span> String[args.length - curArg];
+            System.arraycopy(args, curArg, startArgs, <span class="hljs-number">0</span>, startArgs.length);
+        }
+    }
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x8FD9;&#x4E2A;&#x7C7B;&#x4E5F;&#x7B80;&#x5355;&#xFF0C;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF1A;<font color="red">startClass&#x7684;&#x503C;&#x662F;com.android.server.SystemServer</font></p>
+<h4 id="runtimeinitjava-findstaticmain">RuntimeInit.java findStaticMain</h4>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> Runnable <span class="hljs-title">findStaticMain</span><span class="hljs-params">(String className, String[] argv,
+            ClassLoader classLoader)</span> </span>{
+        Class&lt;?&gt; cl;
+
+        <span class="hljs-keyword">try</span> {
+            cl = Class.forName(className, <span class="hljs-keyword">true</span>, classLoader);
+        } <span class="hljs-keyword">catch</span> (ClassNotFoundException ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(
+                    <span class="hljs-string">&quot;Missing class when invoking static main &quot;</span> + className,
+                    ex);
+        }
+
+        Method m;
+        <span class="hljs-keyword">try</span> {
+            m = cl.getMethod(<span class="hljs-string">&quot;main&quot;</span>, <span class="hljs-keyword">new</span> Class[] { String[].class });
+        } <span class="hljs-keyword">catch</span> (NoSuchMethodException ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(
+                    <span class="hljs-string">&quot;Missing static main on &quot;</span> + className, ex);
+        } <span class="hljs-keyword">catch</span> (SecurityException ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(
+                    <span class="hljs-string">&quot;Problem getting static main on &quot;</span> + className, ex);
+        }
+
+        <span class="hljs-keyword">int</span> modifiers = m.getModifiers();
+        <span class="hljs-keyword">if</span> (! (Modifier.isStatic(modifiers) &amp;&amp; Modifier.isPublic(modifiers))) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(
+                    <span class="hljs-string">&quot;Main method is not public and static on &quot;</span> + className);
+        }
+
+        <span class="hljs-comment">/*
+         * This throw gets caught in ZygoteInit.main(), which responds
+         * by invoking the exception&apos;s run() method. This arrangement
+         * clears up all the stack frames that were required in setting
+         * up the process.
+         */</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MethodAndArgsCaller(m, argv);
+    }
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>   &#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E5F;&#x7B80;&#x5355;</p>
+<ol>
+<li>&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x627E;&#x5230;&#x9700;&#x8981;&#x8FD0;&#x884C;&#x7684;&#x7C7B;&#x7684;main&#x65B9;&#x6CD5;&#xFF0C;<font color="red">startClass&#x7684;&#x503C;&#x662F;com.android.server.SystemServer</font>&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x8FD0;&#x884C;&#x90A3;&#x4E2A;&#x7C7B;&#x4E0D;&#x7528;&#x591A;&#x8BF4;&#x4E86;&#x5427;</li>
+<li>&#x521B;&#x5EFA;MethodAndArgsCaller&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#x8FD4;&#x56DE;&#xFF0C;MethodAndArgsCaller&#x7C7B;&#x5B9E;&#x73B0;Runnable&#x63A5;&#x53E3;&#xFF0C;&#x53EF;&#x7B97;&#x627E;&#x5230;&#x4E86;&#xFF0C;&#x54C8;&#x54C8;&#x54C8;</li>
+</ol>
+<h4 id="runtimeinitjava-methodandargscaller&#x7C7B;">RuntimeInit.java MethodAndArgsCaller&#x7C7B;</h4>
+<pre><code>static class MethodAndArgsCaller implements Runnable {
+        /** method to call */
+        private final Method mMethod;
+
+        /** argument array */
+        private final String[] mArgs;
+
+        public MethodAndArgsCaller(Method method, String[] args) {
+            mMethod = method;
+            mArgs = args;
+        }
+
+        public void run() {
+            try {
+                mMethod.invoke(null, new Object[] { mArgs });
+            } catch (IllegalAccessException ex) {
+                throw new RuntimeException(ex);
+            } catch (InvocationTargetException ex) {
+                Throwable cause = ex.getCause();
+                if (cause instanceof RuntimeException) {
+                    throw (RuntimeException) cause;
+                } else if (cause instanceof Error) {
+                    throw (Error) cause;
+                }
+                throw new RuntimeException(ex);
+            }
+        }
+    }
+</code></pre><p>&#x8FD9;&#x4E2A;&#x7C7B;&#x4E5F;&#x7B80;&#x5355;</p>
+<ol>
+<li>&#x5B9E;&#x73B0;&#x4E86;Runnable&#x63A5;&#x53E3;</li>
+<li>&#x5728;run&#x65B9;&#x6CD5;&#x4E2D;&#x8FD0;&#x884C;&#x4F20;&#x9012;&#x8FC7;&#x6765;&#x7684;&#x65B9;&#x6CD5;</li>
+</ol>
+<h2 id="&#x6700;&#x7EC8;&#x603B;&#x7ED3;">&#x6700;&#x7EC8;&#x603B;&#x7ED3;</h2>
+<p>&#x6574;&#x4E2A;&#x6D41;&#x7A0B;&#x8D70;&#x4E0B;&#x6765;&#xFF0C;&#x5176;&#x5B9E;&#x90FD;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x6700;&#x4E3B;&#x8981;&#x7684;&#x662F;&#x8981;&#x8BB0;&#x4F4F;&#x53C2;&#x6570;&#x90FD;&#x662F;&#x6765;&#x81EA;&#x54EA;&#x91CC;&#xFF0C;&#x662F;&#x4E2A;&#x4EC0;&#x4E48;&#x503C;&#xFF0C;&#x8FD9;&#x5BF9;&#x540E;&#x7EED;&#x7684;&#x4EE3;&#x7801;&#x8D70;&#x54EA;&#x91CC;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x3002;&#x5230;&#x8FD9;&#xFF0C;System Server&#x8FDB;&#x7A0B;&#x5C31;&#x542F;&#x52A8;&#xFF0C;&#x800C;&#x4E14;&#x4E4B;&#x540E;&#x7684;&#x4EFB;&#x52A1;&#x662F;&#x6267;&#x884C;&#xFF1A;<font color="red"> com.android.server.SystemServer&#x7684;main&#x65B9;&#x6CD5;</font></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="SystemServer进程的启动.html" class="navigation navigation-prev " aria-label="Previous page: SystemServer进程的启动">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Zygote进程的启动-Java篇.html" class="navigation navigation-next " aria-label="Next page: Zygote进程的启动-Java篇">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Zygote进程到System_Server进程","level":"1.4.3.6","depth":3,"next":{"title":"Zygote进程的启动-Java篇","level":"1.4.3.7","depth":3,"path":"advanced/Zygote进程的启动-Java篇.md","ref":"advanced/Zygote进程的启动-Java篇.md","articles":[]},"previous":{"title":"SystemServer进程的启动","level":"1.4.3.5","depth":3,"path":"advanced/SystemServer进程的启动.md","ref":"advanced/SystemServer进程的启动.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"advanced/Zygote进程到System_Server进程.md","mtime":"2020-07-15T08:22:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-22T14:22:36.415Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>String、StringBuild、StringBuffer · GitBook</title>
+        <title>Zygote进程的启动-Java篇 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,6 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="Zygote进程中的Socket服务.html" />
+    
+    
+    <link rel="prev" href="Zygote进程到System_Server进程.html" />
     
 
     </head>
@@ -143,9 +147,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1.1" data-path="String、StringBuild、StringBuffer.html">
+        <li class="chapter " data-level="1.3.1.1" data-path="../java/String、StringBuild、StringBuffer.html">
             
-                <a href="String、StringBuild、StringBuffer.html">
+                <a href="../java/String、StringBuild、StringBuffer.html">
             
                     
                     String、StringBuild、StringBuffer
@@ -188,9 +192,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.2.1" data-path="HashMap.html">
+        <li class="chapter " data-level="1.3.2.1" data-path="../java/HashMap.html">
             
-                <a href="HashMap.html">
+                <a href="../java/HashMap.html">
             
                     
                     HashMap
@@ -904,9 +908,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.3.1" data-path="../advanced/Activity启动流程.html">
+        <li class="chapter " data-level="1.4.3.1" data-path="Activity启动流程.html">
             
-                <a href="../advanced/Activity启动流程.html">
+                <a href="Activity启动流程.html">
             
                     
                     Activity启动流程
@@ -917,9 +921,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.2" data-path="../advanced/Android设备启动流程.html">
+        <li class="chapter " data-level="1.4.3.2" data-path="Android设备启动流程.html">
             
-                <a href="../advanced/Android设备启动流程.html">
+                <a href="Android设备启动流程.html">
             
                     
                     Activity设备启动流程
@@ -930,9 +934,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.3" data-path="../advanced/init进程到Zygote进程.html">
+        <li class="chapter " data-level="1.4.3.3" data-path="init进程到Zygote进程.html">
             
-                <a href="../advanced/init进程到Zygote进程.html">
+                <a href="init进程到Zygote进程.html">
             
                     
                     init进程到Zygote进程
@@ -943,9 +947,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.4" data-path="../advanced/SystemServer进程创建系统上下文环境（mSystemContext）.html">
+        <li class="chapter " data-level="1.4.3.4" data-path="SystemServer进程创建系统上下文环境（mSystemContext）.html">
             
-                <a href="../advanced/SystemServer进程创建系统上下文环境（mSystemContext）.html">
+                <a href="SystemServer进程创建系统上下文环境（mSystemContext）.html">
             
                     
                     SystemServer进程创建系统上下文环境（mSystemContext）
@@ -956,9 +960,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.5" data-path="../advanced/SystemServer进程的启动.html">
+        <li class="chapter " data-level="1.4.3.5" data-path="SystemServer进程的启动.html">
             
-                <a href="../advanced/SystemServer进程的启动.html">
+                <a href="SystemServer进程的启动.html">
             
                     
                     SystemServer进程的启动
@@ -969,9 +973,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.6" data-path="../advanced/Zygote进程到System_Server进程.html">
+        <li class="chapter " data-level="1.4.3.6" data-path="Zygote进程到System_Server进程.html">
             
-                <a href="../advanced/Zygote进程到System_Server进程.html">
+                <a href="Zygote进程到System_Server进程.html">
             
                     
                     Zygote进程到System_Server进程
@@ -982,9 +986,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.7" data-path="../advanced/Zygote进程的启动-Java篇.html">
+        <li class="chapter active" data-level="1.4.3.7" data-path="Zygote进程的启动-Java篇.html">
             
-                <a href="../advanced/Zygote进程的启动-Java篇.html">
+                <a href="Zygote进程的启动-Java篇.html">
             
                     
                     Zygote进程的启动-Java篇
@@ -995,9 +999,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.8" data-path="../advanced/Zygote进程中的Socket服务.html">
+        <li class="chapter " data-level="1.4.3.8" data-path="Zygote进程中的Socket服务.html">
             
-                <a href="../advanced/Zygote进程中的Socket服务.html">
+                <a href="Zygote进程中的Socket服务.html">
             
                     
                     Zygote进程中的Socket服务
@@ -1410,7 +1414,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >String、StringBuild、StringBuffer</a>
+        <a href=".." >Zygote进程的启动-Java篇</a>
     </h1>
 </div>
 
@@ -1425,25 +1429,144 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code> &#x65E0;&#x51A5;&#x51A5;&#x4E4B;&#x5FD7;&#x8005;&#xFF0C;&#x65E0;&#x662D;&#x662D;&#x4E4B;&#x660E;&#xFF1B;&#x65E0;&#x60DB;&#x60DB;&#x4E4B;&#x4E8B;&#x8005;&#xFF0C;&#x65E0;&#x8D6B;&#x8D6B;&#x4E4B;&#x529F;&#x3002;
- &#x89E3;&#x91CA;&#xFF1A;&#x6CA1;&#x6709;&#x4E13;&#x5FC3;&#x81F4;&#x5FD7;&#x5730;&#x523B;&#x82E6;&#x5B66;&#x4E60;&#xFF0C;&#x5C31;&#x6CA1;&#x6709;&#x878D;&#x4F1A;&#x8D2F;&#x901A;&#x7684;&#x667A;&#x6167;&#xFF1B;&#x6CA1;&#x6709;&#x57CB;&#x5934;&#x6267;&#x7740;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x5C31;&#x4E0D;&#x4F1A;&#x53D6;&#x5F97;&#x663E;&#x8457;&#x7684;&#x6210;&#x5C31;&#x3002;
-</code></pre><h1 id="string&#x3001;stringbuild&#x3001;stringbuffer">String&#x3001;StringBuild&#x3001;StringBuffer</h1>
-<p>&#x2002;&#x2002;&#x2002;&#x8FD9;&#x4E09;&#x4E2A;&#x7C7B;&#x90FD;&#x662F;&#x7528;&#x4E8E;&#x5728;&#x7A0B;&#x5E8F;&#x7F16;&#x7801;&#x4E2D;&#x8868;&#x793A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
-<h4 id="string">String</h4>
-<p>&#x2002;&#x2002;&#x2002;&#x4EE5;&#x8FD9;&#x4E2A;&#x7C7B;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x6307;&#x5411;&#x7684;&#x662F;String&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x5F53;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;String&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x4F1A;&#x67E5;&#x8BE2;String&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x662F;&#x5426;&#x5B58;&#x5728;&#x8FD9;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;&#xFF0C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x8FD9;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;&#x8FD4;&#x56DE;&#x5730;&#x5740;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x5B58;&#x653E;&#x5230;&#x5E38;&#x91CF;&#x6C60;&#x3002;</p>
-<h6 id="&#x6CE8;&#x610F;">&#x6CE8;&#x610F;</h6>
-<pre><code>String s = &quot;a&quot; + &quot;b&quot;;
-</code></pre><p>&#x2002;&#x2002;&#x2002;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x6700;&#x591A;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x56E0;&#x4E3A;&#x201C;a&#x201D;&#x548C;&#x201C;b&#x201D;&#x90FD;&#x662F;&#x5E38;&#x91CF;&#xFF0C;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x5728;&#x751F;&#x6210;class&#x6587;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x53D8;&#x6210;&#xFF1A;</p>
-<pre><code>String s = &quot;ab&quot;;
-</code></pre><p>&#x2002;&#x2002;&#x2002;&#x5982;&#x679C;String&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x5DF2;&#x7ECF;&#x6709;&#x5B57;&#x7B26;&#x4E32;&#x201C;ab&#x201D;&#x4E86;&#xFF0C;&#x5C31;&#x4E0D;&#x4F1A;&#x751F;&#x6210;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x3002;</p>
-<h3 id="stringbuild">StringBuild</h3>
-<p>&#x2002;&#x2002;&#x2002;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#xFF0C;&#x521B;&#x5EFA;&#x65B9;&#x5F0F;&#xFF1A;</p>
-<pre><code>StringBuild sb = new StringBuild();
-</code></pre><p>&#x2002;&#x2002;&#x2002;&#x5B83;&#x4E0E;String&#x4E0D;&#x540C;&#x4E4B;&#x5904;&#x5728;&#x4E8E;&#x5B83;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x662F;&#x76F4;&#x63A5;new&#x51FA;&#x6765;&#x7684;&#xFF0C;&#x9700;&#x8981;&#x7533;&#x8BF7;&#x5185;&#x5B58;&#x3002;&#x800C;&#x4E14;&#xFF0C;&#x6BCF;&#x6B21;&#x6539;&#x53D8;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x76F4;&#x63A5;&#x6539;&#x53D8;&#x5185;&#x5B58;&#x4E2D;&#x5B58;&#x653E;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x8FD8;&#x6709;&#xFF0C;StingBuild&#x4E0D;&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x3002;</p>
-<h3 id="stringbuffer">StringBuffer</h3>
-<p>&#x2002;&#x2002;&#x2002;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#xFF0C;&#x521B;&#x5EFA;&#x65B9;&#x5F0F;&#xFF1A;</p>
-<pre><code>StringBuffer sb = new StringBuffer();
-</code></pre><p>&#x2002;&#x2002;&#x2002;&#x5B83;&#x8DDF;StringBuild&#x5DEE;&#x4E0D;&#x591A;&#xFF0C;&#x533A;&#x522B;&#x662F;StringBuffer&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x3002;&#x4F7F;&#x5F97;StringBuffer&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x539F;&#x56E0;&#x662F;&#xFF0C;&#x5728;StringBuffer&#x7C7B;&#x4E2D;&#xFF0C;&#x4FEE;&#x6539;&#x503C;&#x7684;&#x65B9;&#x6CD5;&#x4F7F;&#x7528;&#x4E86;<strong><em>synchronized</em></strong>&#x5173;&#x952E;&#x5B57;&#x8FDB;&#x884C;&#x7EBF;&#x7A0B;&#x540C;&#x6B65;&#x3002;</p>
+                                <h1 id="zygote&#x8FDB;&#x7A0B;&#x7684;&#x542F;&#x52A8;-java&#x7BC7;">Zygote&#x8FDB;&#x7A0B;&#x7684;&#x542F;&#x52A8;-Java&#x7BC7;</h1>
+<p>&#x200B;         Zygote&#x8FDB;&#x7A0B;&#x662F;Android&#x4E2D;Java&#x4E16;&#x754C;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#xFF0C;&#x540C;&#x65F6;&#x5B83;&#x4E5F;&#x662F;Android&#x4E2D;&#x6240;&#x6709;Java&#x8FDB;&#x7A0B;&#x7684;&#x7236;&#x8FDB;&#x7A0B;&#xFF08;Android&#x6240;&#x6709;&#x7684;Java&#x8FDB;&#x7A0B;&#x90FD;&#x4ECE;Zygote&#x8FDB;&#x7A0B;fork&#xFF09;&#x3002;&#x524D;&#x9762;&#x8BB2;&#x5B8C;&#x4E86;<strong>init&#x8FDB;&#x7A0B;&#x5230;Zygote&#x8FDB;&#x7A0B;</strong>&#xFF0C;&#x53EA;&#x662F;&#x8BB2;&#x8FF0;&#x4E86;nitive&#x5C42;&#x7684;init&#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x53CA;&#x5982;&#x4F55;&#x62C9;&#x8D77;Zygote&#x8FDB;&#x7A0B;&#xFF0C;&#x5728;&#x4E0A;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#x6700;&#x540E;&#x8BB2;&#x5230;&#x7684;&#x662F;&#xFF0C;app_process.cpp&#x7684;main&#x65B9;&#x6CD5;&#x901A;&#x8FC7;JNI&#xFF0C;&#x8C03;&#x7528;com.android.internal.os.ZygoteInit.java&#x7684;main&#x65B9;&#x6CD5;&#x3002;</p>
+<h4 id="zygoteinitjava-main&#x65B9;&#x6CD5;&#x3002;">ZygoteInit.java main&#x65B9;&#x6CD5;&#x3002;</h4>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String argv[])</span> </span>{
+        ZygoteServer zygoteServer = <span class="hljs-keyword">null</span>;
+
+        <span class="hljs-comment">// Mark zygote start. This ensures that thread creation will throw</span>
+        <span class="hljs-comment">// an error.  &#x6807;&#x8BB0;zygote&#x5F00;&#x59CB;&#x542F;&#x52A8;&#xFF0C;&#x4E0D;&#x8BA9;&#x521B;&#x5EFA;&#x7EBF;&#x7A0B;</span>
+        ZygoteHooks.startZygoteNoThreadCreation();
+
+        <span class="hljs-comment">// Zygote goes into its own process group. zygote&#x8FDB;&#x5165;&#x81EA;&#x5DF1;&#x7684;&#x8FDB;&#x7A0B;&#x7EC4;</span>
+        <span class="hljs-keyword">try</span> {
+            Os.setpgid(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+        } <span class="hljs-keyword">catch</span> (ErrnoException ex) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">&quot;Failed to setpgid(0,0)&quot;</span>, ex);
+        }
+
+        Runnable caller;
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-comment">// Report Zygote start time to tron unless it is a runtime restart &#x5411;tron&#x62A5;&#x544A;Zygote&#x542F;&#x52A8;&#x65F6;&#x95F4;&#xFF0C;&#x9664;&#x975E;&#x5B83;&#x662F;&#x8FD0;&#x884C;&#x65F6;&#x91CD;&#x65B0;&#x542F;&#x52A8;</span>
+            <span class="hljs-keyword">if</span> (!<span class="hljs-string">&quot;1&quot;</span>.equals(SystemProperties.get(<span class="hljs-string">&quot;sys.boot_completed&quot;</span>))) {
+                MetricsLogger.histogram(<span class="hljs-keyword">null</span>, <span class="hljs-string">&quot;boot_zygote_init&quot;</span>,
+                        (<span class="hljs-keyword">int</span>) SystemClock.elapsedRealtime());
+            }
+
+            String bootTimeTag = Process.is64Bit() ? <span class="hljs-string">&quot;Zygote64Timing&quot;</span> : <span class="hljs-string">&quot;Zygote32Timing&quot;</span>;
+            TimingsTraceLog bootTimingsTraceLog = <span class="hljs-keyword">new</span> TimingsTraceLog(bootTimeTag,
+                    Trace.TRACE_TAG_DALVIK);
+            bootTimingsTraceLog.traceBegin(<span class="hljs-string">&quot;ZygoteInit&quot;</span>);
+            RuntimeInit.preForkInit();<span class="hljs-comment">//fork &#x9884;&#x5907;&#x5DE5;&#x4F5C;&#xFF1F;</span>
+
+            <span class="hljs-keyword">boolean</span> startSystemServer = <span class="hljs-keyword">false</span>;
+            String zygoteSocketName = <span class="hljs-string">&quot;zygote&quot;</span>;
+            String abiList = <span class="hljs-keyword">null</span>;
+            <span class="hljs-keyword">boolean</span> enableLazyPreload = <span class="hljs-keyword">false</span>;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; argv.length; i++) {
+                <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;start-system-server&quot;</span>.equals(argv[i])) {
+                    startSystemServer = <span class="hljs-keyword">true</span>;<span class="hljs-comment">//&#x4F1A;&#x8D70;&#x8FD9;&#x91CC;</span>
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;--enable-lazy-preload&quot;</span>.equals(argv[i])) {
+                    enableLazyPreload = <span class="hljs-keyword">true</span>; <span class="hljs-comment">// &#x597D;&#x50CF;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;</span>
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (argv[i].startsWith(ABI_LIST_ARG)) {<span class="hljs-comment">//&#x6709;&#x8FD9;&#x4E2A;</span>
+                    abiList = argv[i].substring(ABI_LIST_ARG.length());
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (argv[i].startsWith(SOCKET_NAME_ARG)) {<span class="hljs-comment">//&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;</span>
+                    zygoteSocketName = argv[i].substring(SOCKET_NAME_ARG.length());
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">&quot;Unknown command line argument: &quot;</span> + argv[i]);
+                }
+            }
+
+            <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> isPrimaryZygote = zygoteSocketName.equals(Zygote.PRIMARY_SOCKET_NAME); <span class="hljs-comment">//true</span>
+
+            <span class="hljs-keyword">if</span> (abiList == <span class="hljs-keyword">null</span>) {<span class="hljs-comment">//&#x4E0D;&#x4E3A;&#x7A7A;</span>
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">&quot;No ABI list supplied.&quot;</span>);
+            }
+
+            <span class="hljs-comment">// In some configurations, we avoid preloading resources and classes eagerly.&#x5728;&#x67D0;&#x4E9B;&#x914D;&#x7F6E;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x907F;&#x514D;&#x6025;&#x4E8E;&#x9884;&#x52A0;&#x8F7D;&#x8D44;&#x6E90;&#x548C;&#x7C7B;&#x3002;</span>
+            <span class="hljs-comment">// In such cases, we will preload things prior to our first fork.&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x5206;&#x53C9;&#x4E4B;&#x524D;&#x9884;&#x88C5;&#x4E1C;&#x897F;&#x3002;</span>
+            <span class="hljs-keyword">if</span> (!enableLazyPreload) {<span class="hljs-comment">//&#x4F1A;&#x8D70;&#x8FD9;&#x91CC;&#xFF0C;&#x597D;&#x50CF;&#x662F;&#x9884;&#x52A0;&#x8F7D;&#x4E00;&#x4E9B;&#x4E1C;&#x897F;&#x3002;&#x770B;&#x4E0B;&#x9762;&#x7684;&#x53D8;&#x91CF;&#x540D;&#xFF0C;&#x662F;&#x8DDF;log&#x6709;&#x5173;&#xFF1F;</span>
+                bootTimingsTraceLog.traceBegin(<span class="hljs-string">&quot;ZygotePreload&quot;</span>);
+                EventLog.writeEvent(LOG_BOOT_PROGRESS_PRELOAD_START,
+                        SystemClock.uptimeMillis());
+                preload(bootTimingsTraceLog);
+                EventLog.writeEvent(LOG_BOOT_PROGRESS_PRELOAD_END,
+                        SystemClock.uptimeMillis());
+                bootTimingsTraceLog.traceEnd(); <span class="hljs-comment">// ZygotePreload</span>
+            }
+
+            <span class="hljs-comment">// Do an initial gc to clean up after startup  &#x542F;&#x52A8;&#x540E;&#x8FDB;&#x884C;&#x521D;&#x59CB;gc&#x6E05;&#x7406;</span>
+            bootTimingsTraceLog.traceBegin(<span class="hljs-string">&quot;PostZygoteInitGC&quot;</span>);
+            gcAndFinalize();<span class="hljs-comment">//&#x5F00;&#x59CB;&#x4E4B;&#x524D;&#x5148;&#x6E05;&#x7406;&#x4E00;&#x4E0B;&#xFF1F;</span>
+            bootTimingsTraceLog.traceEnd(); <span class="hljs-comment">// PostZygoteInitGC</span>
+
+            bootTimingsTraceLog.traceEnd(); <span class="hljs-comment">// ZygoteInit</span>
+            <span class="hljs-comment">/*
+            * &#x8C03;&#x7528;native&#x65B9;&#x6CD5;&#x521D;&#x59CB;&#x5316;zygote&#xFF0C;&#x5305;&#x62EC; &#x83B7;&#x53D6;socket &#xFF0C;&#x521D;&#x59CB;&#x5316;&#x5B89;&#x5168;&#x5C5E;&#x6027; &#x52A0;&#x8F7D;&#x65B0;&#x80FD;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7B49;&#x7B49;
+            */</span>
+            Zygote.initNativeState(isPrimaryZygote);<span class="hljs-comment">//isPrimaryZygote = true   </span>
+
+            ZygoteHooks.stopZygoteNoThreadCreation();<span class="hljs-comment">//&#x8DDF;&#x524D;&#x9762;&#x7684;startZygoteNoThreadCreation&#x5BF9;&#x5E94;&#xFF0C;&#x5230;&#x8FD9;&#x5E94;&#x8BE5;zygote&#x521B;&#x5EFA;&#x51FA;&#x6765;&#x4E86;&#xFF0C;&#x53EF;&#x4EE5;&#x5141;&#x8BB8;&#x521B;&#x5EFA;&#x7EBF;&#x7A0B;&#x4E86;</span>
+
+            zygoteServer = <span class="hljs-keyword">new</span> ZygoteServer(isPrimaryZygote);<span class="hljs-comment">//&#x521B;&#x5EFA;&#x4E00;&#x4E2A;ZygoteServer&#x5BF9;&#x8C61;&#xFF0C;isPrimaryZygote &#x7528;&#x6765;&#x533A;&#x5206;&#x662F;zygote&#x8FD8;&#x662F;zygote&#x7684;&#x5B50;&#x8FDB;&#x7A0B;</span>
+
+            <span class="hljs-keyword">if</span> (startSystemServer) {<span class="hljs-comment">//&#x8FD9;&#x91CC;&#x662F;true</span>
+                <span class="hljs-comment">//&#x5B75;&#x5316;&#x51FA; system server&#x8FDB;&#x7A0B;</span>
+                Runnable r = forkSystemServer(abiList, zygoteSocketName, zygoteServer);
+                <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x8FB9;&#x6709;&#x610F;&#x601D;&#x7684;&#x662F; &#x8C03;&#x7528;&#x4E0A;&#x9762;&#x7684;forkSystemServer &#x8FDB;&#x884C;&#x5B75;&#x5316; system server&#x8FDB;&#x7A0B;&#x7684;&#x65F6;&#x5019;&#xFF0C;fork&#x51FA;&#x7684;&#x8FDB;&#x7A0B;&#xFF08;&#x65B0;&#x8FDB;&#x7A0B;&#x662F;&#xFF1A;system server&#xFF09;&#xFF0C;&#x7A0B;&#x5E8F;&#x4E5F;&#x662F;&#x8FD0;&#x884C;&#x5230;&#x8FD9;&#x91CC;&#xFF0C;&#x76F8;&#x5F53;&#x4E0E;&#x590D;&#x5236;&#x4E00;&#x6837;&#x3002;&#x4E24;&#x4E2A;&#x8FDB;&#x7A0B;&#x90FD;&#x8FD0;&#x884C;&#x7740;&#x540C;&#x4E00;&#x5957;&#x4EE3;&#x7801;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E24;&#x4E2A;&#x8FDB;&#x7A0B;&#x4F1A;&#x5728;forkSystemServer&#x65B9;&#x6CD5;&#x5F97;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x4E0B;&#x9762;&#x5F00;&#x59CB;&#x5206;&#x9053;&#x626C;&#x9573;&#xFF0C;&#x8D70;&#x5404;&#x81EA;&#x7684;&#x8DEF;&#x3002;</span>
+                <span class="hljs-comment">// {@code r == null} in the parent (zygote) process, and {@code r != null} in the</span>
+                <span class="hljs-comment">// child (system_server) process. </span>
+                <span class="hljs-comment">/*
+                * &#x5982;&#x679C;&#x662F;&#x7236;&#x8FDB;&#x7A0B;&#xFF08;&#x5373;&#xFF1A;zygote&#x8FDB;&#x7A0B;&#xFF09;&#xFF0C;r&#x662F;null
+                * &#x5982;&#x679C;&#x662F;&#x5B50;&#x8FDB;&#x7A0B;&#xFF08;&#x5728;&#x8FD9;&#x91CC;&#x5C31;&#x662F;&#xFF1A;system server&#xFF09;
+                */</span>
+                <span class="hljs-keyword">if</span> (r != <span class="hljs-keyword">null</span>) {
+                    r.run(); <span class="hljs-comment">//&#x6240;&#x4EE5;zygote&#x8FDB;&#x7A0B;&#x4E0D;&#x4F1A;&#x8FDB;&#x6765;&#x8FD9;&#x91CC;&#xFF0C;&#x4F46;&#x662F;system server&#x8FDB;&#x7A0B;&#x4F1A;&#x8D70;&#x5230;&#x8FD9;&#x91CC;</span>
+                    <span class="hljs-keyword">return</span>;
+                }
+            }
+            <span class="hljs-comment">//zygote&#x8FDB;&#x7A0B;&#x4F1A;&#x8D70;&#x5230;&#x8FD9;&#x91CC;</span>
+            Log.i(TAG, <span class="hljs-string">&quot;Accepting command socket connections&quot;</span>);
+
+            <span class="hljs-comment">// The select loop returns early in the child process after a fork and</span>
+            <span class="hljs-comment">// loops forever in the zygote.</span>
+            <span class="hljs-comment">//zygote&#x8FDB;&#x7A0B;&#x5F00;&#x542F;&#x5FAA;&#x73AF; &#xFF0C;&#x7B49;&#x5F85;socket&#x8FDE;&#x63A5;&#xFF0C;&#x6709;&#x8BF7;&#x6C42;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x53BB;fork&#x65B0;&#x8FDB;&#x7A0B;</span>
+            caller = zygoteServer.runSelectLoop(abiList);<span class="hljs-comment">//&#x8FD4;&#x56DE;&#x6765;&#x7684;caller&#x662F;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;Runnable&#xFF0C;</span>
+        } <span class="hljs-keyword">catch</span> (Throwable ex) {
+            Log.e(TAG, <span class="hljs-string">&quot;System zygote died with exception&quot;</span>, ex);
+            <span class="hljs-keyword">throw</span> ex;
+        } <span class="hljs-keyword">finally</span> {
+            <span class="hljs-keyword">if</span> (zygoteServer != <span class="hljs-keyword">null</span>) {<span class="hljs-comment">//&#x65AD;&#x5F00;socket&#x8FDE;&#x63A5;</span>
+                zygoteServer.closeServerSocket();
+            }
+        }
+
+        <span class="hljs-comment">// We&apos;re in the child process and have exited the select loop. Proceed to execute the</span>
+        <span class="hljs-comment">// command.</span>
+        <span class="hljs-keyword">if</span> (caller != <span class="hljs-keyword">null</span>) {<span class="hljs-comment">//&#x975E;System server&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x8C03;&#x7528;&#xFF0C;&#x5B50;&#x8FDB;&#x7A0B;&#x5F00;&#x59CB;&#x81EA;&#x5DF1;&#x7684;&#x4EFB;&#x52A1;</span>
+            caller.run();
+        }
+    }
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x200B;        &#x5728;&#x4E0A;&#x8FF0;&#x7684;main&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x4E3B;&#x8981;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#xFF1A;</p>
+<ol>
+<li>zygote&#x8FDB;&#x7A0B;&#x521B;&#x5EFA;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E0D;&#x5141;&#x8BB8;&#x521B;&#x5EFA;&#x7EBF;&#x7A0B;</li>
+<li>RuntimeInit.preForkInit(); fork &#x9884;&#x5907;&#x5DE5;&#x4F5C;</li>
+<li>&#x53C2;&#x6570;&#x89E3;&#x6790;&#xFF0C;&#x5224;&#x65AD;&#x662F;&#x4E0D;&#x662F;zygote&#x6A21;&#x5F0F;</li>
+<li>&#x505A;&#x4E00;&#x4E9B;&#x6E05;&#x7406;&#x5DE5;&#x4F5C;</li>
+<li>Zygote.initNativeState(isPrimaryZygote)&#xFF0C;&#x8C03;&#x7528;native&#x65B9;&#x6CD5;&#xFF0C;&#x83B7;&#x53D6;socket&#x3001;&#x52A0;&#x8F7D;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7B49;</li>
+<li>&#x5F00;&#x653E;&#x521B;&#x5EFA;&#x7EBF;&#x7A0B;&#xFF0C;&#x4E0E;1&#x5BF9;&#x5E94;</li>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;ZygoteServer&#x5BF9;&#x8C61;</li>
+<li>&#x8C03;&#x7528;forkSystemServer&#xFF0C;&#x5B75;&#x5316;system server&#x8FDB;&#x7A0B;</li>
+<li><font color="red">&#x5F53;system server&#x8FDB;&#x7A0B;&#x5B75;&#x5316;&#x51FA;&#x6765;&#x4E4B;&#x540E;&#xFF0C;&#x4E24;&#x4E2A;&#x8FDB;&#x7A0B;&#x5F00;&#x59CB;&#x5206;&#x9053;&#x626C;&#x9573;</font><ol>
+<li>zygote&#x8FDB;&#x7A0B;&#xFF1A;<strong>&#x5F00;&#x542F;&#x5FAA;&#x73AF;&#xFF0C;&#x7B49;&#x5F85;socket&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x5230;&#x6765;&#xFF0C;&#x5B75;&#x5316;&#x65B0;&#x8FDB;&#x7A0B;&#x3002;&#x7136;&#x540E;&#x8C03;&#x7528;<font color="red">runSelectLoop&#x65B9;&#x6CD5;</font>&#x8FD4;&#x56DE;&#x7684;Runnable&#x5BF9;&#x8C61;&#x7684;run&#x65B9;&#x6CD5;&#xFF0C;&#x5F00;&#x59CB;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x4EFB;&#x52A1;</strong></li>
+<li>system server&#x8FDB;&#x7A0B;&#xFF1A;<strong>&#x8FD0;&#x884C;forkSystemServer&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;Runnable&#x5BF9;&#x8C61;&#x7684;run&#x65B9;&#x6CD5;&#xFF0C;&#x5F00;&#x59CB;&#x81EA;&#x5DF1;&#x7684;&#x4EFB;&#x52A1;</strong></li>
+</ol>
+</li>
+</ol>
+<p>&#x5230;&#x8FD9;&#xFF0C;Zygote&#x8FDB;&#x7A0B;&#x5C31;&#x542F;&#x52A8;&#x8D77;&#x6765;&#x4E86;&#xFF0C;&#x540C;&#x65F6;&#x5B83;&#x4E5F;&#x62C9;&#x8D77;&#x4E86;System server&#x8FDB;&#x7A0B;&#xFF0C;&#x800C;&#x81EA;&#x5DF1;&#x8FDB;&#x5165;&#x4E86;&#x5FAA;&#x73AF;&#x72B6;&#x6001;</p>
 
                                 
                                 </section>
@@ -1471,6 +1594,14 @@
 
             
                 
+                <a href="Zygote进程到System_Server进程.html" class="navigation navigation-prev " aria-label="Previous page: Zygote进程到System_Server进程">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Zygote进程中的Socket服务.html" class="navigation navigation-next " aria-label="Next page: Zygote进程中的Socket服务">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -1479,7 +1610,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"String、StringBuild、StringBuffer","level":"1.3.1.1","depth":3,"next":{"title":"静态内部类、内部类、匿名内部类","level":"1.3.1.2","depth":3,"ref":"","articles":[]},"previous":{"title":"基础部分","level":"1.3.1","depth":2,"ref":"","articles":[{"title":"String、StringBuild、StringBuffer","level":"1.3.1.1","depth":3,"path":"java/String、StringBuild、StringBuffer.md","ref":"java/String、StringBuild、StringBuffer.md","articles":[]},{"title":"静态内部类、内部类、匿名内部类","level":"1.3.1.2","depth":3,"ref":"","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/String、StringBuild、StringBuffer.md","mtime":"2020-05-16T13:34:04.408Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-22T14:22:36.415Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Zygote进程的启动-Java篇","level":"1.4.3.7","depth":3,"next":{"title":"Zygote进程中的Socket服务","level":"1.4.3.8","depth":3,"path":"advanced/Zygote进程中的Socket服务.md","ref":"advanced/Zygote进程中的Socket服务.md","articles":[]},"previous":{"title":"Zygote进程到System_Server进程","level":"1.4.3.6","depth":3,"path":"advanced/Zygote进程到System_Server进程.md","ref":"advanced/Zygote进程到System_Server进程.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"advanced/Zygote进程的启动-Java篇.md","mtime":"2020-07-15T08:20:52.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-22T14:22:36.415Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

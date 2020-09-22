@@ -1,0 +1,2013 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>init进程到Zygote进程 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="SystemServer进程创建系统上下文环境（mSystemContext）.html" />
+    
+    
+    <link rel="prev" href="Android设备启动流程.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../面试题.html">
+            
+                <a href="../面试题.html">
+            
+                    
+                    面试题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Java
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" >
+            
+                <span>
+            
+                    
+                    基础部分
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../java/String、StringBuild、StringBuffer.html">
+            
+                <a href="../java/String、StringBuild、StringBuffer.html">
+            
+                    
+                    String、StringBuild、StringBuffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" >
+            
+                <span>
+            
+                    
+                    静态内部类、内部类、匿名内部类
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    集合
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../java/HashMap.html">
+            
+                <a href="../java/HashMap.html">
+            
+                    
+                    HashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" >
+            
+                <span>
+            
+                    
+                    ConcurrentHashMap
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" >
+            
+                <span>
+            
+                    
+                    ArrayList
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" >
+            
+                <span>
+            
+                    
+                    LinkedList
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" >
+            
+                <span>
+            
+                    
+                    泛型
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" >
+            
+                <span>
+            
+                    
+                    定义
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" >
+            
+                <span>
+            
+                    
+                    使用方式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" >
+            
+                <span>
+            
+                    
+                    泛型擦除
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" >
+            
+                <span>
+            
+                    
+                    通配符
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" >
+            
+                <span>
+            
+                    
+                    反射
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" >
+            
+                <span>
+            
+                    
+                    线程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" >
+            
+                <span>
+            
+                    
+                    定义
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" >
+            
+                <span>
+            
+                    
+                    线程池
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" >
+            
+                <span>
+            
+                    
+                    线程安全
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.3.1" >
+            
+                <span>
+            
+                    
+                    synchronized
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3.2" >
+            
+                <span>
+            
+                    
+                    volatile
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" >
+            
+                <span>
+            
+                    
+                    锁优化
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" >
+            
+                <span>
+            
+                    
+                    虚拟机
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" >
+            
+                <span>
+            
+                    
+                    内存模型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" >
+            
+                <span>
+            
+                    
+                    引用类型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" >
+            
+                <span>
+            
+                    
+                    垃圾回收算法
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" >
+            
+                <span>
+            
+                    
+                    IO
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" >
+            
+                <span>
+            
+                    
+                    输入流
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" >
+            
+                <span>
+            
+                    
+                    输出流
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    Android
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" >
+            
+                <span>
+            
+                    
+                    基础部分
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" >
+            
+                <span>
+            
+                    
+                    Activity
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1.1" data-path="../basis/Activity的生命周期及启动模式.html">
+            
+                <a href="../basis/Activity的生命周期及启动模式.html">
+            
+                    
+                    Activity的生命周期及启动模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" >
+            
+                <span>
+            
+                    
+                    Service
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" >
+            
+                <span>
+            
+                    
+                    BroadcastReceiver
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" >
+            
+                <span>
+            
+                    
+                    ContentProvider
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" >
+            
+                <span>
+            
+                    
+                    View
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.6" >
+            
+                <span>
+            
+                    
+                    View的生命周期
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.7" >
+            
+                <span>
+            
+                    
+                    View的绘画机制
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.8" >
+            
+                <span>
+            
+                    
+                    View的事件分发机制
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.9" >
+            
+                <span>
+            
+                    
+                    自定义View
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.10" >
+            
+                <span>
+            
+                    
+                    随手指移动的View
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.11" >
+            
+                <span>
+            
+                    
+                    View的布局方式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.12" >
+            
+                <span>
+            
+                    
+                    ListView & RecyclerView
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.13" >
+            
+                <span>
+            
+                    
+                    动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.14" >
+            
+                <span>
+            
+                    
+                    属性动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.15" >
+            
+                <span>
+            
+                    
+                    帧动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.16" >
+            
+                <span>
+            
+                    
+                    View动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.17" >
+            
+                <span>
+            
+                    
+                    BitMap
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.18" data-path="../basis/Handler消息机制.html">
+            
+                <a href="../basis/Handler消息机制.html">
+            
+                    
+                    Handler消息机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" >
+            
+                <span>
+            
+                    
+                    进阶
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" >
+            
+                <span>
+            
+                    
+                    Context
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" >
+            
+                <span>
+            
+                    
+                    Binder机制
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.2.1" >
+            
+                <span>
+            
+                    
+                    AIDL
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" >
+            
+                <span>
+            
+                    
+                    源码
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="Activity启动流程.html">
+            
+                <a href="Activity启动流程.html">
+            
+                    
+                    Activity启动流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="Android设备启动流程.html">
+            
+                <a href="Android设备启动流程.html">
+            
+                    
+                    Activity设备启动流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.3.3" data-path="init进程到Zygote进程.html">
+            
+                <a href="init进程到Zygote进程.html">
+            
+                    
+                    init进程到Zygote进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4" data-path="SystemServer进程创建系统上下文环境（mSystemContext）.html">
+            
+                <a href="SystemServer进程创建系统上下文环境（mSystemContext）.html">
+            
+                    
+                    SystemServer进程创建系统上下文环境（mSystemContext）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.5" data-path="SystemServer进程的启动.html">
+            
+                <a href="SystemServer进程的启动.html">
+            
+                    
+                    SystemServer进程的启动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.6" data-path="Zygote进程到System_Server进程.html">
+            
+                <a href="Zygote进程到System_Server进程.html">
+            
+                    
+                    Zygote进程到System_Server进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.7" data-path="Zygote进程的启动-Java篇.html">
+            
+                <a href="Zygote进程的启动-Java篇.html">
+            
+                    
+                    Zygote进程的启动-Java篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8" data-path="Zygote进程中的Socket服务.html">
+            
+                <a href="Zygote进程中的Socket服务.html">
+            
+                    
+                    Zygote进程中的Socket服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.9" >
+            
+                <span>
+            
+                    
+                    SystemServer进程
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10" >
+            
+                <span>
+            
+                    
+                    Location
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" >
+            
+                <span>
+            
+                    
+                    第三方库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" >
+            
+                <span>
+            
+                    
+                    OkHttp
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2" >
+            
+                <span>
+            
+                    
+                    Retrofit
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.3" data-path="../third_party_libs/EventBus.html">
+            
+                <a href="../third_party_libs/EventBus.html">
+            
+                    
+                    EventBus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.4" >
+            
+                <span>
+            
+                    
+                    RxJava
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.5" >
+            
+                <span>
+            
+                    
+                    Glide
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    Python
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    Flutter
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    算法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" >
+            
+                <span>
+            
+                    
+                    排序
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1.1" >
+            
+                <span>
+            
+                    
+                    冒泡排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.2" >
+            
+                <span>
+            
+                    
+                    选择排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.3" >
+            
+                <span>
+            
+                    
+                    希尔排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.4" >
+            
+                <span>
+            
+                    
+                    插入排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.5" >
+            
+                <span>
+            
+                    
+                    快速排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.6" >
+            
+                <span>
+            
+                    
+                    归并排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.7" >
+            
+                <span>
+            
+                    
+                    堆排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" >
+            
+                <span>
+            
+                    
+                    二指针
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" >
+            
+                <span>
+            
+                    
+                    递归
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" >
+            
+                <span>
+            
+                    
+                    二分法
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    设计模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" >
+            
+                <span>
+            
+                    
+                    单例模式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" >
+            
+                <span>
+            
+                    
+                    代理模式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" >
+            
+                <span>
+            
+                    
+                    建造者模式
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >init进程到Zygote进程</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="init&#x8FDB;&#x7A0B;&#x5230;zygote&#x8FDB;&#x7A0B;"><strong>init&#x8FDB;&#x7A0B;</strong>&#x5230;Zygote&#x8FDB;&#x7A0B;</h1>
+<p>&#x200B;         init&#x8FDB;&#x7A0B;&#x5230;Zygote&#x8FDB;&#x7A0B;&#x6D41;&#x7A0B;&#x56FE;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="C:\Users\admin\Desktop\BA1216B4-DAA5-4dff-A5F5-FCC1D97CB4BB.png" alt="BA1216B4-DAA5-4dff-A5F5-FCC1D97CB4BB"></p>
+<p>&#x200B;         Android&#x542F;&#x52A8;&#x6D41;&#x7A0B;&#x4E2D;&#xFF0C;&#x5F53;&#x5185;&#x6838;&#x542F;&#x52A8;&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x4F1A;&#x542F;&#x52A8;init&#x8FDB;&#x7A0B;&#x3002;init&#x8FDB;&#x7A0B;&#x662F;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x7EA7;&#x8FDB;&#x7A0B;&#xFF0C;&#x800C;&#x4E14;&#x5B83;&#x662F;&#x7531;&#x5185;&#x6838;&#x62C9;&#x8D77;&#x7684;&#x3002;init&#x8FDB;&#x7A0B;&#x7684;&#x5165;&#x53E3;&#x5728;<strong>system/core/init/init.cpp</strong> &#x7684;main&#x65B9;&#x6CD5;&#x3002;&#x5728;Android9.0&#x6E90;&#x7801;&#x4E2D;&#xFF0C;init.cpp&#x6587;&#x4EF6;&#x6CA1;&#x6709;main&#x65B9;&#x6CD5;&#xFF0C;&#x5728;system/core/init&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;main.cpp&#x4E2D;&#x627E;&#x5230;&#x4E86;main&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span>** argv)</span> </span>{
+<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> __has_feature(address_sanitizer)</span>
+    __asan_set_error_report_callback(AsanReportCallback);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">strcmp</span>(basename(argv[<span class="hljs-number">0</span>]), <span class="hljs-string">&quot;ueventd&quot;</span>)) {
+        <span class="hljs-keyword">return</span> ueventd_main(argc, argv);
+    }
+
+    <span class="hljs-keyword">if</span> (argc &gt; <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">strcmp</span>(argv[<span class="hljs-number">1</span>], <span class="hljs-string">&quot;subcontext&quot;</span>)) {
+            android::base::InitLogging(argv, &amp;android::base::KernelLogger);
+            <span class="hljs-keyword">const</span> BuiltinFunctionMap&amp; function_map = GetBuiltinFunctionMap();
+
+            <span class="hljs-keyword">return</span> SubcontextMain(argc, argv, &amp;function_map);
+        }
+
+        <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">strcmp</span>(argv[<span class="hljs-number">1</span>], <span class="hljs-string">&quot;selinux_setup&quot;</span>)) {
+            <span class="hljs-keyword">return</span> SetupSelinux(argv);
+        }
+
+        <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">strcmp</span>(argv[<span class="hljs-number">1</span>], <span class="hljs-string">&quot;second_stage&quot;</span>)) {
+            <span class="hljs-keyword">return</span> SecondStageMain(argc, argv);
+        }
+    }
+
+    <span class="hljs-keyword">return</span> FirstStageMain(argc, argv);
+}
+</code></pre>
+<p>&#x200B;        &#x5728;main.cpp&#x6587;&#x4EF6;&#x7684;main&#x65B9;&#x6CD5;&#x4E2D;&#x6839;&#x636E;&#x6761;&#x4EF6;&#xFF0C;&#x8C03;&#x7528;&#x4E86;init.h&#x58F0;&#x660E;&#x7684;<strong>SecondStageMain</strong>&#x65B9;&#x6CD5;&#xFF0C;<font color="red">&#x5C1A;&#x4E0D;&#x6E05;&#x695A;&#x6761;&#x4EF6;&#x662F;&#x4EC0;&#x4E48;</font>&#xFF0C;&#x4E0D;&#x8FC7;&#x6700;&#x7EC8;&#x4F1A;&#x8D70;&#x5230;init.cpp&#x6587;&#x4EF6;&#x4E2D;&#x7684;<strong>SecondStageMain</strong>&#x65B9;&#x6CD5;&#x3002;<font color="red">&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x8D70;&#x5230;&#x8FD9;&#x91CC;&#xFF1F;&#x56E0;&#x4E3A;&#x4E0D;&#x8D70;&#x5230;&#x8FD9;&#x91CC;&#x8BF4;&#x4E0D;&#x901A;&#x554A;&#xFF0C;&#x54C8;&#x54C8;&#x54C8;&#x54C8;</font></p>
+<p>&#x200B;        &#x5728;init.cpp&#x6587;&#x4EF6;&#x7684;<strong>SecondStageMain</strong>&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x8C03;&#x7528;<strong>LoadBootScripts</strong>&#x65B9;&#x6CD5;&#xFF0C;&#x8BFB;&#x53D6;&#x89E3;&#x6790;init.rc&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">LoadBootScripts</span><span class="hljs-params">(ActionManager&amp; action_manager, ServiceList&amp; service_list)</span> </span>{
+    Parser parser = CreateParser(action_manager, service_list);
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> bootscript = GetProperty(<span class="hljs-string">&quot;ro.boot.init_rc&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
+    <span class="hljs-keyword">if</span> (bootscript.empty()) {
+        parser.ParseConfig(<span class="hljs-string">&quot;/system/etc/init/hw/init.rc&quot;</span>);
+        <span class="hljs-keyword">if</span> (!parser.ParseConfig(<span class="hljs-string">&quot;/system/etc/init&quot;</span>)) {
+            late_import_paths.emplace_back(<span class="hljs-string">&quot;/system/etc/init&quot;</span>);
+        }
+        <span class="hljs-comment">// late_import is available only in Q and earlier release. As we don&apos;t</span>
+        <span class="hljs-comment">// have system_ext in those versions, skip late_import for system_ext.</span>
+        <span class="hljs-comment">//&#x4ECE;&#x4E0A;&#x9762;&#x65E5;&#x5FD7;&#x770B;&#xFF0C;&#x5E94;&#x8BE5;&#x4F1A;&#x8D70;&#x8FD9;&#x91CC;&#xFF0C;bootscript&#x9ED8;&#x8BA4;&#x5E94;&#x8BE5;&#x662F;&#x7A7A;&#x7684;</span>
+        parser.ParseConfig(<span class="hljs-string">&quot;/system_ext/etc/init&quot;</span>);
+        <span class="hljs-keyword">if</span> (!parser.ParseConfig(<span class="hljs-string">&quot;/product/etc/init&quot;</span>)) {
+            late_import_paths.emplace_back(<span class="hljs-string">&quot;/product/etc/init&quot;</span>);
+        }
+        <span class="hljs-keyword">if</span> (!parser.ParseConfig(<span class="hljs-string">&quot;/odm/etc/init&quot;</span>)) {
+            late_import_paths.emplace_back(<span class="hljs-string">&quot;/odm/etc/init&quot;</span>);
+        }
+        <span class="hljs-keyword">if</span> (!parser.ParseConfig(<span class="hljs-string">&quot;/vendor/etc/init&quot;</span>)) {
+            late_import_paths.emplace_back(<span class="hljs-string">&quot;/vendor/etc/init&quot;</span>);
+        }
+    } <span class="hljs-keyword">else</span> {
+        parser.ParseConfig(bootscript);
+    }
+}
+</code></pre>
+<p>&#x200B;        &#x4ECE;&#x6E90;&#x7801;log&#x770B;&#xFF0C;bootscript&#x9ED8;&#x8BA4;&#x662F;&#x7A7A;&#x7684;&#xFF0C;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5E94;&#x8BE5;&#x662F;&#x521D;&#x59CB;&#x5316;&#x5404;&#x4E2A;&#x6587;&#x4EF6;&#x5939;</p>
+<p>&#x200B;        &#x56DE;&#x5230;init.rc&#x7684;<strong>SecondStageMain</strong>&#x65B9;&#x6CD5;&#xFF0C;&#x7EE7;&#x7EED;&#x5F80;ActionManager&#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x4FE1;&#x606F;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-comment">// Run all property triggers based on current state of the properties.</span>
+am.QueueBuiltinAction(queue_property_triggers_action, <span class="hljs-string">&quot;queue_property_triggers&quot;</span>);
+</code></pre>
+<p>&#x200B;        &#x4E0A;&#x9762;&#x8FD9;&#x53E5;&#xFF0C;&#x8FD0;&#x884C;&#x6240;&#x6709;&#x7684;&#x89E6;&#x53D1;&#x5668;&#xFF08;trigger&#xFF09;&#x3002;</p>
+<h4 id="initrc">init.rc</h4>
+<pre><code>import /system/etc/init/hw/init.${ro.zygote}.rc
+
+on late-init
+    trigger zygote-start
+
+on zygote-start &amp;&amp; property:persist.sys.fuse=true
+  # Mount default storage into root namespace
+  mount none /mnt/user/0 /storage bind rec
+  mount none none /storage slave rec
+on zygote-start &amp;&amp; property:persist.sys.fuse=false
+  # Mount default storage into root namespace
+  mount none /mnt/runtime/default /storage bind rec
+  mount none none /storage slave rec
+on zygote-start &amp;&amp; property:persist.sys.fuse=&quot;&quot;
+  # Mount default storage into root namespace
+  mount none /mnt/runtime/default /storage bind rec
+  mount none none /storage slave rec
+##############
+on zygote-start &amp;&amp; property:ro.crypto.state=unencrypted
+    # A/B update verifier that marks a successful boot.
+    exec_start update_verifier_nonencrypted
+    start netd
+    start zygote
+    start zygote_secondary
+
+on zygote-start &amp;&amp; property:ro.crypto.state=unsupported
+    # A/B update verifier that marks a successful boot.
+    exec_start update_verifier_nonencrypted
+    start netd
+    start zygote
+    start zygote_secondary
+
+on zygote-start &amp;&amp; property:ro.crypto.state=encrypted &amp;&amp; property:ro.crypto.type=file
+    # A/B update verifier that marks a successful boot.
+    exec_start update_verifier_nonencrypted
+    start netd
+    start zygote
+    start zygote_secondary
+##############
+on property:vold.decrypt=trigger_post_fs_data
+    trigger post-fs-data
+    trigger zygote-start
+##############
+on userspace-reboot-resume
+  trigger userspace-reboot-fs-remount
+  trigger post-fs-data
+  trigger zygote-start
+  trigger early-boot
+  trigger boot
+</code></pre><p>&#x200B;        init.rc&#x6587;&#x4EF6;&#x4E2D;&#x5173;&#x4E8E;zygote&#x7684;&#x8FDB;&#x7A0B;&#x90FD;&#x5728;&#x4E0A;&#x9762;&#x4E86;&#xFF0C;<strong>import /system/etc/init/hw/init.${ro.zygote}.rc</strong>&#xFF0C;&#x6839;&#x636E;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x7684;&#x7248;&#x672C;import&#x5BF9;&#x5E94;&#x7684;init.zygoteXX.rc&#x6587;&#x4EF6;&#x3002;&#x63A5;&#x7740;&#xFF0C;&#x597D;&#x591A;&#x4E2A;<strong>start zygote</strong>&#xFF0C;&#x6CA1;&#x770B;&#x61C2;&#x5230;&#x5E95;&#x662F;&#x54EA;&#x4E2A;&#x5728;&#x6267;&#x884C;&#xFF0C;&#x4E0D;&#x8FC7;&#x6700;&#x7EC8;&#x6267;&#x884C;import&#x8FDB;&#x6765;&#x7684;init.zygoteXX.rc&#x6587;&#x4EF6;&#x3002;&#x4E0B;&#x9762;&#x662F;64&#x4F4D;&#x7684;&#xFF1A;</p>
+<h4 id="initzygote64rc&#xFF1A;">init.zygote64.rc&#xFF1A;</h4>
+<pre><code>service zygote /system/bin/app_process64 -Xzygote /system/bin --zygote --start-system-server
+    class main
+    priority -20
+    user root
+    group root readproc reserved_disk
+    socket zygote stream 660 root system
+    socket usap_pool_primary stream 660 root system
+    onrestart write /sys/power/state on
+    onrestart restart audioserver
+    onrestart restart cameraserver
+    onrestart restart media
+    onrestart restart netd
+    onrestart restart wificond
+    writepid /dev/cpuset/foreground/tasks
+</code></pre><p>&#x200B;      <strong>service</strong>&#x5173;&#x952E;&#x5B57;&#x8868;&#x793A;&#x8FD9;&#x662F;&#x8981;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#xFF0C;<strong>zygote</strong>&#x662F;&#x670D;&#x52A1;&#x7684;&#x540D;&#x5B57;&#xFF08;&#x8FD9;&#x91CC;&#x7684;&#x670D;&#x52A1;&#x662F;init&#x8FDB;&#x7A0B;&#x5185;&#x90E8;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x8DDF;Android&#x7684;&#x670D;&#x52A1;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#xFF09;&#x3002;</p>
+<p>&#x200B;     <strong>/system/bin/app_process64</strong>&#xFF1A;&#x6307;&#x660E;zygote&#x670D;&#x52A1;&#x5BF9;&#x5E94;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#x3002;init&#x8FDB;&#x7A0B;&#x4F1A;fork&#x4E00;&#x4E2A;&#x5B50;&#x8FDB;&#x7A0B;&#x6765;&#x8FD0;&#x884C;&#x6307;&#x5B9A;&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x8FD9;&#x4E2A;&#x7A0B;&#x5E8F;&#x5C31;&#x662F;&#xFF1A;frameworks/base/cmds/app_process/app_main.cpp&#x3002;</p>
+<p>&#x200B;    <strong>-Xzygote /system/bin --zygote --start-system-server</strong>&#xFF1A;&#x542F;&#x52A8;zygote&#x7684;&#x65F6;&#x5019;&#x4F20;&#x9012;&#x7ED9;frameworks/base/cmds/app_process/app_main.cpp&#x7684;&#x53C2;&#x6570;</p>
+<h4 id="frameworksbasecmdsappprocessappmaincpp">frameworks/base/cmds/app_process/app_main.cpp</h4>
+<pre><code class="lang-c++">int main(int argc, char* const argv[])
+{
+    //....
+    //1&#x3001;AppRuntime&#x662F;&#x5185;&#x90E8;&#x7C7B;
+    AppRuntime runtime(argv[0], computeArgBlockSize(argc, argv));
+    // Process command line arguments 2&#x3001;&#x8FDB;&#x7A0B;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;
+    // ignore argv[0]   3&#x3001;&#x5FFD;&#x7565;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x597D;&#x50CF;&#x662F;-Xzygote
+    argc--;
+    argv++;
+
+    // Everything up to &apos;--&apos; or first non &apos;-&apos; arg goes to the vm. 
+    //
+    // The first argument after the VM args is the &quot;parent dir&quot;, which
+    // is currently unused.
+    //
+    // After the parent dir, we expect one or more the following internal
+    // arguments :
+    //
+    // --zygote : Start in zygote mode    &#x542F;&#x52A8;zygote&#x6A21;&#x5F0F;
+    // --start-system-server : Start the system server. //&#x542F;&#x52A8;system server
+    // --application : Start in application (stand alone, non zygote) mode.application&#x6A21;       // &#x5F0F;&#xFF0C;&#x8DDF;zygote&#x6A21;&#x5F0F;&#x4E92;&#x65A5;
+    // --nice-name : The nice name for this process.
+    //
+    // For non zygote starts, these arguments will be followed by
+    // the main class name. All remaining arguments are passed to
+    // the main method of this class.  
+    // &#x5BF9;&#x4E8E;&#x975E;zygote&#x6A21;&#x5F0F;&#x542F;&#x52A8;&#xFF0C;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#x5C06;&#x540E;&#x8DDF;&#x4E3B;&#x7C7B;&#x540D;&#x79F0;&#x3002; &#x6240;&#x6709;&#x5176;&#x4F59;&#x7684;&#x53C2;&#x6570;&#x90FD;&#x4F20;&#x9012;&#x7ED9;&#x6B64;&#x7C7B;&#x7684;main&#x65B9;&#x6CD5;&#x3002;
+    //
+    // For zygote starts, all remaining arguments are passed to the zygote.
+    // main function.
+    // &#x5BF9;&#x4E8E;zygote&#x6A21;&#x5F0F;&#x542F;&#x52A8;&#xFF0C;&#x6240;&#x6709;&#x5269;&#x4F59;&#x7684;&#x53C2;&#x6570;&#x90FD;&#x4F20;&#x9012;&#x7ED9;zygote&#x3002;&#x5373;main&#x65B9;&#x6CD5;
+    // Note that we must copy argument string values since we will rewrite the
+    // entire argument block when we apply the nice name to argv0.
+    // &#x6CE8;&#x610F;&#xFF0C;&#x6211;&#x4EEC;&#x5FC5;&#x987B;&#x590D;&#x5236;&#x53C2;&#x6570;&#x5B57;&#x7B26;&#x4E32;&#x503C;&#xFF0C;&#x56E0;&#x4E3A;&#x5F53;&#x6211;&#x4EEC;&#x5C06;nice name &#x5E94;&#x7528;&#x4E8E;argv0&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x91CD;&#x5199;&#x6574;&#x4E2A;&#x53C2;&#x6570;&#x5757;&#x3002;
+    // As an exception to the above rule, anything in &quot;spaced commands&quot;
+    // goes to the vm even though it has a space in it.
+    // &#x4F5C;&#x4E3A;&#x4E0A;&#x8FF0;&#x89C4;&#x5219;&#x7684;&#x4F8B;&#x5916;&#xFF0C;&#x201C;spaced commands&#x201D;&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x5185;&#x5BB9;&#x90FD;&#x5C06;&#x9001;&#x81F3;vm&#xFF0C;&#x5373;&#x4F7F;&#x5176;&#x4E2D;&#x6709;&#x7A7A;&#x683C;&#x4E5F;&#x662F;&#x5982;&#x6B64;&#x3002;
+//**************&#x4E0B;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x6CA1;&#x770B;&#x61C2;*************************
+    const char* spaced_commands[] = { &quot;-cp&quot;, &quot;-classpath&quot; };
+    // Allow &quot;spaced commands&quot; to be succeeded by exactly 1 argument (regardless of -s).
+    // &#x5141;&#x8BB8;&#x201C;spaced commands&#x201D;&#x540E;&#x63A5;&#x6B63;&#x597D;1&#x4E2A;&#x53C2;&#x6570;&#xFF08;&#x65E0;&#x8BBA;-s&#x5982;&#x4F55;&#xFF09;&#x3002;
+    bool known_command = false;
+
+    int i;
+    for (i = 0; i &lt; argc; i++) {
+        if (known_command == true) {
+          runtime.addOption(strdup(argv[i]));
+          // The static analyzer gets upset that we don&apos;t ever free the above
+          // string. Since the allocation is from main, leaking it doesn&apos;t seem
+          // problematic. NOLINTNEXTLINE
+          ALOGV(&quot;app_process main add known option &apos;%s&apos;&quot;, argv[i]);
+          known_command = false;
+          continue;
+        }
+
+        for (int j = 0;
+             j &lt; static_cast&lt;int&gt;(sizeof(spaced_commands) / sizeof(spaced_commands[0]));
+             ++j) {
+          if (strcmp(argv[i], spaced_commands[j]) == 0) {
+            known_command = true;
+            ALOGV(&quot;app_process main found known command &apos;%s&apos;&quot;, argv[i]);
+          }
+        }
+
+        if (argv[i][0] != &apos;-&apos;) {//&#x5982;&#x679C;&#x53C2;&#x6570;&#x4E0D;&#x662F; &#x4EE5;&#x201C;-&#x201D; &#x5F00;&#x5934;&#x5C31;&#x9000;&#x51FA;&#xFF1F;
+            break;
+        }
+        if (argv[i][1] == &apos;-&apos; &amp;&amp; argv[i][2] == 0) {//--&#xFF08;&#x54EA;&#x4E2A;&#x5B57;&#x7B26;&#x5BF9;&#x5E94;0&#xFF1F;&#xFF09;,&#x5982;&#x679C;&#x662F;&#x8FD9;&#x79CD;&#x683C;&#x5F0F;&#x5C31;&#x9000;&#x51FA;&#xFF1F; 
+            ++i; // Skip --.
+            break;
+        }
+
+        runtime.addOption(strdup(argv[i]));
+        // The static analyzer gets upset that we don&apos;t ever free the above
+        // string. Since the allocation is from main, leaking it doesn&apos;t seem
+        // problematic. NOLINTNEXTLINE
+        ALOGV(&quot;app_process main add option &apos;%s&apos;&quot;, argv[i]);
+    }
+//**************&#x4E0A;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x6CA1;&#x592A;&#x770B;&#x61C2;*************************
+
+//&#x4F20;&#x8FDB;&#x6765;&#x7684;&#x53C2;&#x6570; &#xFF1A; -Xzygote /system/bin --zygote --start-system-server &#xFF0C;&#x540E;&#x9762;&#x7684;&#x4E0D;&#x77E5;&#x9053;&#x4F20;&#x6CA1;&#x4F20;
+// &#x6839;&#x636E;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x597D;&#x50CF;&#x5728;&#x9047;&#x5230;  /system/bin &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x56E0;&#x4E3A;&#x4E0D;&#x662F;&#x4EE5;&#x201C;-&#x201D;&#x5F00;&#x5934;&#xFF0C;&#x6240;&#x4EE5;&#x76F4;&#x63A5;&#x9000;&#x51FA;&#x5FAA;&#x73AF;&#x4E86;
+
+    // Parse runtime arguments.  Stop at first unrecognized option. 
+    // &#x89E3;&#x6790;&#x8FD0;&#x884C;&#x65F6;&#x53C2;&#x6570;&#x3002; &#x505C;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x65E0;&#x6CD5;&#x8BC6;&#x522B;&#x7684;&#x9009;&#x9879;&#x3002;
+    bool zygote = false;
+    bool startSystemServer = false;
+    bool application = false;
+    String8 niceName;
+    String8 className;
+//&#x6839;&#x636E;&#x524D;&#x9762;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x5230;&#x8FD9;&#x91CC; i &#x6307;&#x5411;&#x7684;argv&#x7684;&#x5185;&#x5BB9;&#x662F; /system/bin
+    ++i;  // Skip unused &quot;parent dir&quot; argument. &#x8DF3;&#x8FC7;&#x672A;&#x4F7F;&#x7528;&#x7684;&#x201C;&#x7236;&#x76EE;&#x5F55;&#x201D;&#x53C2;&#x6570;&#x3002;
+// &#x9012;&#x589E;&#x4E00;&#x4E2A;&#x4E4B;&#x540E;&#xFF0C; i &#x6307;&#x5411;&#x7684;argv&#x5185;&#x5BB9;&#x5C31;&#x662F; --zygote
+// &#x6240;&#x4EE5;&#x4E0B;&#x9762;&#x7684;&#x5FAA;&#x73AF;&#x662F;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x7684;
+    while (i &lt; argc) {
+        const char* arg = argv[i++];
+        if (strcmp(arg, &quot;--zygote&quot;) == 0) {
+            //&#x7B2C;&#x4E00;&#x6B21;&#x4F1A;&#x8D70;&#x5230;&#x8FD9;&#x91CC;
+            zygote = true;
+            //static const char ZYGOTE_NICE_NAME[] = &quot;zygote64&quot;;
+            niceName = ZYGOTE_NICE_NAME; 
+        } else if (strcmp(arg, &quot;--start-system-server&quot;) == 0) {
+            //&#x7B2C;&#x4E8C;&#x6B21;&#x5FAA;&#x73AF;&#x8D70;&#x8FD9;&#x91CC;
+            startSystemServer = true;
+        } else if (strcmp(arg, &quot;--application&quot;) == 0) {
+            application = true;
+        } else if (strncmp(arg, &quot;--nice-name=&quot;, 12) == 0) {
+            niceName.setTo(arg + 12);
+        } else if (strncmp(arg, &quot;--&quot;, 2) != 0) {
+            className.setTo(arg);
+            break;
+        } else {
+            --i;
+            break;
+        }
+    }
+//&#x4E0A;&#x9762;&#x7684;&#x5FAA;&#x73AF;&#x53EA;&#x8D70;&#x4E24;&#x6B21;&#xFF0C;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x4E0D;&#x7B26;&#x5408;&#x4E86;  &#x6700;&#x7EC8;&#xFF1A;  zygote = true; niceName = ZYGOTE_NICE_NAME; 
+// startSystemServer = true;
+
+    Vector&lt;String8&gt; args;
+    //className &#x6CA1;&#x8D4B;&#x503C; &#x8D70;else
+    if (!className.isEmpty()) {
+        // We&apos;re not in zygote mode, the only argument we need to pass
+        // to RuntimeInit is the application argument.
+        //
+        // The Remainder of args get passed to startup class main(). Make
+        // copies of them before we overwrite them with the process name.
+        args.add(application ? String8(&quot;application&quot;) : String8(&quot;tool&quot;));
+        runtime.setClassNameAndArgs(className, argc - i, argv + i);
+
+        if (!LOG_NDEBUG) {
+          String8 restOfArgs;
+          char* const* argv_new = argv + i;
+          int argc_new = argc - i;
+          for (int k = 0; k &lt; argc_new; ++k) {
+            restOfArgs.append(&quot;\&quot;&quot;);
+            restOfArgs.append(argv_new[k]);
+            restOfArgs.append(&quot;\&quot; &quot;);
+          }
+          ALOGV(&quot;Class name = %s, args = %s&quot;, className.string(), restOfArgs.string());
+        }
+    } else { 
+        // We&apos;re in zygote mode. zygote&#x6A21;&#x5F0F;
+        maybeCreateDalvikCache(); //&#x521B;&#x5EFA;&#x865A;&#x62DF;&#x673A;&#x7F13;&#x5B58;&#xFF1F;
+
+        if (startSystemServer) {//&#x6DFB;&#x52A0;&#x542F;&#x52A8;system server&#x5230;&#x53C2;&#x6570;
+            args.add(String8(&quot;start-system-server&quot;));
+        }
+        //****** &#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x6CA1;&#x770B;&#x61C2;&#x3002;&#x3002;&#x3002;&#x3002;&#x5E94;&#x8BE5;&#x6CA1;&#x8D70;&#x4E0B;&#x9762;&#x4EE3;&#x7801;
+        char prop[PROP_VALUE_MAX];
+        if (property_get(ABI_LIST_PROPERTY, prop, NULL) == 0) {
+            LOG_ALWAYS_FATAL(&quot;app_process: Unable to determine ABI list from property %s.&quot;,
+                ABI_LIST_PROPERTY);
+            return 11;
+        }
+
+        String8 abiFlag(&quot;--abi-list=&quot;);
+        abiFlag.append(prop);
+        args.add(abiFlag);
+
+        // In zygote mode, pass all remaining arguments to the zygote
+        // main() method.  &#x5728;zygote&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x5C06;&#x6240;&#x6709;&#x5269;&#x4F59;&#x7684;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;main&#xFF08;&#xFF09;&#x65B9;&#x6CD5;&#x3002;
+        for (; i &lt; argc; ++i) {//&#x628A;&#x5269;&#x4F59;&#x7684;&#x53C2;&#x6570;&#x653E;&#x5230;args&#x91CC;&#x9762;
+            args.add(String8(argv[i]));
+        }
+    }
+
+    if (!niceName.isEmpty()) {
+        //&#x786E;&#x5B9E;&#x4E0D;&#x4E3A;&#x7A7A;&#xFF0C;&#x8BBE;&#x7F6E;&#x8FDB;&#x7A0B;&#x540D;&#x5B57; zygote64 
+        //&#x4F7F;&#x7528; adb shell ps &#x547D;&#x4EE4;&#x67E5;&#x770B;&#xFF0C;&#x786E;&#x5B9E;&#x6709;&#x540D;&#x4E3A;zygote64&#x7684;&#x8FDB;&#x7A0B;
+        runtime.setArgv0(niceName.string(), true /* setProcName */);
+    }
+
+    if (zygote) {
+        //&#x542F;&#x52A8;zygote &#x7136;&#x540E;&#x8F6C;&#x5230;Java&#x4E16;&#x754C;
+        runtime.start(&quot;com.android.internal.os.ZygoteInit&quot;, args, zygote);
+    } else if (className) {
+        runtime.start(&quot;com.android.internal.os.RuntimeInit&quot;, args, zygote);
+    } else {
+        fprintf(stderr, &quot;Error: no class name or --zygote supplied.\n&quot;);
+        app_usage();
+        LOG_ALWAYS_FATAL(&quot;app_process: no class name or --zygote supplied.&quot;);
+    }
+}
+</code></pre>
+<p>   &#x4E0A;&#x9762;&#x662F;&#x5BF9;<strong>app_main.cpp</strong>&#x6587;&#x4EF6;&#x7684;main&#x65B9;&#x6CD5;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x57FA;&#x672C;&#x4E0A;&#x6BCF;&#x4E00;&#x6B65;&#x90FD;&#x6709;&#x6CE8;&#x91CA;&#x3002;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x529F;&#x80FD;&#x4E3B;&#x8981;&#x662F;&#x5BF9;&#x542F;&#x52A8;zygote&#x8FDB;&#x7A0B;&#x4F20;&#x9012;&#x8FDB;&#x6765;&#x7684;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;</p>
+<h4 id="appruntime">AppRuntime</h4>
+<p>AppRuntime&#x662F;app_miain.cpp&#x91CC;&#x9762;&#x7684;&#x5185;&#x90E8;&#x7C7B;&#xFF0C;&#x7EE7;&#x627F;&#x81EA;AndroidRuntime&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">void</span> AndroidRuntime::setArgv0(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* argv0, <span class="hljs-keyword">bool</span> setProcName) {
+    <span class="hljs-comment">// Set the kernel&apos;s task name, for as much of the name as we can fit. &#x8BBE;&#x7F6E;&#x5185;&#x6838;&#x7684;&#x4EFB;&#x52A1;&#x540D;&#x79F0;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x5C3D;&#x53EF;&#x80FD;&#x591A;&#x7684;&#x540D;&#x79F0;&#x3002;</span>
+    <span class="hljs-comment">// The kernel&apos;s TASK_COMM_LEN minus one for the terminating NUL == 15. &#x5185;&#x6838;&#x7684;TASK_COMM_LEN&#x51CF;1&#x4EE3;&#x8868;&#x7EC8;&#x6B62;NUL == 15&#x3002;</span>
+    <span class="hljs-keyword">if</span> (setProcName) { <span class="hljs-comment">//&#x524D;&#x9762;&#x77E5;&#x9053;&#x8FD9;&#x4E2A;setProcName == true</span>
+        <span class="hljs-keyword">int</span> len = <span class="hljs-built_in">strlen</span>(argv0);
+        <span class="hljs-keyword">if</span> (len &lt; <span class="hljs-number">15</span>) {
+            pthread_setname_np(pthread_self(), argv0);
+        } <span class="hljs-keyword">else</span> {
+            pthread_setname_np(pthread_self(), argv0 + len - <span class="hljs-number">15</span>);
+        }
+    }
+
+    <span class="hljs-comment">// Directly change the memory pointed to by argv[0].  &#x76F4;&#x63A5;&#x66F4;&#x6539;argv [0]&#x6307;&#x5411;&#x7684;&#x5185;&#x5B58;&#x3002;</span>
+    <span class="hljs-built_in">memset</span>(mArgBlockStart, <span class="hljs-number">0</span>, mArgBlockLength);
+    strlcpy(mArgBlockStart, argv0, mArgBlockLength);
+
+    <span class="hljs-comment">// Let bionic know that we just did that, because __progname points</span>
+    <span class="hljs-comment">// into argv[0] (https://issuetracker.google.com/152893281).</span>
+    setprogname(mArgBlockStart);
+}
+</code></pre>
+<p> setArgv0&#x65B9;&#x6CD5;&#x597D;&#x50CF;&#x662F;&#x505A;&#x4E00;&#x4E9B;&#x521D;&#x59CB;&#x5316;&#x5DE5;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">void</span> AndroidRuntime::start(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* className, <span class="hljs-keyword">const</span> Vector&lt;String8&gt;&amp; options, <span class="hljs-keyword">bool</span> zygote)
+{
+ <span class="hljs-comment">//&#x5BF9;&#x4E8E;zygote&#x6A21;&#x5F0F;&#xFF0C;className = com.android.internal.os.ZygoteInit options&#x662F;&#x53C2;&#x6570;&#x5217;&#x8868;  zygote = true</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> String8 <span class="hljs-title">startSystemServer</span><span class="hljs-params">(<span class="hljs-string">&quot;start-system-server&quot;</span>)</span></span>;<span class="hljs-comment">//options&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E5F;&#x662F;start-system-server</span>
+    <span class="hljs-comment">// Whether this is the primary zygote, meaning the zygote which will fork system server.</span>
+    <span class="hljs-keyword">bool</span> primary_zygote = <span class="hljs-literal">false</span>;
+
+    <span class="hljs-comment">/*
+     * &apos;startSystemServer == true&apos; means runtime is obsolete and not run from
+     * init.rc anymore, so we print out the boot start event here.
+     *&apos;startSystemServer == true&apos;&#x8868;&#x793A;runtime&#x5DF2;&#x8FC7;&#x65F6;&#xFF0C;&#x4E0D;&#x518D;&#x4ECE;init.rc&#x4E2D;&#x8FD0;&#x884C;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x5728;&#x6B64;&#x5904;&#x6253;&#x5370;&#x542F;&#x52A8;&#x542F;&#x52A8;&#x4E8B;&#x4EF6;&#x3002;
+     */</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; options.size(); ++i) {
+        <span class="hljs-keyword">if</span> (options[i] == startSystemServer) {<span class="hljs-comment">//options&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570; &#x662F;start-system-server</span>
+            primary_zygote = <span class="hljs-literal">true</span>;
+           <span class="hljs-comment">/* track our progress through the boot sequence &#x901A;&#x8FC7;&#x5F15;&#x5BFC;&#x987A;&#x5E8F;&#x8DDF;&#x8E2A;&#x6211;&#x4EEC;&#x7684;&#x8FDB;&#x5EA6; */</span>
+           <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> LOG_BOOT_PROGRESS_START = <span class="hljs-number">3000</span>;
+           LOG_EVENT_LONG(LOG_BOOT_PROGRESS_START,  ns2ms(systemTime(SYSTEM_TIME_MONOTONIC)));
+        }
+    }
+    <span class="hljs-comment">//***** &#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x6CA1;&#x770B;&#x61C2;&#x3002;</span>
+
+<span class="hljs-comment">//&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x662F;&#x68C0;&#x67E5;&#x6587;&#x4EF6;&#x5939;&#x53CA;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x662F;&#x5426;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;</span>
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* rootDir = getenv(<span class="hljs-string">&quot;ANDROID_ROOT&quot;</span>);
+    <span class="hljs-keyword">if</span> (rootDir == <span class="hljs-literal">NULL</span>) {
+        rootDir = <span class="hljs-string">&quot;/system&quot;</span>;
+        <span class="hljs-keyword">if</span> (!hasDir(<span class="hljs-string">&quot;/system&quot;</span>)) {
+            LOG_FATAL(<span class="hljs-string">&quot;No root directory specified, and /system does not exist.&quot;</span>);
+            <span class="hljs-keyword">return</span>;
+        }
+        setenv(<span class="hljs-string">&quot;ANDROID_ROOT&quot;</span>, rootDir, <span class="hljs-number">1</span>);
+    }
+
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* artRootDir = getenv(<span class="hljs-string">&quot;ANDROID_ART_ROOT&quot;</span>);
+    <span class="hljs-keyword">if</span> (artRootDir == <span class="hljs-literal">NULL</span>) {
+        LOG_FATAL(<span class="hljs-string">&quot;No ART directory specified with ANDROID_ART_ROOT environment variable.&quot;</span>);
+        <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* i18nRootDir = getenv(<span class="hljs-string">&quot;ANDROID_I18N_ROOT&quot;</span>);
+    <span class="hljs-keyword">if</span> (i18nRootDir == <span class="hljs-literal">NULL</span>) {
+        LOG_FATAL(<span class="hljs-string">&quot;No runtime directory specified with ANDROID_I18N_ROOT environment variable.&quot;</span>);
+        <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* tzdataRootDir = getenv(<span class="hljs-string">&quot;ANDROID_TZDATA_ROOT&quot;</span>);
+    <span class="hljs-keyword">if</span> (tzdataRootDir == <span class="hljs-literal">NULL</span>) {
+        LOG_FATAL(<span class="hljs-string">&quot;No tz data directory specified with ANDROID_TZDATA_ROOT environment variable.&quot;</span>);
+        <span class="hljs-keyword">return</span>;
+    }
+<span class="hljs-comment">//&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x662F;&#x68C0;&#x67E5;&#x6587;&#x4EF6;&#x5939;&#x53CA;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x662F;&#x5426;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;</span>
+
+    <span class="hljs-comment">//const char* kernelHack = getenv(&quot;LD_ASSUME_KERNEL&quot;);</span>
+    <span class="hljs-comment">//ALOGD(&quot;Found LD_ASSUME_KERNEL=&apos;%s&apos;\n&quot;, kernelHack);</span>
+
+    <span class="hljs-comment">/* start the virtual machine &#x542F;&#x52A8;&#x865A;&#x62DF;&#x673A;*/</span>
+    JniInvocation jni_invocation;
+    jni_invocation.Init(<span class="hljs-literal">NULL</span>);
+    JNIEnv* env; <span class="hljs-comment">//JNI &#x5F15;&#x64CE;&#xFF1F;</span>
+    <span class="hljs-keyword">if</span> (startVm(&amp;mJavaVM, &amp;env, zygote, primary_zygote) != <span class="hljs-number">0</span>) {<span class="hljs-comment">//&#x5982;&#x679C;&#x542F;&#x52A8;&#x5931;&#x8D25;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x4E0D;&#x662F;0&#xFF0C;&#x6240;&#x4EE5;&#x7ED3;&#x679C;&#x4E0D;&#x4E3A;0&#xFF0C;&#x5C31;&#x76F4;&#x63A5;&#x9000;&#x51FA;</span>
+        <span class="hljs-keyword">return</span>;
+    }
+    onVmCreated(env);<span class="hljs-comment">//&#x8FD9;&#x662F;&#x4E2A;&#x7A7A;&#x65B9;&#x6CD5;</span>
+
+    <span class="hljs-comment">/*
+     * Register android functions. &#x6CE8;&#x518C;Android&#x65B9;&#x6CD5;&#xFF0C;&#x6CE8;&#x518C;&#x7684;&#x662F;JNI&#x65B9;&#x6CD5;
+     */</span>
+    <span class="hljs-keyword">if</span> (startReg(env) &lt; <span class="hljs-number">0</span>) {
+        ALOGE(<span class="hljs-string">&quot;Unable to register all android natives\n&quot;</span>);
+        <span class="hljs-keyword">return</span>;
+    }
+
+    <span class="hljs-comment">/*
+     * We want to call main() with a String array with arguments in it.
+     * At present we have two arguments, the class name and an option string.
+     * Create an array to hold them.
+     * &#x6211;&#x4EEC;&#x8981;&#x4F7F;&#x7528;&#x5305;&#x542B;&#x53C2;&#x6570;&#x7684;String&#x6570;&#x7EC4;&#x8C03;&#x7528;main&#xFF08;&#xFF09;&#x3002; &#x76EE;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5373;&#x7C7B;&#x540D;&#x548C;&#x9009;&#x9879;&#x5B57;&#x7B26;&#x4E32;&#x3002; &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x6765;&#x4FDD;&#x5B58;&#x5B83;&#x4EEC;&#x3002;
+     *
+     * &#x8C03;&#x7528;Java&#x7C7B;&#x7684;main&#x65B9;&#x6CD5;&#x90FD;&#x9700;&#x8981;&#x4E00;&#x4E2A;String&#x7C7B;&#x578B;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x8FD9;&#x91CC;&#x5F00;&#x59CB;&#x521B;&#x5EFA;&#x3002;&#x7528;&#x4F20;&#x9012;&#x8FC7;&#x6765;&#x7684;&#x7C7B;&#x540D;&#x548C;&#x53C2;&#x6570;&#x5217;&#x8868;&#x521B;&#x5EFA;
+     */</span>
+    jclass stringClass; <span class="hljs-comment">//jclass&#x662F;JNI&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF1F;</span>
+    jobjectArray strArray;<span class="hljs-comment">//jobjectArray&#x662F;JNI&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF1F;</span>
+    jstring classNameStr;<span class="hljs-comment">//jstring&#x662F;JNI&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF1F;</span>
+
+    stringClass = env-&gt;FindClass(<span class="hljs-string">&quot;java/lang/String&quot;</span>);
+    assert(stringClass != <span class="hljs-literal">NULL</span>);<span class="hljs-comment">//&#x65AD;&#x8A00;</span>
+    strArray = env-&gt;NewObjectArray(options.size() + <span class="hljs-number">1</span>, stringClass, <span class="hljs-literal">NULL</span>);
+    assert(strArray != <span class="hljs-literal">NULL</span>);
+    classNameStr = env-&gt;NewStringUTF(className);
+    assert(classNameStr != <span class="hljs-literal">NULL</span>);
+    env-&gt;SetObjectArrayElement(strArray, <span class="hljs-number">0</span>, classNameStr);
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; options.size(); ++i) {<span class="hljs-comment">//&#x628A;&#x4F20;&#x8FC7;&#x6765;&#x7684;&#x53C2;&#x6570;&#x4FDD;&#x5B58;&#x5230;JNI&#x7C7B;&#x578B;&#x6570;&#x7EC4;&#x4E2D;</span>
+        jstring optionsStr = env-&gt;NewStringUTF(options.itemAt(i).<span class="hljs-built_in">string</span>());
+        assert(optionsStr != <span class="hljs-literal">NULL</span>);
+        env-&gt;SetObjectArrayElement(strArray, i + <span class="hljs-number">1</span>, optionsStr);
+    }
+
+    <span class="hljs-comment">/*
+     * Start VM.  This thread becomes the main thread of the VM, and will
+     * not return until the VM exits.
+     * &#x542F;&#x52A8;&#x865A;&#x62DF;&#x673A;&#x3002; &#x8BE5;&#x7EBF;&#x7A0B;&#x6210;&#x4E3A;&#x865A;&#x62DF;&#x673A;&#x7684;&#x4E3B;&#x7EBF;&#x7A0B;&#xFF0C;&#x76F4;&#x5230;&#x865A;&#x62DF;&#x673A;&#x9000;&#x51FA;&#x540E;&#x624D;&#x8FD4;&#x56DE;&#x3002;
+     */</span>
+    <span class="hljs-keyword">char</span>* slashClassName = toSlashClassName(className != <span class="hljs-literal">NULL</span> ? className : <span class="hljs-string">&quot;&quot;</span>);<span class="hljs-comment">//className&#x662F;&#xFF1A;com.android.internal.os.ZygoteInit</span>
+    jclass startClass = env-&gt;FindClass(slashClassName);
+    <span class="hljs-keyword">if</span> (startClass == <span class="hljs-literal">NULL</span>) {
+        <span class="hljs-comment">//&#x627E;&#x4E0D;&#x5230;&#x7C7B;&#x8D70;&#x8FD9;&#x91CC;</span>
+        ALOGE(<span class="hljs-string">&quot;JavaVM unable to locate class &apos;%s&apos;\n&quot;</span>, slashClassName);
+        <span class="hljs-comment">/* keep going */</span>
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">//&#x627E;&#x5230;&#x7C7B;&#x8D70;&#x8FD9;&#x91CC;</span>
+        <span class="hljs-comment">//&#x627E;main&#x65B9;&#x6CD5;</span>
+        jmethodID startMeth = env-&gt;GetStaticMethodID(startClass, <span class="hljs-string">&quot;main&quot;</span>,
+            <span class="hljs-string">&quot;([Ljava/lang/String;)V&quot;</span>);
+        <span class="hljs-keyword">if</span> (startMeth == <span class="hljs-literal">NULL</span>) {
+            <span class="hljs-comment">//&#x627E;&#x4E0D;&#x5230;main&#x65B9;&#x6CD5;&#x8D70;&#x8FD9;&#x91CC;</span>
+            ALOGE(<span class="hljs-string">&quot;JavaVM unable to find main() in &apos;%s&apos;\n&quot;</span>, className);
+            <span class="hljs-comment">/* keep going */</span>
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-comment">//&#x627E;&#x5230;main&#x65B9;&#x6CD5;&#x8D70;&#x8FD9;&#x91CC;</span>
+            <span class="hljs-comment">//&#x8C03;&#x7528;main&#x65B9;&#x6CD5;&#xFF0C;&#x5230;&#x8FD9;&#x5C31;&#x5F00;&#x59CB;&#x53BB;&#x5230;Java&#x4E16;&#x754C;&#x4E86;&#xFF0C;&#x8FD0;&#x884C; com.android.internal.os.ZygoteInit &#x7684;main&#x65B9;&#x6CD5;</span>
+            env-&gt;CallStaticVoidMethod(startClass, startMeth, strArray);
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> 0</span>
+            <span class="hljs-comment">//&#x6709;&#x62A5;&#x9519;&#x8D70;&#x8FD9;&#x91CC;</span>
+            <span class="hljs-keyword">if</span> (env-&gt;ExceptionCheck())
+                threadExitUncaughtException(env);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+        }
+    }
+    <span class="hljs-comment">//&#x91CA;&#x653E;&#x7EBF;&#x7A0B;</span>
+    <span class="hljs-built_in">free</span>(slashClassName);
+    <span class="hljs-comment">//&#x865A;&#x62DF;&#x673A;&#x5173;&#x673A;</span>
+    ALOGD(<span class="hljs-string">&quot;Shutting down VM\n&quot;</span>);
+    <span class="hljs-keyword">if</span> (mJavaVM-&gt;DetachCurrentThread() != JNI_OK)
+        ALOGW(<span class="hljs-string">&quot;Warning: unable to detach main thread\n&quot;</span>);
+    <span class="hljs-keyword">if</span> (mJavaVM-&gt;DestroyJavaVM() != <span class="hljs-number">0</span>)
+        ALOGW(<span class="hljs-string">&quot;Warning: VM did not shut down cleanly\n&quot;</span>);
+}
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x200B;         init&#x8FDB;&#x7A0B;&#x662F;&#x600E;&#x4E48;&#x88AB;&#x62C9;&#x8D77;&#x7684;&#xFF0C;&#x90A3;&#x662F;&#x5185;&#x6838;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x592A;&#x5E95;&#x5C42;&#x4E86;&#x770B;&#x4E0D;&#x5230;&#x3002;&#x800C;init&#x8FDB;&#x7A0B;&#x88AB;&#x62C9;&#x8D77;&#x6765;&#x4E4B;&#x540E;&#xFF0C;&#x505A;&#x4E86;&#x4E9B;&#x4EC0;&#x4E48;&#x4E8B;&#x60C5;&#x5462;&#xFF1F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x8BFB;&#x53D6;&#x3001;&#x89E3;&#x6790;&#x3001;&#x6267;&#x884C;<font color="red">init.rc</font>&#x6587;&#x4EF6;</li>
+<li>&#x89E3;&#x6790;init.rc&#x5230;zygote start&#x7684;&#x65F6;&#x5019;&#xFF0C; &#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x5230;app_process.cpp&#x7684;main&#x65B9;&#x6CD5;(<font color="red">app_process.cpp&#x7684;main&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x6765;&#x6E90;&#x4E0E;init.zygote64.rc</font>)</li>
+<li>app_process.cpp&#x7684;main&#x65B9;&#x6CD5;&#xFF0C;&#x89E3;&#x6790;&#x53C2;&#x6570;&#xFF0C;&#x5C06;&#x53C2;&#x6570;&#x4E00;&#x4E00;&#x51C6;&#x5907;&#x597D;&#xFF0C;&#x653E;&#x5230;&#x4E00;&#x4E2A;String&#x7C7B;&#x578B;&#x7684;&#x5217;&#x8868;&#x4E2D;&#x3002;</li>
+<li>&#x542F;&#x52A8;&#x865A;&#x62DF;&#x673A;&#x3001;&#x6CE8;&#x518C;Android JNI&#x65B9;&#x6CD5;</li>
+<li>&#x901A;&#x8FC7;JNI&#xFF0C;&#x8C03;&#x7528;Java&#x5C42;&#x7684;com.android.internal.os.ZygoteInit.java&#x7684;main&#x65B9;&#x6CD5;</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Android设备启动流程.html" class="navigation navigation-prev " aria-label="Previous page: Activity设备启动流程">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="SystemServer进程创建系统上下文环境（mSystemContext）.html" class="navigation navigation-next " aria-label="Next page: SystemServer进程创建系统上下文环境（mSystemContext）">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"init进程到Zygote进程","level":"1.4.3.3","depth":3,"next":{"title":"SystemServer进程创建系统上下文环境（mSystemContext）","level":"1.4.3.4","depth":3,"path":"advanced/SystemServer进程创建系统上下文环境（mSystemContext）.md","ref":"advanced/SystemServer进程创建系统上下文环境（mSystemContext）.md","articles":[]},"previous":{"title":"Activity设备启动流程","level":"1.4.3.2","depth":3,"path":"advanced/Android设备启动流程.md","ref":"advanced/Android设备启动流程.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"advanced/init进程到Zygote进程.md","mtime":"2020-07-14T08:52:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-22T14:22:36.415Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

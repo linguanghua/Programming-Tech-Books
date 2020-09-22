@@ -1,0 +1,1761 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>SystemServer进程的启动 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Zygote进程到System_Server进程.html" />
+    
+    
+    <link rel="prev" href="SystemServer进程创建系统上下文环境（mSystemContext）.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../面试题.html">
+            
+                <a href="../面试题.html">
+            
+                    
+                    面试题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Java
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" >
+            
+                <span>
+            
+                    
+                    基础部分
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../java/String、StringBuild、StringBuffer.html">
+            
+                <a href="../java/String、StringBuild、StringBuffer.html">
+            
+                    
+                    String、StringBuild、StringBuffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" >
+            
+                <span>
+            
+                    
+                    静态内部类、内部类、匿名内部类
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    集合
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../java/HashMap.html">
+            
+                <a href="../java/HashMap.html">
+            
+                    
+                    HashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" >
+            
+                <span>
+            
+                    
+                    ConcurrentHashMap
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" >
+            
+                <span>
+            
+                    
+                    ArrayList
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" >
+            
+                <span>
+            
+                    
+                    LinkedList
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" >
+            
+                <span>
+            
+                    
+                    泛型
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" >
+            
+                <span>
+            
+                    
+                    定义
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" >
+            
+                <span>
+            
+                    
+                    使用方式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" >
+            
+                <span>
+            
+                    
+                    泛型擦除
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" >
+            
+                <span>
+            
+                    
+                    通配符
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" >
+            
+                <span>
+            
+                    
+                    反射
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" >
+            
+                <span>
+            
+                    
+                    线程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" >
+            
+                <span>
+            
+                    
+                    定义
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" >
+            
+                <span>
+            
+                    
+                    线程池
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" >
+            
+                <span>
+            
+                    
+                    线程安全
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.3.1" >
+            
+                <span>
+            
+                    
+                    synchronized
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3.2" >
+            
+                <span>
+            
+                    
+                    volatile
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" >
+            
+                <span>
+            
+                    
+                    锁优化
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" >
+            
+                <span>
+            
+                    
+                    虚拟机
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" >
+            
+                <span>
+            
+                    
+                    内存模型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" >
+            
+                <span>
+            
+                    
+                    引用类型
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" >
+            
+                <span>
+            
+                    
+                    垃圾回收算法
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" >
+            
+                <span>
+            
+                    
+                    IO
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" >
+            
+                <span>
+            
+                    
+                    输入流
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" >
+            
+                <span>
+            
+                    
+                    输出流
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    Android
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" >
+            
+                <span>
+            
+                    
+                    基础部分
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" >
+            
+                <span>
+            
+                    
+                    Activity
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1.1" data-path="../basis/Activity的生命周期及启动模式.html">
+            
+                <a href="../basis/Activity的生命周期及启动模式.html">
+            
+                    
+                    Activity的生命周期及启动模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" >
+            
+                <span>
+            
+                    
+                    Service
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" >
+            
+                <span>
+            
+                    
+                    BroadcastReceiver
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" >
+            
+                <span>
+            
+                    
+                    ContentProvider
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" >
+            
+                <span>
+            
+                    
+                    View
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.6" >
+            
+                <span>
+            
+                    
+                    View的生命周期
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.7" >
+            
+                <span>
+            
+                    
+                    View的绘画机制
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.8" >
+            
+                <span>
+            
+                    
+                    View的事件分发机制
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.9" >
+            
+                <span>
+            
+                    
+                    自定义View
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.10" >
+            
+                <span>
+            
+                    
+                    随手指移动的View
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.11" >
+            
+                <span>
+            
+                    
+                    View的布局方式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.12" >
+            
+                <span>
+            
+                    
+                    ListView & RecyclerView
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.13" >
+            
+                <span>
+            
+                    
+                    动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.14" >
+            
+                <span>
+            
+                    
+                    属性动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.15" >
+            
+                <span>
+            
+                    
+                    帧动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.16" >
+            
+                <span>
+            
+                    
+                    View动画
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.17" >
+            
+                <span>
+            
+                    
+                    BitMap
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.18" data-path="../basis/Handler消息机制.html">
+            
+                <a href="../basis/Handler消息机制.html">
+            
+                    
+                    Handler消息机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" >
+            
+                <span>
+            
+                    
+                    进阶
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" >
+            
+                <span>
+            
+                    
+                    Context
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" >
+            
+                <span>
+            
+                    
+                    Binder机制
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.2.1" >
+            
+                <span>
+            
+                    
+                    AIDL
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" >
+            
+                <span>
+            
+                    
+                    源码
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="Activity启动流程.html">
+            
+                <a href="Activity启动流程.html">
+            
+                    
+                    Activity启动流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="Android设备启动流程.html">
+            
+                <a href="Android设备启动流程.html">
+            
+                    
+                    Activity设备启动流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="init进程到Zygote进程.html">
+            
+                <a href="init进程到Zygote进程.html">
+            
+                    
+                    init进程到Zygote进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4" data-path="SystemServer进程创建系统上下文环境（mSystemContext）.html">
+            
+                <a href="SystemServer进程创建系统上下文环境（mSystemContext）.html">
+            
+                    
+                    SystemServer进程创建系统上下文环境（mSystemContext）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.3.5" data-path="SystemServer进程的启动.html">
+            
+                <a href="SystemServer进程的启动.html">
+            
+                    
+                    SystemServer进程的启动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.6" data-path="Zygote进程到System_Server进程.html">
+            
+                <a href="Zygote进程到System_Server进程.html">
+            
+                    
+                    Zygote进程到System_Server进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.7" data-path="Zygote进程的启动-Java篇.html">
+            
+                <a href="Zygote进程的启动-Java篇.html">
+            
+                    
+                    Zygote进程的启动-Java篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.8" data-path="Zygote进程中的Socket服务.html">
+            
+                <a href="Zygote进程中的Socket服务.html">
+            
+                    
+                    Zygote进程中的Socket服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.9" >
+            
+                <span>
+            
+                    
+                    SystemServer进程
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.10" >
+            
+                <span>
+            
+                    
+                    Location
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" >
+            
+                <span>
+            
+                    
+                    第三方库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" >
+            
+                <span>
+            
+                    
+                    OkHttp
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2" >
+            
+                <span>
+            
+                    
+                    Retrofit
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.3" data-path="../third_party_libs/EventBus.html">
+            
+                <a href="../third_party_libs/EventBus.html">
+            
+                    
+                    EventBus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.4" >
+            
+                <span>
+            
+                    
+                    RxJava
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.5" >
+            
+                <span>
+            
+                    
+                    Glide
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    Python
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    Flutter
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    算法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" >
+            
+                <span>
+            
+                    
+                    排序
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1.1" >
+            
+                <span>
+            
+                    
+                    冒泡排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.2" >
+            
+                <span>
+            
+                    
+                    选择排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.3" >
+            
+                <span>
+            
+                    
+                    希尔排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.4" >
+            
+                <span>
+            
+                    
+                    插入排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.5" >
+            
+                <span>
+            
+                    
+                    快速排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.6" >
+            
+                <span>
+            
+                    
+                    归并排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.7" >
+            
+                <span>
+            
+                    
+                    堆排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" >
+            
+                <span>
+            
+                    
+                    二指针
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" >
+            
+                <span>
+            
+                    
+                    递归
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" >
+            
+                <span>
+            
+                    
+                    二分法
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    设计模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" >
+            
+                <span>
+            
+                    
+                    单例模式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" >
+            
+                <span>
+            
+                    
+                    代理模式
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" >
+            
+                <span>
+            
+                    
+                    建造者模式
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >SystemServer进程的启动</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="systemserver&#x8FDB;&#x7A0B;&#x7684;&#x542F;&#x52A8;">SystemServer&#x8FDB;&#x7A0B;&#x7684;&#x542F;&#x52A8;</h1>
+<p>&#x200B;           &#x4E0A;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x8BB2;&#x5230;System Server&#x88AB;fork&#x51FA;&#x6765;&#x4E4B;&#x540E;&#xFF0C;&#x4F1A;&#x53BB;&#x6267;&#x884C;<font color="red"> com.android.server.SystemServer&#x7684;main&#x65B9;&#x6CD5;</font>&#xFF08;&#x6E90;&#x7801;&#x76EE;&#x5F55;&#xFF1A;\frameworks\base\services\java\com\android\server\SystemServer.java&#xFF09;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x53BB;&#x770B;&#x770B;&#x8FD9;&#x4E2A;main&#x65B9;&#x6CD5;&#x90FD;&#x5E72;&#x4E86;&#x4EC0;&#x4E48;&#x4E8B;&#x60C5;&#x3002;</p>
+<h4 id="systemserverjava-main&#x65B9;&#x6CD5;">SystemServer.java main&#x65B9;&#x6CD5;</h4>
+<pre><code class="lang-java">  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">new</span> SystemServer().run();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">SystemServer</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// Check for factory test mode.  &#x68C0;&#x67E5;&#x5DE5;&#x5382;&#x6D4B;&#x8BD5;&#x6A21;&#x5F0F;&#x3002; </span>
+        mFactoryTestMode = FactoryTest.getMode();<span class="hljs-comment">//FactoryTest.getMode()&#x5177;&#x4F53;&#x8FD4;&#x56DE;&#x5565;&#x4E0D;&#x6E05;&#x695A;&#xFF0C;&#x4E0D;&#x8FC7;&#x6709;&#x4E2A;&#x9ED8;&#x8BA4;&#x503C;:0</span>
+
+        <span class="hljs-comment">// Record process start information. &#x8BB0;&#x5F55;&#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x4FE1;&#x606F;</span>
+        <span class="hljs-comment">// Note SYSPROP_START_COUNT will increment by *2* on a FDE device when it fully boots;</span>
+        <span class="hljs-comment">// one for the password screen, second for the actual boot. &#x6CE8;&#x610F;&#x5F53;FDE&#x8BBE;&#x5907;&#x5B8C;&#x5168;&#x542F;&#x52A8;&#x65F6;&#xFF0C;SYSPROP_START_COUNT&#x5C06;&#x589E;&#x52A0;* 2 *&#x3002; &#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x5BC6;&#x7801;&#x5C4F;&#x5E55;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x7528;&#x4E8E;&#x5B9E;&#x9645;&#x542F;&#x52A8;&#x3002;</span>
+        mStartCount = SystemProperties.getInt(SYSPROP_START_COUNT, <span class="hljs-number">0</span>) + <span class="hljs-number">1</span>;
+        mRuntimeStartElapsedTime = SystemClock.elapsedRealtime();
+        mRuntimeStartUptime = SystemClock.uptimeMillis();
+
+        <span class="hljs-comment">//&#x91CD;&#x542F;</span>
+        mRuntimeRestart = <span class="hljs-string">&quot;1&quot;</span>.equals(SystemProperties.get(<span class="hljs-string">&quot;sys.boot_completed&quot;</span>));
+    }
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>main&#x65B9;&#x6CD5;&#x5F88;&#x7B80;&#x5355;&#x4E86;&#xFF0C;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;SystemServer&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;run&#x65B9;&#x6CD5;&#x3002;SystemServer&#x7C7B;&#x5728;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x5C31;&#x662F;&#x505A;&#x4E00;&#x4E9B;&#x68C0;&#x6D4B;&#x53CA;&#x542F;&#x52A8;&#x4FE1;&#x606F;&#x7684;&#x4FDD;&#x5B58;&#x7B49;&#x3002;</p>
+<h4 id="systemserverjava--run">SystemServer.java  run</h4>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">try</span> {
+            traceBeginAndSlog(<span class="hljs-string">&quot;InitBeforeStartServices&quot;</span>);
+
+            <span class="hljs-comment">// Record the process start information in sys props. </span>
+            <span class="hljs-comment">// &#x8BB0;&#x5F55;&#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x4FE1;&#x606F;&#xFF0C;&#x4E0B;&#x9762;&#x51E0;&#x4E2A;&#x53D8;&#x91CF;&#x90FD;&#x662F;&#x5728;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x91CC;&#x8D4B;&#x503C;&#x7684;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x8981;&#x5199;&#x5230;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x5427;</span>
+            SystemProperties.set(SYSPROP_START_COUNT, String.valueOf(mStartCount));
+            SystemProperties.set(SYSPROP_START_ELAPSED, String.valueOf(mRuntimeStartElapsedTime));
+            SystemProperties.set(SYSPROP_START_UPTIME, String.valueOf(mRuntimeStartUptime));
+
+            EventLog.writeEvent(EventLogTags.SYSTEM_SERVER_START,
+                    mStartCount, mRuntimeStartUptime, mRuntimeStartElapsedTime);<span class="hljs-comment">//&#x65E5;&#x5FD7;</span>
+
+            <span class="hljs-comment">//</span>
+            <span class="hljs-comment">// Default the timezone property to GMT if not set. &#x5982;&#x679C;&#x672A;&#x8BBE;&#x7F6E;&#xFF0C;&#x5219;&#x5C06;&#x65F6;&#x533A;&#x5C5E;&#x6027;&#x9ED8;&#x8BA4;&#x4E3A;GMT&#x3002;</span>
+            <span class="hljs-comment">// &#x65F6;&#x533A;&#x7684;&#x83B7;&#x53D6;</span>
+            String timezoneProperty = SystemProperties.get(<span class="hljs-string">&quot;persist.sys.timezone&quot;</span>);
+            <span class="hljs-comment">// &#x83B7;&#x53D6;&#x7684;&#x65F6;&#x533A;&#x662F;&#x5426;&#x6709;&#x6548;</span>
+            <span class="hljs-keyword">if</span> (!isValidTimeZoneId(timezoneProperty)) {
+                <span class="hljs-comment">//&#x83B7;&#x53D6;&#x7684;&#x65F6;&#x533A;&#x65E0;&#x6548;&#x7684;&#x8BDD;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x65F6;&#x533A;</span>
+                Slog.w(TAG, <span class="hljs-string">&quot;persist.sys.timezone is not valid (&quot;</span> + timezoneProperty
+                        + <span class="hljs-string">&quot;); setting to GMT.&quot;</span>);
+                SystemProperties.set(<span class="hljs-string">&quot;persist.sys.timezone&quot;</span>, <span class="hljs-string">&quot;GMT&quot;</span>);
+            }
+
+            <span class="hljs-comment">// &#x8BED;&#x8A00;&#x83B7;&#x53D6;</span>
+            <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> Most changes made here will need an equivalent change to</span>
+            <span class="hljs-comment">// core/jni/AndroidRuntime.cpp  </span>
+            <span class="hljs-comment">//&#x6CE8;&#x610F;&#xFF1A;&#x6B64;&#x5904;&#x6240;&#x505A;&#x7684;&#x5927;&#x591A;&#x6570;&#x66F4;&#x6539;&#x90FD;&#x9700;&#x8981;&#x5BF9;core / jni / AndroidRuntime.cpp&#x8FDB;&#x884C;&#x7B49;&#x6548;&#x66F4;&#x6539;</span>
+            <span class="hljs-keyword">if</span> (!SystemProperties.get(<span class="hljs-string">&quot;persist.sys.language&quot;</span>).isEmpty()) {
+                <span class="hljs-keyword">final</span> String languageTag = Locale.getDefault().toLanguageTag();
+
+                SystemProperties.set(<span class="hljs-string">&quot;persist.sys.locale&quot;</span>, languageTag);
+                SystemProperties.set(<span class="hljs-string">&quot;persist.sys.language&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
+                SystemProperties.set(<span class="hljs-string">&quot;persist.sys.country&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
+                SystemProperties.set(<span class="hljs-string">&quot;persist.sys.localevar&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
+            }
+<span class="hljs-comment">// **** &#x4E0B;&#x9762;&#x8FD9;&#x4E9B;&#x4EE3;&#x7801;&#x4E0D;&#x77E5;&#x9053;&#x5177;&#x4F53;&#x5E72;&#x561B;&#x7684;</span>
+            <span class="hljs-comment">// The system server should never make non-oneway calls </span>
+            <span class="hljs-comment">// &#x7CFB;&#x7EDF;&#x670D;&#x52A1;&#x7EDD;&#x4E0D;&#x80FD;&#x8FDB;&#x884C;&#x975E;&#x5355;&#x5411;&#x8C03;&#x7528;</span>
+            Binder.setWarnOnBlocking(<span class="hljs-keyword">true</span>);
+            <span class="hljs-comment">// The system server should always load safe labels</span>
+            <span class="hljs-comment">// &#x7CFB;&#x7EDF;&#x670D;&#x52A1;&#x5E94;&#x59CB;&#x7EC8;&#x52A0;&#x8F7D;&#x5B89;&#x5168;&#x6807;&#x7B7E;</span>
+            PackageItemInfo.forceSafeLabels();
+
+            <span class="hljs-comment">// Default to FULL within the system server.</span>
+            <span class="hljs-comment">// &#x7CFB;&#x7EDF;&#x670D;&#x52A1; &#x4E2D;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;FULL&#x3002;</span>
+            SQLiteGlobal.sDefaultSyncMode = SQLiteGlobal.SYNC_MODE_FULL;
+
+            <span class="hljs-comment">// Deactivate SQLiteCompatibilityWalFlags until settings provider is initialized</span>
+            <span class="hljs-comment">// &#x505C;&#x7528;SQLiteCompatibilityWalFlags&#xFF0C;&#x76F4;&#x5230;&#x521D;&#x59CB;&#x5316;&#x8BBE;&#x7F6E;&#x63D0;&#x4F9B;&#x7A0B;&#x5E8F;</span>
+            SQLiteCompatibilityWalFlags.init(<span class="hljs-keyword">null</span>);
+
+            <span class="hljs-comment">// Here we go! &#x7EC8;&#x4E8E;&#x5F00;&#x59CB;&#x4E86;&#xFF1F;</span>
+            Slog.i(TAG, <span class="hljs-string">&quot;Entered the Android system server!&quot;</span>); &#x8FDB;&#x5165;System Server
+            <span class="hljs-keyword">int</span> uptimeMillis = (<span class="hljs-keyword">int</span>) SystemClock.elapsedRealtime();
+            EventLog.writeEvent(EventLogTags.BOOT_PROGRESS_SYSTEM_RUN, uptimeMillis);
+            <span class="hljs-comment">//&#x8FD9;&#x4E2A; mRuntimeRestart &#x5728;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x8D4B;&#x503C;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x5224;&#x65AD;&#x662F;&#x4E0D;&#x662F;&#x91CD;&#x542F;</span>
+            <span class="hljs-keyword">if</span> (!mRuntimeRestart) {
+                MetricsLogger.histogram(<span class="hljs-keyword">null</span>, <span class="hljs-string">&quot;boot_system_server_init&quot;</span>, uptimeMillis);
+            }
+
+            <span class="hljs-comment">// </span>
+            SystemProperties.set(<span class="hljs-string">&quot;persist.sys.dalvik.vm.lib.2&quot;</span>, VMRuntime.getRuntime().vmLibrary());
+
+            <span class="hljs-comment">// Mmmmmm... more memory! </span>
+            VMRuntime.getRuntime().clearGrowthLimit();
+
+            <span class="hljs-comment">// Some devices rely on runtime fingerprint generation, so make sure</span>
+            <span class="hljs-comment">// we&apos;ve defined it before booting further. &#x6709;&#x4E9B;&#x8BBE;&#x5907;&#x4F9D;&#x8D56;&#x4E8E;&#x8FD0;&#x884C;&#x65F6;&#x6307;&#x7EB9;&#x751F;&#x6210;&#xFF0C;&#x56E0;&#x6B64;&#x8BF7;&#x786E;&#x4FDD;&#x5728;&#x8FDB;&#x4E00;&#x6B65;&#x542F;&#x52A8;&#x4E4B;&#x524D;&#x5B9A;&#x4E49;&#x4E86;&#x5B83;&#x3002;</span>
+            Build.ensureFingerprintProperty();
+
+            <span class="hljs-comment">// Within the system server, it is an error to access Environment paths without</span>
+            <span class="hljs-comment">// explicitly specifying a user. &#x5728;&#x7CFB;&#x7EDF;&#x670D;&#x52A1;&#x5185;&#xFF0C;&#x8BBF;&#x95EE;&#x73AF;&#x5883;&#x8DEF;&#x5F84;&#x800C;&#x4E0D;&#x663E;&#x5F0F;&#x6307;&#x5B9A;&#x7528;&#x6237;&#x662F;&#x9519;&#x8BEF;&#x7684;&#x3002;</span>
+            Environment.setUserRequired(<span class="hljs-keyword">true</span>);
+<span class="hljs-comment">// **** &#x4E0A;&#x9762;&#x8FD9;&#x4E9B;&#x4EE3;&#x7801;&#x4E0D;&#x77E5;&#x9053;&#x5177;&#x4F53;&#x5E72;&#x561B;&#x7684;</span>
+
+            <span class="hljs-comment">// Within the system server, any incoming Bundles should be defused</span>
+            <span class="hljs-comment">// to avoid throwing BadParcelableException.&#x5728;&#x7CFB;&#x7EDF;&#x670D;&#x52A1;&#x5185;&#xFF0C;&#x5E94;&#x8BE5;&#x5BF9;&#x6240;&#x6709;&#x4F20;&#x5165;&#x7684;Bundle&#x8FDB;&#x884C;&#x9694;&#x79BB;&#xFF0C;&#x4EE5;&#x907F;&#x514D;&#x5F15;&#x53D1;BadParcelableException&#x3002;</span>
+            BaseBundle.setShouldDefuse(<span class="hljs-keyword">true</span>);
+
+            <span class="hljs-comment">// Within the system server, when parceling exceptions, include the stack trace</span>
+            <span class="hljs-comment">// &#x5728;&#x7CFB;&#x7EDF;&#x670D;&#x52A1;&#x5185;&#xFF0C;&#x6253;&#x5305;&#x5F02;&#x5E38;&#x65F6;&#xFF0C;&#x8BF7;&#x5305;&#x62EC;&#x5806;&#x6808;&#x8DDF;&#x8E2A;</span>
+            Parcel.setStackTraceParceling(<span class="hljs-keyword">true</span>);
+
+            <span class="hljs-comment">// Ensure binder calls into the system always run at foreground priority.</span>
+            <span class="hljs-comment">// &#x786E;&#x4FDD;&#x5728;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;binder&#x8C03;&#x7528;&#x603B;&#x662F;&#x5728;&#x524D;&#x53F0;&#x8FD0;&#x884C;</span>
+            BinderInternal.disableBackgroundScheduling(<span class="hljs-keyword">true</span>);
+
+            <span class="hljs-comment">// Increase the number of binder threads in system_server</span>
+            <span class="hljs-comment">// &#x589E;&#x52A0;system_server&#x4E2D;&#x7684;binder&#x7EBF;&#x7A0B;&#x6570;&#x91CF;  sMaxBinderThreads&#x503C;&#x662F;31</span>
+            BinderInternal.setMaxThreads(sMaxBinderThreads);
+
+            <span class="hljs-comment">// Prepare the main looper thread (this thread).</span>
+            <span class="hljs-comment">// &#x8BBE;&#x7F6E;main&#x4E2D; looper&#x7EBF;&#x7A0B;&#x7684;&#x4E00;&#x4E9B;&#x5C5E;&#x6027;&#xFF0C;&#x5373;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;</span>
+            android.os.Process.setThreadPriority(
+                    android.os.Process.THREAD_PRIORITY_FOREGROUND);
+            android.os.Process.setCanSelfBackground(<span class="hljs-keyword">false</span>);
+            <span class="hljs-comment">//&#x770B;&#x5230;&#x719F;&#x6089;&#x7684;&#x4E86;&#x3002;&#x3002;&#x54C8;&#x54C8;&#x54C8;&#xFF0C;&#x521B;&#x5EFA;&#x4E3B;&#x7EBF;&#x7A0B;looper</span>
+            Looper.prepareMainLooper();
+            <span class="hljs-comment">//&#x65E5;&#x5FD7;&#x76F8;&#x5173;&#x5427;</span>
+            Looper.getMainLooper().setSlowLogThresholdMs(
+                    SLOW_DISPATCH_THRESHOLD_MS, SLOW_DELIVERY_THRESHOLD_MS);
+
+            <span class="hljs-comment">// Initialize native services.</span>
+            <span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;native&#x5C42;&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x8FD9;&#x91CC;&#x5E94;&#x8BE5;&#x662F;&#x52A0;&#x8F7D;&#x67D0;&#x4E2A;so&#x5305;</span>
+            System.loadLibrary(<span class="hljs-string">&quot;android_servers&quot;</span>);
+
+            <span class="hljs-comment">// Debug builds - allow heap profiling. &#x8C03;&#x8BD5;&#x7248;&#x672C;-&#x5141;&#x8BB8;&#x8FDB;&#x884C;&#x5806;&#x5206;&#x6790;&#x3002;</span>
+            <span class="hljs-keyword">if</span> (Build.IS_DEBUGGABLE) { 
+                initZygoteChildHeapProfiling();
+            }
+
+            <span class="hljs-comment">// Debug builds - spawn a thread to monitor for fd leaks.&#x8C03;&#x8BD5;&#x7248;&#x672C;-&#x751F;&#x6210;&#x7EBF;&#x7A0B;&#x4EE5;&#x76D1;&#x89C6;fd&#x6CC4;&#x6F0F;&#x3002;</span>
+            <span class="hljs-keyword">if</span> (Build.IS_DEBUGGABLE) {
+                spawnFdLeakCheckThread();
+            }
+
+            <span class="hljs-comment">// Check whether we failed to shut down last time we tried.</span>
+            <span class="hljs-comment">// This call may not return. &#x68C0;&#x67E5;&#x6211;&#x4EEC;&#x4E0A;&#x6B21;&#x5C1D;&#x8BD5;&#x662F;&#x5426;&#x65E0;&#x6CD5;&#x5173;&#x95ED;&#x3002; &#x6B64;&#x547C;&#x53EB;&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x8FD4;&#x56DE;&#x3002;</span>
+            performPendingShutdown();
+
+            <span class="hljs-comment">// Initialize the system context. &#x521D;&#x59CB;&#x5316;&#x7CFB;&#x7EDF;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;</span>
+            createSystemContext();
+
+            <span class="hljs-comment">// Create the system service manager.</span>
+            <span class="hljs-comment">// &#x521B;&#x5EFA;&#x7CFB;&#x7EDF;SystemServiceManager</span>
+            mSystemServiceManager = <span class="hljs-keyword">new</span> SystemServiceManager(mSystemContext);
+            <span class="hljs-comment">//SystemServiceManager&#x8BBE;&#x7F6E;&#x542F;&#x52A8;&#x4FE1;&#x606F;&#xFF0C;&#x90FD;&#x662F;&#x65F6;&#x95F4;&#x4FE1;&#x606F;</span>
+            mSystemServiceManager.setStartInfo(mRuntimeRestart,
+                    mRuntimeStartElapsedTime, mRuntimeStartUptime);
+            <span class="hljs-comment">//&#x628A;&#x8FD9;&#x4E2A;SystemServiceManager&#x6DFB;&#x52A0;&#x5230;LocalServices&#x91CC;&#x9762;</span>
+            LocalServices.addService(SystemServiceManager.class, mSystemServiceManager);
+            <span class="hljs-comment">// Prepare the thread pool for init tasks that can be parallelized</span>
+            <span class="hljs-comment">// &#x51C6;&#x5907;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x6CA1;&#x6709;&#x63A5;&#x6536;&#xFF1F;&#xFF1F;&#xFF1F;</span>
+            SystemServerInitThreadPool.get();
+            <span class="hljs-comment">// Attach JVMTI agent if this is a debuggable build and the system property is set.</span>
+            <span class="hljs-comment">//&#x5982;&#x679C;&#x8FD9;&#x662F;&#x53EF;&#x8C03;&#x8BD5;&#x7684;&#x6784;&#x5EFA;&#xFF0C;&#x5E76;&#x4E14;&#x5DF2;&#x8BBE;&#x7F6E;&#x7CFB;&#x7EDF;&#x5C5E;&#x6027;&#xFF0C;&#x8BF7;&#x9644;&#x52A0;JVMTI&#x4EE3;&#x7406;&#x3002;</span>
+            <span class="hljs-keyword">if</span> (Build.IS_DEBUGGABLE) {
+                <span class="hljs-comment">// Property is of the form &quot;library_path=parameters&quot;.</span>
+                String jvmtiAgent = SystemProperties.get(<span class="hljs-string">&quot;persist.sys.dalvik.jvmtiagent&quot;</span>);
+                <span class="hljs-keyword">if</span> (!jvmtiAgent.isEmpty()) {
+                    <span class="hljs-keyword">int</span> equalIndex = jvmtiAgent.indexOf(<span class="hljs-string">&apos;=&apos;</span>);
+                    String libraryPath = jvmtiAgent.substring(<span class="hljs-number">0</span>, equalIndex);
+                    String parameterList =
+                            jvmtiAgent.substring(equalIndex + <span class="hljs-number">1</span>, jvmtiAgent.length());
+                    <span class="hljs-comment">// Attach the agent.</span>
+                    <span class="hljs-keyword">try</span> {
+                        Debug.attachJvmtiAgent(libraryPath, parameterList, <span class="hljs-keyword">null</span>);
+                    } <span class="hljs-keyword">catch</span> (Exception e) {
+                        Slog.e(<span class="hljs-string">&quot;System&quot;</span>, <span class="hljs-string">&quot;*************************************************&quot;</span>);
+                        Slog.e(<span class="hljs-string">&quot;System&quot;</span>, <span class="hljs-string">&quot;********** Failed to load jvmti plugin: &quot;</span> + jvmtiAgent);
+                    }
+                }
+            }
+        } <span class="hljs-keyword">finally</span> {
+            traceEnd();  <span class="hljs-comment">// InitBeforeStartServices</span>
+        }
+
+        <span class="hljs-comment">// Start services. &#x542F;&#x52A8;service</span>
+        <span class="hljs-keyword">try</span> {
+            traceBeginAndSlog(<span class="hljs-string">&quot;StartServices&quot;</span>);
+            startBootstrapServices();    <span class="hljs-comment">//&#x542F;&#x52A8;&#x5F15;&#x5BFC;&#x7A0B;&#x5E8F;&#x670D;&#x52A1;</span>
+            startCoreServices();        <span class="hljs-comment">//&#x542F;&#x52A8;&#x6838;&#x5FC3;&#x670D;&#x52A1;</span>
+            startOtherServices();        <span class="hljs-comment">//&#x542F;&#x52A8;&#x5176;&#x4ED6;&#x670D;&#x52A1;</span>
+            SystemServerInitThreadPool.shutdown();
+        } <span class="hljs-keyword">catch</span> (Throwable ex) {
+            Slog.e(<span class="hljs-string">&quot;System&quot;</span>, <span class="hljs-string">&quot;******************************************&quot;</span>);
+            Slog.e(<span class="hljs-string">&quot;System&quot;</span>, <span class="hljs-string">&quot;************ Failure starting system services&quot;</span>, ex);
+            <span class="hljs-keyword">throw</span> ex;
+        } <span class="hljs-keyword">finally</span> {
+            traceEnd();
+        }
+
+        StrictMode.initVmDefaults(<span class="hljs-keyword">null</span>);<span class="hljs-comment">//&#x6CA1;&#x770B;&#x61C2;</span>
+
+        <span class="hljs-keyword">if</span> (!mRuntimeRestart &amp;&amp; !isFirstBootOrUpgrade()) {
+            <span class="hljs-comment">//&#x4E0D;&#x662F;&#x91CD;&#x542F;&#xFF0C;&#x4E0D;&#x662F;&#x7B2C;&#x4E00;&#x6B21;&#x542F;&#x52A8;&#x6216;&#x8005;&#x66F4;&#x65B0;&#x8D70;&#x8FD9;&#x91CC;</span>
+            <span class="hljs-keyword">int</span> uptimeMillis = (<span class="hljs-keyword">int</span>) SystemClock.elapsedRealtime();
+            MetricsLogger.histogram(<span class="hljs-keyword">null</span>, <span class="hljs-string">&quot;boot_system_server_ready&quot;</span>, uptimeMillis);
+            <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> MAX_UPTIME_MILLIS = <span class="hljs-number">60</span> * <span class="hljs-number">1000</span>;
+            <span class="hljs-keyword">if</span> (uptimeMillis &gt; MAX_UPTIME_MILLIS) {
+                Slog.wtf(SYSTEM_SERVER_TIMING_TAG,
+                        <span class="hljs-string">&quot;SystemServer init took too long. uptimeMillis=&quot;</span> + uptimeMillis);
+            }
+            <span class="hljs-comment">//&#x770B;&#x8D77;&#x6765; &#x8FD9;&#x4E2A;if&#x7528;&#x6765;&#x76D1;&#x6D4B;&#x7CFB;&#x7EDF;&#x542F;&#x52A8;&#x5FEB;&#x6162;&#x7684;</span>
+        }
+
+        <span class="hljs-comment">// Diagnostic to ensure that the system is in a base healthy state. Done here as a common</span>
+        <span class="hljs-comment">// non-zygote process.</span>
+        <span class="hljs-comment">// &#x8BCA;&#x65AD;&#x4EE5;&#x786E;&#x4FDD;&#x7CFB;&#x7EDF;&#x5904;&#x4E8E;&#x57FA;&#x672C;&#x6B63;&#x5E38;&#x72B6;&#x6001;&#x3002; &#x5728;&#x6B64;&#x4F5C;&#x4E3A;&#x5E38;&#x89C1;&#x7684;&#x975E;zygote&#x8FDB;&#x7A0B;&#x5B8C;&#x6210;&#x3002;</span>
+        <span class="hljs-keyword">if</span> (!VMRuntime.hasBootImageSpaces()) {
+            Slog.wtf(TAG, <span class="hljs-string">&quot;Runtime is not running with a boot image!&quot;</span>);
+        }
+
+        <span class="hljs-comment">// Loop forever.</span>
+        <span class="hljs-comment">//&#x542F;&#x52A8; &#x4E3B;&#x7EBF;&#x7A0B;loop&#xFF0C;&#x54C8;&#x54C8;&#x54C8;&#xFF0C;&#x597D;&#x719F;&#x6089;</span>
+        Looper.loop();
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">&quot;Main thread loop unexpectedly exited&quot;</span>);
+    }
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>System Server&#x8FDB;&#x7A0B;&#x4E0D;&#x6127;&#x662F;Android&#x7CFB;&#x7EDF;&#x5728;Java&#x4E16;&#x754C;&#x7684;&#x5927;&#x7BA1;&#x5BB6;&#xFF0C;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#x771F;&#x591A;&#x3002;&#x54C8;&#x54C8;&#x54C8;&#x54C8;&#xFF0C;&#x770B;&#x4E00;&#x4E0B;&#x4E3B;&#x8981;&#x505A;&#x4E86;&#x4EC0;&#x4E48;&#x3002;</p>
+<ol>
+<li>&#x8BB0;&#x5F55;&#x542F;&#x52A8;&#x7684;&#x4FE1;&#x606F;</li>
+<li>&#x65F6;&#x533A;&#x8BBE;&#x7F6E;</li>
+<li>&#x8BED;&#x8A00;&#x8BBE;&#x7F6E;</li>
+<li>&#x786E;&#x4FDD;&#x5728;&#x7CFB;&#x7EDF;&#x670D;&#x52A1;&#x5185;&#xFF0C;&#x5BF9;&#x6240;&#x6709;&#x4F20;&#x5165;&#x7684;Bundle&#x8FDB;&#x884C;&#x9694;&#x79BB;&#x3002;</li>
+<li><font color="red">&#x786E;&#x4FDD;&#x5728;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;binder&#x8C03;&#x7528;&#x603B;&#x662F;&#x5728;&#x524D;&#x53F0;&#x8FD0;&#x884C;</font></li>
+<li><font color="red">&#x8BBE;&#x7F6E; stem_server&#x4E2D;&#x7684;binder&#x7EBF;&#x7A0B;&#x6570;&#x91CF;&#x503C;&#x662F;31</font></li>
+<li><font color="red">&#x521B;&#x5EFA;stem_server&#x8FDB;&#x7A0B;&#x4E2D;&#x4E3B;&#x7EBF;&#x7A0B;&#x7684;looper</font></li>
+<li><font color="red">&#x8C03;&#x7528; createSystemContext &#x521B;&#x5EFA;&#x7CFB;&#x7EDF;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;</font></li>
+<li><font color="red">&#x521B;&#x5EFA;SystemServiceManager&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8BBE;&#x7F6E;&#x521B;&#x5EFA;&#x65F6;&#x95F4;&#xFF0C;&#x7136;&#x540E;&#x653E;&#x5165;LocalServices&#x91CC;&#x9762;</font></li>
+<li>&#x51C6;&#x5907;&#x9700;&#x8981;&#x7528;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x6CA1;&#x6709;&#x63A5;&#x6536;&#x8FD4;&#x56DE;&#xFF0C;&#x5E94;&#x8BE5;&#x76F8;&#x5F53;&#x4E8E;&#x521D;&#x59CB;&#x5316;</li>
+<li><font color="red">&#x542F;&#x52A8;&#x5404;&#x79CD;&#x670D;&#x52A1;&#xFF0C;&#x5305;&#x62EC;&#xFF1A;&#x5F15;&#x5BFC;&#x7A0B;&#x5E8F;&#x670D;&#x52A1;&#x3001;&#x6838;&#x5FC3;&#x670D;&#x52A1;&#x3001;&#x5176;&#x4ED6;&#x670D;&#x52A1;&#x4E09;&#x5927;&#x7C7B;</font></li>
+<li>&#x7CFB;&#x7EDF;&#x542F;&#x52A8;&#x5FEB;&#x6162;&#x76D1;&#x6D4B;</li>
+<li><font color="red">&#x5F00;&#x542F;&#x4E3B;&#x7EBF;&#x7A0B;&#x7684;looper</font>
+
+</li>
+</ol>
+<p>&#x4E0A;&#x9762;13&#x70B9;&#x662F;&#x5728;SystemServer&#x8FDB;&#x7A0B;&#x4E2D;&#x4E3B;&#x8981;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x5176;&#x4E2D;&#x6807;&#x7EA2;&#x8272;&#x7684;&#x90A3;&#x51E0;&#x9879;&#x662F;<font color="red">&#x91CD;&#x4E2D;&#x4E4B;&#x91CD;</font>&#x3002;&#x4E0B;&#x9762;&#x5148;&#x770B;&#x4E00;&#x4E0B;createSystemContext&#x65B9;&#x6CD5;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="SystemServer进程创建系统上下文环境（mSystemContext）.html" class="navigation navigation-prev " aria-label="Previous page: SystemServer进程创建系统上下文环境（mSystemContext）">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Zygote进程到System_Server进程.html" class="navigation navigation-next " aria-label="Next page: Zygote进程到System_Server进程">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"SystemServer进程的启动","level":"1.4.3.5","depth":3,"next":{"title":"Zygote进程到System_Server进程","level":"1.4.3.6","depth":3,"path":"advanced/Zygote进程到System_Server进程.md","ref":"advanced/Zygote进程到System_Server进程.md","articles":[]},"previous":{"title":"SystemServer进程创建系统上下文环境（mSystemContext）","level":"1.4.3.4","depth":3,"path":"advanced/SystemServer进程创建系统上下文环境（mSystemContext）.md","ref":"advanced/SystemServer进程创建系统上下文环境（mSystemContext）.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"advanced/SystemServer进程的启动.md","mtime":"2020-07-16T04:44:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-22T14:22:36.415Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
