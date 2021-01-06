@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Activity设备启动流程 · GitBook</title>
+        <title>乐观锁与悲观锁 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -12,24 +12,24 @@
         
         
     
-    <link rel="stylesheet" href="../gitbook/style.css">
+    <link rel="stylesheet" href="../../gitbook/style.css">
 
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
         
@@ -57,14 +57,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="init进程到Zygote进程.html" />
+    <link rel="next" href="读写锁.html" />
     
     
-    <link rel="prev" href="Activity启动流程.html" />
+    <link rel="prev" href="公平锁和非公平锁.md" />
     
 
     </head>
@@ -93,9 +93,9 @@
         
         
     
-        <li class="chapter " data-level="1.1" data-path="../">
+        <li class="chapter " data-level="1.1" data-path="../../">
             
-                <a href="../">
+                <a href="../../">
             
                     
                     Introduction
@@ -106,9 +106,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../面试题.html">
+        <li class="chapter " data-level="1.2" data-path="../../面试题.html">
             
-                <a href="../面试题.html">
+                <a href="../../面试题.html">
             
                     
                     面试题
@@ -120,9 +120,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="../java/面试题-Service的两种启动方式.html">
+        <li class="chapter " data-level="1.2.1" data-path="../面试题-Service的两种启动方式.html">
             
-                <a href="../java/面试题-Service的两种启动方式.html">
+                <a href="../面试题-Service的两种启动方式.html">
             
                     
                     面试题-Service的两种启动方式
@@ -133,9 +133,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="../java/面试题-从Launcher点击应用图标到应用的MainActivity展示过程中发生了哪些事情.html">
+        <li class="chapter " data-level="1.2.2" data-path="../面试题-从Launcher点击应用图标到应用的MainActivity展示过程中发生了哪些事情.html">
             
-                <a href="../java/面试题-从Launcher点击应用图标到应用的MainActivity展示过程中发生了哪些事情.html">
+                <a href="../面试题-从Launcher点击应用图标到应用的MainActivity展示过程中发生了哪些事情.html">
             
                     
                     面试题-从Launcher点击应用图标到应用的MainActivity展示过程中发生了哪些事情
@@ -146,9 +146,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="../java/面试题-谈谈对Binder的理解.html">
+        <li class="chapter " data-level="1.2.3" data-path="../面试题-谈谈对Binder的理解.html">
             
-                <a href="../java/面试题-谈谈对Binder的理解.html">
+                <a href="../面试题-谈谈对Binder的理解.html">
             
                     
                     面试题-谈谈对Binder的理解
@@ -192,9 +192,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1.1" data-path="../java/String、StringBuild、StringBuffer.html">
+        <li class="chapter " data-level="1.3.1.1" data-path="../String、StringBuild、StringBuffer.html">
             
-                <a href="../java/String、StringBuild、StringBuffer.html">
+                <a href="../String、StringBuild、StringBuffer.html">
             
                     
                     String、StringBuild、StringBuffer
@@ -237,9 +237,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.2.1" data-path="../java/HashMap.html">
+        <li class="chapter " data-level="1.3.2.1" data-path="../HashMap.html">
             
-                <a href="../java/HashMap.html">
+                <a href="../HashMap.html">
             
                     
                     HashMap
@@ -418,9 +418,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5.3" data-path="../java/Lock/锁.html">
+        <li class="chapter " data-level="1.3.5.3" data-path="锁.html">
             
-                <a href="../java/Lock/锁.html">
+                <a href="锁.html">
             
                     
                     锁
@@ -432,9 +432,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.5.3.1" data-path="../java/Lock/Volatile.html">
+        <li class="chapter " data-level="1.3.5.3.1" data-path="Volatile.html">
             
-                <a href="../java/Lock/Volatile.html">
+                <a href="Volatile.html">
             
                     
                     volatile
@@ -445,9 +445,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5.3.2" data-path="../java/Lock/Synchronized.html">
+        <li class="chapter " data-level="1.3.5.3.2" data-path="Synchronized.html">
             
-                <a href="../java/Lock/Synchronized.html">
+                <a href="Synchronized.html">
             
                     
                     synchronized
@@ -458,9 +458,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5.3.3" data-path="../java/Lock/CAS操作.html">
+        <li class="chapter " data-level="1.3.5.3.3" data-path="CAS操作.html">
             
-                <a href="../java/Lock/CAS操作.html">
+                <a href="CAS操作.html">
             
                     
                     CAS操作
@@ -471,9 +471,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5.3.4" data-path="../java/Lock/互斥锁和同步锁.html">
+        <li class="chapter " data-level="1.3.5.3.4" data-path="互斥锁和同步锁.html">
             
-                <a href="../java/Lock/互斥锁和同步锁.html">
+                <a href="互斥锁和同步锁.html">
             
                     
                     互斥锁与同步锁
@@ -484,7 +484,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5.3.5" data-path="../java/Lock/公平锁和非公平锁.md">
+        <li class="chapter " data-level="1.3.5.3.5" data-path="公平锁和非公平锁.md">
             
                 <span>
             
@@ -497,9 +497,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5.3.6" data-path="../java/Lock/乐观锁和悲观锁.html">
+        <li class="chapter active" data-level="1.3.5.3.6" data-path="乐观锁和悲观锁.html">
             
-                <a href="../java/Lock/乐观锁和悲观锁.html">
+                <a href="乐观锁和悲观锁.html">
             
                     
                     乐观锁与悲观锁
@@ -510,9 +510,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5.3.7" data-path="../java/Lock/读写锁.html">
+        <li class="chapter " data-level="1.3.5.3.7" data-path="读写锁.html">
             
-                <a href="../java/Lock/读写锁.html">
+                <a href="读写锁.html">
             
                     
                     读写锁
@@ -683,9 +683,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1.1.1" data-path="../basis/Activity的生命周期及启动模式.html">
+        <li class="chapter " data-level="1.4.1.1.1" data-path="../../basis/Activity的生命周期及启动模式.html">
             
-                <a href="../basis/Activity的生命周期及启动模式.html">
+                <a href="../../basis/Activity的生命周期及启动模式.html">
             
                     
                     Activity的生命周期及启动模式
@@ -909,9 +909,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.18" data-path="../basis/Handler消息机制.html">
+        <li class="chapter " data-level="1.4.1.18" data-path="../../basis/Handler消息机制.html">
             
-                <a href="../basis/Handler消息机制.html">
+                <a href="../../basis/Handler消息机制.html">
             
                     
                     Handler消息机制
@@ -1005,9 +1005,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.3.1" data-path="Activity启动流程.html">
+        <li class="chapter " data-level="1.4.3.1" data-path="../../advanced/Activity启动流程.html">
             
-                <a href="Activity启动流程.html">
+                <a href="../../advanced/Activity启动流程.html">
             
                     
                     Activity启动流程
@@ -1018,9 +1018,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.3.2" data-path="Android设备启动流程.html">
+        <li class="chapter " data-level="1.4.3.2" data-path="../../advanced/Android设备启动流程.html">
             
-                <a href="Android设备启动流程.html">
+                <a href="../../advanced/Android设备启动流程.html">
             
                     
                     Activity设备启动流程
@@ -1031,9 +1031,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.3" data-path="init进程到Zygote进程.html">
+        <li class="chapter " data-level="1.4.3.3" data-path="../../advanced/init进程到Zygote进程.html">
             
-                <a href="init进程到Zygote进程.html">
+                <a href="../../advanced/init进程到Zygote进程.html">
             
                     
                     init进程到Zygote进程
@@ -1044,9 +1044,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.4" data-path="SystemServer进程创建系统上下文环境（mSystemContext）.html">
+        <li class="chapter " data-level="1.4.3.4" data-path="../../advanced/SystemServer进程创建系统上下文环境（mSystemContext）.html">
             
-                <a href="SystemServer进程创建系统上下文环境（mSystemContext）.html">
+                <a href="../../advanced/SystemServer进程创建系统上下文环境（mSystemContext）.html">
             
                     
                     SystemServer进程创建系统上下文环境（mSystemContext）
@@ -1057,9 +1057,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.5" data-path="SystemServer进程的启动.html">
+        <li class="chapter " data-level="1.4.3.5" data-path="../../advanced/SystemServer进程的启动.html">
             
-                <a href="SystemServer进程的启动.html">
+                <a href="../../advanced/SystemServer进程的启动.html">
             
                     
                     SystemServer进程的启动
@@ -1070,9 +1070,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.6" data-path="Zygote进程到System_Server进程.html">
+        <li class="chapter " data-level="1.4.3.6" data-path="../../advanced/Zygote进程到System_Server进程.html">
             
-                <a href="Zygote进程到System_Server进程.html">
+                <a href="../../advanced/Zygote进程到System_Server进程.html">
             
                     
                     Zygote进程到System_Server进程
@@ -1083,9 +1083,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.7" data-path="Zygote进程的启动-Java篇.html">
+        <li class="chapter " data-level="1.4.3.7" data-path="../../advanced/Zygote进程的启动-Java篇.html">
             
-                <a href="Zygote进程的启动-Java篇.html">
+                <a href="../../advanced/Zygote进程的启动-Java篇.html">
             
                     
                     Zygote进程的启动-Java篇
@@ -1096,9 +1096,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.8" data-path="Zygote进程中的Socket服务.html">
+        <li class="chapter " data-level="1.4.3.8" data-path="../../advanced/Zygote进程中的Socket服务.html">
             
-                <a href="Zygote进程中的Socket服务.html">
+                <a href="../../advanced/Zygote进程中的Socket服务.html">
             
                     
                     Zygote进程中的Socket服务
@@ -1180,9 +1180,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4.3" data-path="../third_party_libs/EventBus.html">
+        <li class="chapter " data-level="1.4.4.3" data-path="../../third_party_libs/EventBus.html">
             
-                <a href="../third_party_libs/EventBus.html">
+                <a href="../../third_party_libs/EventBus.html">
             
                     
                     EventBus
@@ -1193,9 +1193,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4.4" data-path="../third_party_libs/RxJava3.0线程切换原理.html">
+        <li class="chapter " data-level="1.4.4.4" data-path="../../third_party_libs/RxJava3.0线程切换原理.html">
             
-                <a href="../third_party_libs/RxJava3.0线程切换原理.html">
+                <a href="../../third_party_libs/RxJava3.0线程切换原理.html">
             
                     
                     RxJava3.0线程切换原理
@@ -1608,7 +1608,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Activity设备启动流程</a>
+        <a href="../.." >乐观锁与悲观锁</a>
     </h1>
 </div>
 
@@ -1623,16 +1623,24 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="android&#x8BBE;&#x5907;&#x542F;&#x52A8;&#x6D41;&#x7A0B;">Android&#x8BBE;&#x5907;&#x542F;&#x52A8;&#x6D41;&#x7A0B;</h1>
+                                <pre><code> &#x65E0;&#x51A5;&#x51A5;&#x4E4B;&#x5FD7;&#x8005;&#xFF0C;&#x65E0;&#x662D;&#x662D;&#x4E4B;&#x660E;&#xFF1B;&#x65E0;&#x60DB;&#x60DB;&#x4E4B;&#x4E8B;&#x8005;&#xFF0C;&#x65E0;&#x8D6B;&#x8D6B;&#x4E4B;&#x529F;&#x3002;
+ &#x89E3;&#x91CA;&#xFF1A;&#x6CA1;&#x6709;&#x4E13;&#x5FC3;&#x81F4;&#x5FD7;&#x5730;&#x523B;&#x82E6;&#x5B66;&#x4E60;&#xFF0C;&#x5C31;&#x6CA1;&#x6709;&#x878D;&#x4F1A;&#x8D2F;&#x901A;&#x7684;&#x667A;&#x6167;&#xFF1B;&#x6CA1;&#x6709;&#x57CB;&#x5934;&#x6267;&#x7740;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x5C31;&#x4E0D;&#x4F1A;&#x53D6;&#x5F97;&#x663E;&#x8457;&#x7684;&#x6210;&#x5C31;&#x3002;
+</code></pre><p>&#x2002;&#x2002;&#x2002;&#x2002;&#x4E50;&#x89C2;&#x9501;&#x548C;&#x60B2;&#x89C2;&#x9501;&#xFF0C;&#x4E2A;&#x4EBA;&#x89C9;&#x5F97;&#x91CD;&#x70B9;&#x5728;&#x4E50;&#x89C2;&#x548C;&#x60B2;&#x89C2;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6307;&#x5177;&#x4F53;&#x7684;&#x4E00;&#x4E2A;&#x9501;&#x3002;&#x4E50;&#x89C2;&#x548C;&#x60B2;&#x89C2;&#x662F;&#x9501;&#x7684;&#x4E00;&#x79CD;&#x7279;&#x6027;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x63CF;&#x8FF0;&#x9501;&#x5728;&#x53D1;&#x751F;&#x591A;&#x7EBF;&#x7A0B;&#x5E76;&#x53D1;&#x64CD;&#x4F5C;&#x65F6;&#x7684;&#x4E00;&#x79CD;&#x53CD;&#x5E94;&#x3002;</p>
+<h2 id="&#x4EC0;&#x4E48;&#x662F;&#x4E50;&#x89C2;&#x9501;&#xFF1F;">&#x4EC0;&#x4E48;&#x662F;&#x4E50;&#x89C2;&#x9501;&#xFF1F;</h2>
+<p>&#x2002;&#x2002;&#x2002;&#x2002;&#x4E50;&#x89C2;&#x9501;&#x662F;&#x4E00;&#x79CD;&#x4E50;&#x89C2;&#x53CD;&#x5E94;&#xFF0C;&#x4E50;&#x89C2;&#x9501;&#x5728;&#x88AB;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6301;&#x6709;&#x4E4B;&#x540E;&#xFF0C;&#x4E50;&#x89C2;&#x9501;&#x8BA4;&#x4E3A;&#x9501;&#x4F4F;&#x7684;&#x6570;&#x636E;&#x4E0D;&#x4F1A;&#x88AB;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x4FEE;&#x6539;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x4F1A;&#x6392;&#x65A5;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x3002;&#x4E50;&#x89C2;&#x9501;&#x5728;&#x5199;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x68C0;&#x6D4B;&#x6570;&#x636E;&#x662F;&#x5426;&#x88AB;&#x4FEE;&#x6539;&#xFF0C;&#x518D;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x3002;</p>
+<h2 id="&#x4EC0;&#x4E48;&#x662F;&#x60B2;&#x89C2;&#x9501;&#xFF1F;">&#x4EC0;&#x4E48;&#x662F;&#x60B2;&#x89C2;&#x9501;&#xFF1F;</h2>
+<p>&#x2002;&#x2002;&#x2002;&#x2002;&#x60B2;&#x89C2;&#x9501;&#x662F;&#x4E00;&#x79CD;&#x60B2;&#x89C2;&#x53CD;&#x5E94;&#xFF0C;&#x60B2;&#x89C2;&#x9501;&#x518D;&#x88AB;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6301;&#x6709;&#x4E4B;&#x540E;&#xFF0C;&#x60B2;&#x89C2;&#x9501;&#x8BA4;&#x4E3A;&#x9501;&#x4F4F;&#x7684;&#x6570;&#x636E;&#x5F88;&#x53EF;&#x80FD;&#x4F1A;&#x88AB;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x6765;&#x4FEE;&#x6539;&#xFF0C;&#x6240;&#x4EE5;&#x603B;&#x662F;&#x628A;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7684;&#x6570;&#x636E;&#x3001;&#x8D44;&#x6E90;&#x9501;&#x4F4F;&#xFF0C;&#x4E0D;&#x8BA9;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x3002;&#x5F53;&#x6709;&#x5176;&#x4ED6;&#x9501;&#x9700;&#x8981;&#x8FD9;&#x90E8;&#x5206;&#x6570;&#x636E;&#x3001;&#x8D44;&#x6E90;&#x65F6;&#xFF0C;&#x53EA;&#x80FD;&#x963B;&#x585E;&#x7B49;&#x5F85;&#x3002;</p>
+<h2 id="&#x4E50;&#x89C2;&#x9501;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;">&#x4E50;&#x89C2;&#x9501;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;</h2>
 <ol>
-<li><strong>&#x4E0A;&#x7535;</strong>&#x3002;&#x4EFB;&#x4F55;&#x7535;&#x5B50;&#x8BBE;&#x5907;&#xFF0C;&#x542F;&#x52A8;&#x7684;&#x7B2C;&#x4E00;&#x6B65;&#x90FD;&#x662F;&#x4E0A;&#x7535;&#xFF0C;Android&#x81EA;&#x7136;&#x4E0D;&#x4F8B;&#x5916;&#x3002;&#x4E0A;&#x7535;&#x4E4B;&#x540E;&#xFF0C;&#x5F15;&#x5BFC;&#x82AF;&#x7247;&#x5728;&#x9884;&#x5B9A;&#x4E49;&#x7684;&#x5730;&#x65B9;&#x627E;&#x5230;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x3002;&#x8FD9;&#x90E8;&#x5206;&#x4EE3;&#x7801;&#x4E3B;&#x8981;&#x662F;&#x52A0;&#x8F7D;&#x5F15;&#x5BFC;&#x7A0B;&#x5E8F;&#xFF08;Bootloader&#xFF09;&#x5230;RAM&#xFF0C;&#x7136;&#x540E;&#x6267;&#x884C;&#x5F15;&#x5BFC;&#x7A0B;&#x5E8F;&#x3002;</li>
-<li><strong>Bootloader</strong>&#x3002;&#x5F15;&#x5BFC;&#x7A0B;&#x5E8F;&#x662F;Android&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5F00;&#x59CB;&#x8FD0;&#x884C;&#x524D;&#x9700;&#x8981;&#x6267;&#x884C;&#x7684;&#x4E00;&#x4E2A;&#x5C0F;&#x7A0B;&#x5E8F;&#xFF0C;&#x4E3B;&#x8981;&#x4F5C;&#x7528;&#x662F;&#x68C0;&#x67E5;&#x786C;&#x4EF6;&#x8D44;&#x6E90;&#x6709;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x662F;&#x5426;&#x6EE1;&#x8DB3;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8FD0;&#x884C;&#xFF0C;&#x68C0;&#x67E5;&#x901A;&#x8FC7;&#x4E4B;&#x540E;&#x5C31;&#x628A;Android&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x62C9;&#x8D77;&#x6765;&#x8FD0;&#x884C;&#x3002;&#x9996;&#x5148;&#x662F;Android&#x5185;&#x6838;&#x7684;&#x542F;&#x52A8;&#x3002;</li>
-<li><strong>kernel&#xFF08;&#x5185;&#x6838;&#xFF09;</strong>&#x3002;&#x5185;&#x6838;&#x662F;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x6700;&#x57FA;&#x672C;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x6838;&#x5FC3;&#xFF0C;&#x662F;&#x57FA;&#x4E8E;&#x786C;&#x4EF6;&#x7684;&#x7B2C;&#x4E00;&#x5C42;&#x8F6F;&#x4EF6;&#x6269;&#x5145;&#xFF0C;&#x662F;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5DE5;&#x4F5C;&#x7684;&#x57FA;&#x7840;&#xFF0C;&#x63D0;&#x4F9B;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x6700;&#x57FA;&#x672C;&#x7684;&#x529F;&#x80FD;&#x3002;<strong><em>&#x8D1F;&#x8D23;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#x7684;&#x8FDB;&#x7A0B;&#x3001;&#x5185;&#x5B58;&#x3001;&#x5185;&#x6838;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x3001;&#x8BBE;&#x5907;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x3001;&#x6587;&#x4EF6;&#x548C;&#x7F51;&#x7EDC;&#x7CFB;&#x7EDF;&#xFF0C;&#x51B3;&#x5B9A;&#x7CFB;&#x7EDF;&#x7684;&#x6027;&#x80FD;&#x548C;&#x7A33;&#x5B9A;</em></strong>&#x3002;Android&#x5185;&#x6838;&#x57FA;&#x4E8E;Linux&#x5185;&#x6838;&#xFF0C;&#x4E0D;&#x8FC7;Android&#x7684;&#x5185;&#x6838;&#x8DDF;Linux&#x7684;&#x5185;&#x6838;&#x5DEE;&#x522B;&#x4E5F;&#x6BD4;&#x8F83;&#x5927;&#x3002;Android&#x5185;&#x6838;&#x53BB;&#x6389;&#x4E86;&#x90E8;&#x5206;Linux&#x5185;&#x6838;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x4E5F;&#x52A0;&#x5165;&#x4E86;&#x81EA;&#x8EAB;&#x7279;&#x6709;&#x7684;&#x529F;&#x80FD;&#x3002;&#x5728;&#x8FD9;&#x4E00;&#x6B65;&#xFF0C;&#x4F1A;&#x8FDB;&#x884C;&#x52A0;&#x8F7D;&#x9A71;&#x52A8;&#x7B49;&#x64CD;&#x4F5C;&#x3002;&#x5F53;Android&#x5185;&#x6838;&#x8BBE;&#x7F6E;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x4F1A;&#x542F;&#x52A8;&#x7B2C;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#xFF1A;<strong>init&#x8FDB;&#x7A0B;</strong></li>
-<li><strong>init&#x8FDB;&#x7A0B;</strong>&#x3002;&#x7528;&#x6237;&#x7A7A;&#x95F4;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#xFF0C;&#x8FDB;&#x7A0B;&#x53F7;&#x662F;&#xFF1A;1&#x3002;Android&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x57FA;&#x4E8E;Linux&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x6709;&#x5185;&#x6838;&#x7A7A;&#x95F4;&#x548C;&#x7528;&#x6237;&#x7A7A;&#x95F4;&#x4E4B;&#x5206;&#x3002;&#x5F53;&#x5185;&#x6838;&#x542F;&#x52A8;&#x4E4B;&#x540E;&#xFF0C;&#x4F1A;&#x5728;&#x7CFB;&#x7EDF;&#x6587;&#x4EF6;&#x4E2D;&#x5BFB;&#x627E;<strong>init.rc</strong>&#x6587;&#x4EF6;&#xFF0C;&#x542F;&#x52A8;init&#x8FDB;&#x7A0B;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x5C31;&#x4ECE;&#x5185;&#x6838;&#x7A7A;&#x95F4;&#x8F6C;&#x5230;&#x4E86;&#x7528;&#x6237;&#x7A7A;&#x95F4;&#x3002;init&#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x4E4B;&#x540E;&#xFF0C;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E9B;&#x76EE;&#x5F55;&#xFF0C;&#x5305;&#x62EC;/dev&#x3001;/porc&#x3001;/sysfc&#x7B49;&#x3002;&#x7D27;&#x63A5;&#x7740;&#x5C31;&#x662F;&#x542F;&#x52A8;Zygote&#x8FDB;&#x7A0B;&#x3002;</li>
-<li><strong>Zygote&#x8FDB;&#x7A0B;</strong>&#x3002;zygote&#x8FDB;&#x7A0B;&#x5728;Android&#x7CFB;&#x7EDF;&#x4E2D;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x5B83;&#x4E5F;&#x662F;Android&#x4E2D;Java&#x4E16;&#x754C;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#xFF0C;&#x540E;&#x7EED;&#x6240;&#x6709;&#x7684;Java&#x8FDB;&#x7A0B;&#xFF08;&#x5982;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8FDB;&#x7A0B;&#xFF09;&#x90FD;&#x662F;&#x4ECE;Zygote&#x5B75;&#x5316;&#x51FA;&#x6765;&#x3002;Zygote&#x8FDB;&#x7A0B;&#x521B;&#x5EFA;&#x8FDB;&#x7A0B;&#x7684;&#x6A21;&#x5F0F;&#xFF1A;a&#x3001;Zyogte&#x6A21;&#x5F0F;&#xFF0C;&#x521D;&#x59CB;&#x5316;Zygote&#x8FDB;&#x7A0B;&#x3002;b&#x3001;application&#x6A21;&#x5F0F;&#xFF0C;&#x5B75;&#x5316;&#x542F;&#x52A8;&#x666E;&#x901A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;Zygote&#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x4E4B;&#x540E;&#xFF0C;&#x7D27;&#x63A5;&#x7740;&#x4F1A;&#x542F;&#x52A8;System-Server&#x3002;</li>
-<li><strong>System-Server</strong>&#x3002;System-Server&#x542F;&#x52A8;&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x5F00;&#x59CB;&#x542F;&#x52A8;Android&#x7684;&#x5404;&#x79CD;&#x7CFB;&#x7EDF;&#x670D;&#x52A1;&#xFF0C;&#x6700;&#x540E;&#x542F;&#x52A8;Launcher&#x754C;&#x9762;&#xFF0C;&#x6574;&#x4E2A;Android&#x7CFB;&#x7EDF;&#x5C31;&#x542F;&#x52A8;&#x8D77;&#x6765;&#x4E86;&#x3002;</li>
+<li>CAS&#x64CD;&#x4F5C;&#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x5F0F;&#x5C5E;&#x4E8E;&#x4E50;&#x89C2;&#x9501;</li>
+<li>&#x7248;&#x672C;&#x53F7;&#x673A;&#x5236;
+&#x7248;&#x672C;&#x53F7;&#x673A;&#x5236;&#x5C31;&#x662F;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x7684;&#x4FEE;&#x6539;&#x6539;&#x53D8;&#x7248;&#x672C;&#x53F7;&#x3002;&#x4FEE;&#x6539;&#x66F4;&#x65B0;&#x9700;&#x8981;&#x6BD4;&#x8F83;&#x7248;&#x672C;&#x53F7;&#x3002;</li>
 </ol>
-<p>&#x200B;       &#x4E0A;&#x9762;&#x7B80;&#x8FF0;&#x4E86;Android&#x8BBE;&#x5907;&#x7684;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;&#xFF0C;&#x4E2D;&#x95F4;&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x7EC6;&#x8282;&#x4E0D;&#x53EF;&#x80FD;&#x4E00;&#x4E00;&#x6DF1;&#x5165;&#xFF0C;&#x540E;&#x7EED;&#x5C06;&#x9488;&#x5BF9;<strong>init&#x8FDB;&#x7A0B;</strong>&#x5230;<strong>Zygote&#x8FDB;&#x7A0B;</strong>&#x3001;<strong>Zygote&#x8FDB;&#x7A0B;</strong>&#x5230;<strong>System-Server&#x8FDB;&#x7A0B;</strong>&#x3001;<strong>Zygote&#x8FDB;&#x7A0B;&#x5982;&#x4F55;&#x5B75;&#x5316;&#x65B0;&#x8FDB;&#x7A0B;</strong>&#x3001;<strong>System-Server&#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x4E86;&#x54EA;&#x4E9B;&#x670D;&#x52A1;</strong>&#x7B49;&#x65B9;&#x9762;&#x7EE7;&#x7EED;&#x8BB2;&#x89E3;</p>
+<h2 id="reentrantlock&#x662F;&#x4E50;&#x89C2;&#x9501;&#x5417;">ReentrantLock&#x662F;&#x4E50;&#x89C2;&#x9501;&#x5417;</h2>
+<p>&#x2002;&#x2002;&#x2002;&#x2002;ReentrantLock&#x4E0D;&#x662F;&#x4E50;&#x89C2;&#x9501;&#xFF0C;&#x5B83;&#x662F;&#x60B2;&#x89C2;&#x9501;&#xFF0C;&#x5B9E;&#x73B0;&#x6E90;&#x7801;&#x4E2D;&#x4F7F;&#x7528;&#x4E86;&#x9501;&#x961F;&#x5217;</p>
+<h2 id="synchronized&#x662F;&#x4E50;&#x89C2;&#x9501;&#x5417;&#xFF1F;">Synchronized&#x662F;&#x4E50;&#x89C2;&#x9501;&#x5417;&#xFF1F;</h2>
+<p>&#x2002;&#x2002;&#x2002;&#x2002;Synchronized&#x662F;&#x60B2;&#x89C2;&#x9501;</p>
+<p><br> <br></p>
 
                                 
                                 </section>
@@ -1660,12 +1668,12 @@
 
             
                 
-                <a href="Activity启动流程.html" class="navigation navigation-prev " aria-label="Previous page: Activity启动流程">
+                <a href="公平锁和非公平锁.md" class="navigation navigation-prev " aria-label="Previous page: 公平锁与非公平锁">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="init进程到Zygote进程.html" class="navigation navigation-next " aria-label="Next page: init进程到Zygote进程">
+                <a href="读写锁.html" class="navigation navigation-next " aria-label="Next page: 读写锁">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1676,45 +1684,45 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Activity设备启动流程","level":"1.4.3.2","depth":3,"next":{"title":"init进程到Zygote进程","level":"1.4.3.3","depth":3,"path":"advanced/init进程到Zygote进程.md","ref":"advanced/init进程到Zygote进程.md","articles":[]},"previous":{"title":"Activity启动流程","level":"1.4.3.1","depth":3,"path":"advanced/Activity启动流程.md","ref":"advanced/Activity启动流程.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","livereload"],"pluginsConfig":{"expandable-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"advanced/Android设备启动流程.md","mtime":"2020-07-09T06:20:56.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-06T08:15:04.336Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"乐观锁与悲观锁","level":"1.3.5.3.6","depth":4,"next":{"title":"读写锁","level":"1.3.5.3.7","depth":4,"path":"java/Lock/读写锁.md","ref":"java/Lock/读写锁.md","articles":[]},"previous":{"title":"公平锁与非公平锁","level":"1.3.5.3.5","depth":4,"path":"java/Lock/公平锁和非公平锁.md","ref":"java/Lock/公平锁和非公平锁.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","livereload"],"pluginsConfig":{"expandable-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/Lock/乐观锁和悲观锁.md","mtime":"2021-01-06T07:43:16.336Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-06T08:15:04.336Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
 
         
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
     
         
-        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
         
     
 
